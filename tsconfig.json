@@ -15,8 +15,18 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"],
+      // "@/*": ["./src/*"],
       "@assets/*": ["./src/presentation/assets/*"],
+      "@store/*": ["./src/presentation/store/*"],
+      "@components/*": ["./src/presentation/components/*"],
+      "@hooks/*": ["./src/presentation/hooks/*"],
+      "@mocks/*": ["./src/presentation/mocks/*"],
+      "@entities/*": ["./src/domain/entities/*"],
+      "@interfaces/*": ["./src/domain/interfaces/*"],
+      "@use-cases/*": ["./src/domain/use-cases/*"],
+      "@data-sources/*": ["./src/application/data-sources/*"],
+      "@repositories/*": ["./src/application/repositories/*"],
+      "@modules/*": ["./src/presentation/modules/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
