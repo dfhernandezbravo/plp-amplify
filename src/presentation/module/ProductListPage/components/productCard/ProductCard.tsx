@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ProductCardProps } from './productCard.types';
 import {
   AddToCartContainer,
@@ -41,7 +42,8 @@ export const ProductCard = (props: ProductCardProps) => {
     if (product?.items?.[0].name) {
       setDescription(product?.items?.[0].name);
     }
-  }, []);
+  }, [product]);
+  
   return (
     <ProductCardContainer>
       {productHighligts?.length ? (

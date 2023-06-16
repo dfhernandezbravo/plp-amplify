@@ -1,5 +1,5 @@
 import React from 'react'
-import Desktop from "@/presentation/components/layout/desktop";
+import Desktop from '@components/layout/desktop';
 import ProductContent from '../../section/ProductContent';
 
 function ProductListPageDesktop() {
