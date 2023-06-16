@@ -26,7 +26,8 @@
       "@use-cases/*": ["./src/domain/use-cases/*"],
       "@data-sources/*": ["./src/application/data-sources/*"],
       "@repositories/*": ["./src/application/repositories/*"],
-      "@modules/*": ["./src/presentation/modules/*"]
+      "@modules/*": ["./src/presentation/modules/*"],
+      "@presentation/*": ["./src/presentation/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
