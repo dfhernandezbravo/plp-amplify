@@ -1,13 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
+import ProductListPageDesktop from '@presentation/module/ProductListPage/layouts/desktop';
 
-const PdpLayout = () => {
+const  ProductListPage = () => {
   return (
-     
-        <div>
-          <h1> PLP remote Here Update! </h1>
-        </div>
-     
+    <ProductListPageDesktop />
   );
 };
-export default PdpLayout;
+export default ProductListPage;
