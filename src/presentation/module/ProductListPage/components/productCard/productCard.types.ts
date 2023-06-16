@@ -1,4 +1,4 @@
-import { ProductModel } from "@/store/products/product.type";
+import { ProductModel } from "./productModel.types";
 
 export type ProductCardProps = {
     product: ProductModel;

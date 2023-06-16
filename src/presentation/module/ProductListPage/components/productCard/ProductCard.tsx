@@ -1,4 +1,4 @@
-import { ProductCardProps } from './ProductCard.types';
+import { ProductCardProps } from './productCard.types';
 import {
   AddToCartContainer,
   Container,
@@ -7,7 +7,7 @@ import {
   Ribbon,
   StyledLink,
   Title,
-} from './ProductCard.styles';
+} from './productCard.styles';
 import { Button } from '@components/atoms/Button';
 import { useEffect, useState } from 'react';
 import ProductPrice from './components/ProductPrice/ProductPrice';
