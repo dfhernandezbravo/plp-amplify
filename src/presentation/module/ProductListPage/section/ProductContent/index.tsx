@@ -11,7 +11,7 @@ function ProductContent() {
 
   useEffect(() => {
     setProductData(productDataMock as unknown as ProductModel[] | null);
-  })
+  },[])
 
   const onAddToCart = () => {
     console.log('add to cart')
@@ -26,10 +26,10 @@ function ProductContent() {
   return (
     <GalleryContainer>
       {
-        productData && productData.map((product: ProductModel) => {
+        productData && productData.map((product: ProductModel, index: number) => {
 
           return (
-            <ProductCard product={product} onAddToCart={onAddToCart} />
+            <ProductCard key={index} product={product} onAddToCart={onAddToCart} />
           )
         })
       }
