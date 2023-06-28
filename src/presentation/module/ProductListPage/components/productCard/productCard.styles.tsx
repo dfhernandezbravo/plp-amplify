@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ProductCardContainer = styled.div`
   display: flex;
+  flex-direction: column;
   border-radius: 15px;
   text-align: left;
   height: 414px;
@@ -10,7 +11,7 @@ export const ProductCardContainer = styled.div`
   padding: 0.5rem;
   cursor: pointer;
   background-color: #fff;
-  margin: 0 0.3rem;
+  margin: .5rem;
 `;
 
 export const Container = styled.div``;
