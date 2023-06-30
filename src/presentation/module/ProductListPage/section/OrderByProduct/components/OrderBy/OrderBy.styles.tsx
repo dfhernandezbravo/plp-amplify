@@ -3,6 +3,30 @@ import styled, { css } from 'styled-components';
 
 export const OrderByContainer = styled.div`
     display: flex;
+    width: 99%;
+    margin: 0 5px;
+    justify-content: space-between;
+    background-color: #ffffff;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    & > div {
+      display:flex;
+      align-items: center;
+    }
+    & div:nth-child(2) p {
+      font-size: 12px;
+      color: #818180;
+    }
+    & div:nth-child(2) div {
+      display: flex;
+      margin: 0 5px;
+      font-size:12px;
+    }
+  .view-icons-container {
+    cursor: pointer;
+  }
+
 `
 
 export const TextOrderBy = styled.p`
@@ -33,18 +57,24 @@ export const DropdownContainer = styled.div`
     border-radius: 6px;
     padding: 10px;
     cursor: pointer;
+    align-items: center;
+    & .arrow-container {
+      display: flex;
+      align-self: center;
+    }
   }
 
 `
 
 export const SelectContainer = styled.div`
     position: absolute;
-    top: 50px;
+    top: 118px;
     z-index: 100;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     border: 1px solid #aaaaaa;
+    background-color: #ffffff;
     min-width: 185px;
     max-width: fit-content;
     border-radius: 0.25rem;
