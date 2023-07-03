@@ -21,7 +21,6 @@ const SelectComponentDesktop = ({ options }: any) => {
   };
 
   const toggleDropdown = () => {
-    console.log('toggle')
     console.log({ isDropdownOpen })
     setIsDropdownOpen(!isDropdownOpen);
   };
