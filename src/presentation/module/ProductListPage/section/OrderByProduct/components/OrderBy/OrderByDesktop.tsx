@@ -8,7 +8,7 @@ import {
   SelectOption
 } from './OrderBy.styles';
 
-const SelectComponent = ({ options }: any) => {
+const SelectComponentDesktop = ({ options }: any) => {
   const [selectedOption, setSelectedOption] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -84,4 +84,4 @@ const SelectComponent = ({ options }: any) => {
 
 
 
-export default SelectComponent;
+export default SelectComponentDesktop;

@@ -11,6 +11,9 @@ export const OrderByContainer = styled.div`
     & > div {
       display: flex;
     }
+    @media only screen and (max-width:48em) {
+      justify-content: center
+    }
 
 `
 
@@ -27,6 +30,9 @@ export const TextOrderBy = styled.p`
     width: 20px;
     height: 20px;
     margin-right: 5px;
+  }
+  @media only screen and (max-width: 48em) {
+    font-size: 0.875rem;
   }
 `
 
@@ -64,6 +70,9 @@ export const SelectContainer = styled.div`
     max-width: fit-content;
     border-radius: 0.25rem;
     box-shadow: 4px 4px 8px 0 rgba(0,0,0,.2);
+    @media only screen and (max-width: 48em) {
+      top: 95px;
+    };
 `
 
 export const SelectOption = styled.button`
@@ -81,5 +90,6 @@ export const SelectOption = styled.button`
     background: #EDEDED 
   }
 `
+
 
 

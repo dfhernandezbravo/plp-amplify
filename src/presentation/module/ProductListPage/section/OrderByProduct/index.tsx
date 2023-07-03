@@ -1,7 +1,11 @@
-import React from 'react'
-import SelectComponent from './components/OrderBy'
+import useBreakpoints from '@presentation/components/hooks/useBreakpoints';
+import SelectComponentDesktop from './components/OrderBy/OrderByDesktop'
+import SelectComponentMobile from './components/OrderBy/OrderByMobile';
+
 
 function OrderByProductRender() {
+
+  const { isXs, isSm,  isMd, isLg  } = useBreakpoints();
   const data = [
     { label: 'Destacados' },
     { label: 'Precio más bajos' },
@@ -10,7 +14,11 @@ function OrderByProductRender() {
     { label: 'Nuevos productos' }
   ]
   return (
-    <SelectComponent options={data} />
+    <>
+      {
+        isMd  || isLg ? <SelectComponentDesktop options={data} /> : <SelectComponentMobile options={data} />
+      }
+    </>
   )
 }
 
