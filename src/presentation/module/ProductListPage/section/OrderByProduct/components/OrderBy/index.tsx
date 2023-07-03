@@ -11,7 +11,6 @@ import {
 const SelectComponent = ({ options }: any) => {
   const [selectedOption, setSelectedOption] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [iconsEnabled, setIconsEnabled] = useState<any>({ gridView: false, listView: false })
 
   const optionsRef = useRef<HTMLDivElement | null>(null);
 
@@ -76,29 +75,6 @@ const SelectComponent = ({ options }: any) => {
             </SelectContainer>
           )}
         </DropdownContainer>
-      </div>
-
-      
-      <div>
-        <p>Ver en: </p>
-        <div>
-          <div className='view-icons-container' onClick={() => setIconsEnabled({gridView:true, listView:false})}>
-          <Image
-            src={`/images/icons/${iconsEnabled.gridView ? 'grid-enabled' : 'grid-disabled'}.svg`}
-            alt={''}
-            width={20}
-            height={20}
-          />
-          </div>
-          <div className='view-icons-container' onClick={() => setIconsEnabled({gridView:false, listView:true})}>
-          <Image
-            src={`/images/icons/${iconsEnabled.listView ? 'list-enabled' : 'list-disabled'}.svg`}
-            alt={''}
-            width={20}
-            height={20}
-          />
-          </div>
-        </div>
       </div>
     </OrderByContainer>
 

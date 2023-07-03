@@ -12,6 +12,10 @@ export const ProductCardContainer = styled.div`
   cursor: pointer;
   background-color: #fff;
   margin: .5rem;
+  
+  @media only screen and  (max-width:48em) {
+    width: 45%
+  }
 `;
 
 export const Container = styled.div``;
