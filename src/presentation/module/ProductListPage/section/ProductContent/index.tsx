@@ -22,7 +22,6 @@ function ProductContent() {
   }
 
 
-  console.log(productData)
   return (
     <GalleryContainer>
       {
