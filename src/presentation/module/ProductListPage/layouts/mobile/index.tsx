@@ -4,6 +4,7 @@ import ContentView from '../../section/OrderByProduct/components/ContentView';
 import ProductContent from '../../section/ProductContent';
 import OrderByProductMobile from '../../section/OrderByProduct'
 import OrderByMobile from '../../section/OrderByProduct/'
+import CarouselCategories from '../../section/CarouselCategoies';
 //styles
 import {
   TitleContentViewMobileContainer,
@@ -17,6 +18,8 @@ const ProductListPageMobile = () => {
         <p>Departament</p>
         <ContentView />
       </TitleContentViewMobileContainer>
+      <CarouselCategories />
+      
       <OrderByFilterContainerMobile>
         <div>
           <OrderByProductMobile />

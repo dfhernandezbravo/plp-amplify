@@ -1,0 +1,77 @@
+{
+  "component": "menu-carrousel-circle",
+  "itemsPerRow": "8",
+  "width": 100,
+  "items": [
+      {
+          "link": "https://www.easy.cl/eventos/pisos-ceramicas?layout=grid",
+          "image": "https://content.qa.easy.cl/cms/view_version/6446ca8e41ee4130e91ae30e/5ae85d0a-9ac3-4ba4-9b9f-e8f1817eb09c.png",
+          "title": "Pisos y cerámicas"
+      },
+      {
+          "title": "Muebles",
+          "image": "https://content.qa.easy.cl/cms/view_version/6446ca8e41ee4130e91ae30e/70a13d2d-97f0-4ae9-8ff1-fb9be60edc7d.png",
+          "link": "https://www.easy.cl/eventos/muebles?layout=grid"
+      },
+      {
+          "title": "Dormitorio",
+          "image": "https://content.qa.easy.cl/cms/view_version/6446ca8e41ee4130e91ae30e/6bcb8ed2-3213-40b7-a606-aa4d186b0d8b.png",
+          "link": "https://www.easy.cl/eventos/dormitorio?layout=grid"
+      },
+      {
+          "title": "Herramientas",
+          "image": "https://content.qa.easy.cl/cms/view_version/6446ca8e41ee4130e91ae30e/df88d533-6e89-4a64-a1b6-4ff262dba4cc.png",
+          "link": "https://www.easy.cl/eventos/herramientas?layout=grid"
+      },
+      {
+          "title": "Línea blanca",
+          "image": "https://content.qa.easy.cl/cms/view_version/6446ca8e41ee4130e91ae30e/9f875897-95aa-400c-8c8a-85bfd9216422.png",
+          "link": "https://www.easy.cl/eventos/linea-blanca?layout=grid"
+      },
+      {
+          "title": "Electrodomésticos",
+          "image": "https://content.qa.easy.cl/cms/view_version/6446ca8e41ee4130e91ae30e/f51ae0d7-748a-42bf-9c24-4dcfb7fcd266.png",
+          "link": "https://www.easy.cl/eventos/electrodomesticos?layout=grid"
+      },
+      {
+          "title": "Cocina y comedor",
+          "image": "https://content.qa.easy.cl/cms/view_version/6446ca8e41ee4130e91ae30e/5ae34738-6716-43bb-b5b0-f0745c02cacd.png",
+          "link": "https://www.easy.cl/eventos/cocina-y-comedor?layout=grid"
+      },
+      {
+          "title": "Baño",
+          "image": "https://content.qa.easy.cl/cms/view_version/6446ca8e41ee4130e91ae30e/a877a9a5-9b7c-4323-9c74-14d14953c976.png",
+          "link": "https://www.easy.cl/eventos/climatizacion?layout=grid"
+      },
+      {
+          "title": "Jardín y Aire libre",
+          "image": "https://content.qa.easy.cl/cms/view_version/6446ca8e41ee4130e91ae30e/fa009f8c-d6a2-4820-9dfc-03ad83c047f7.png",
+          "link": "https://www.easy.cl/eventos/pinturas?layout=grid"
+      },
+      {
+          "title": "Pinturas",
+          "image": "https://content.qa.easy.cl/cms/view_version/6446ca8e41ee4130e91ae30e/c4bd8585-9645-468a-8e61-a0120eb94767.png",
+          "link": "https://www.easy.cl/eventos/pinturas?layout=grid"
+      },
+      {
+          "title": "Mascotas",
+          "image": "https://content.qa.easy.cl/cms/view_version/6446ca8e41ee4130e91ae30e/da048b72-d8ef-4a0f-ab98-b32528c1d02a.png",
+          "link": "https://www.easy.cl/eventos/mascotas?layout=grid"
+      },
+      {
+          "title": "Organización y Limpieza",
+          "image": "https://content.qa.easy.cl/cms/view_version/6446ca8e41ee4130e91ae30e/e3dc2c9f-d220-4a43-8680-4af2dd5ec291.png",
+          "link": "https://www.easy.cl/eventos/organizacion-limpieza?layout=grid"
+      },
+      {
+          "title": "Puertas y Ventanas",
+          "image": "https://content.qa.easy.cl/cms/view_version/6446ca8e41ee4130e91ae30e/91febc2b-1bbc-499d-b64a-82eadb04736a.png",
+          "link": "https://www.easy.cl/eventos/puertas-ventanas?layout=grid"
+      },
+      {
+          "title": "Decohogar e iluminación",
+          "image": "https://content.qa.easy.cl/cms/view_version/6446ca8e41ee4130e91ae30e/aceac64f-aba2-4265-b6f0-7e0edbfb69bc.png",
+          "link": "https://www.easy.cl/eventos/decohogar-iluminacion?layout=grid"
+      }
+  ]
+}

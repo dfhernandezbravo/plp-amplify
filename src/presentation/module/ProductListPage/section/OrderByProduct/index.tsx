@@ -5,7 +5,7 @@ import SelectComponentMobile from './components/OrderBy/OrderByMobile';
 
 function OrderByProductRender() {
 
-  const { isXs, isSm,  isMd, isLg  } = useBreakpoints();
+  const { isMd, isLg  } = useBreakpoints();
   const data = [
     { label: 'Destacados' },
     { label: 'Precio más bajos' },
