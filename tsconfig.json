@@ -27,7 +27,7 @@
       "@data-sources/*": ["./src/application/data-sources/*"],
       "@repositories/*": ["./src/application/repositories/*"],
       "@modules/*": ["./src/presentation/modules/*"],
-      "@presentation/*": ["./src/presentation/*"],
+      "@presentation/*": ["./src/presentation/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -1,8 +1,13 @@
 /** @type {import('next').NextConfig} */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 
 const nextConfig = {
-  reactStrictMode: true,
+  compiler: {
+    // Enables the styled-components SWC transform
+    styledComponents: true,
+  },
+  reactStrictMode: false,
   images: {
     remotePatterns: [
       {
@@ -11,20 +16,14 @@ const nextConfig = {
       },
     ],
   },
-  compiler: {
-    // Enables the styled-components SWC transform
-    styledComponents: true,
-  },
-  webpack(config, options) {
+
+  webpack(config) {
     config.plugins.push(
       new NextFederationPlugin({
         name: 'plp',
         filename: 'static/chunks/remoteEntry.js',
-        exposes: {
-          './plp': './src/pages/index.tsx', 
-        },
+        exposes: {},
         extraOptions: {
-          exposePages: true,
           automaticAsyncBoundary: true,
         },
       }),

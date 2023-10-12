@@ -1,10 +1,6 @@
-import React from 'react';
-import Head from 'next/head';
-import ProductListPageDesktop from '@presentation/module/ProductListPage'
+import * as React from 'react';
 
-const  ProductListPage = () => {
-  return (
-    <ProductListPageDesktop />
-  );
+const ProductListPage = () => {
+  return <></>;
 };
 export default ProductListPage;

@@ -43,21 +43,6 @@ staging:
     - ccom
     - staging
 
-# .unit_test: &unit_test
-#   stage: test
-#   image: registry.gitlab.com/cencosud-ds/cencommerce/utils/docker-images/node:16.18.0-alpine3.16
-#   script:
-#     - npm run test:ci
-#   artifacts:
-#     paths:
-#       - coverage/
-#     expire_in: 30 minutes
-#   allow_failure: true
-#   tags:
-#     - private
-#     - ccom
-#     - staging
-
 ######JOB: INSTALLL
 install dependencies:
   <<: *install_dependencies
@@ -67,8 +52,20 @@ linter:
   <<: *lint
   dependencies:
     - install dependencies
-######JOB: UT
-# unit test:
-#   <<: *unit_test
-#   dependencies:
-#     - install dependencies
+
+######LLamado a la imagen de docker
+pkg:container:
+  stage: package
+  extends: .docker
+  environment:
+    name: staging
+  rules:
+    - if: $CI_COMMIT_BRANCH != "master"
+
+pkg:production:
+  stage: package
+  extends: .docker
+  environment:
+    name: production
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master"
