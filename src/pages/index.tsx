@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-const ProductListPage = () => {
+const App = () => {
   return <></>;
 };
-export default ProductListPage;
+
+export default App;
