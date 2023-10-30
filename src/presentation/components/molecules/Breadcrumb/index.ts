@@ -1,2 +1,2 @@
-export type { Props } from './Breadcrumb.defs';
+export type { Props } from './types';
 export { default } from './Breadcrumb';

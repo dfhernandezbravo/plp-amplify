@@ -1,8 +1,8 @@
 // Definitions
-import { Props } from './Breadcrumb.defs';
+import { Props } from './types';
 
 // Styled components
-import { Container } from './Breadcrumb.style';
+import { Container } from './styles';
 
 // Components
 import BreadcrumbMobile from './modules/Breadcrumb.mobile';

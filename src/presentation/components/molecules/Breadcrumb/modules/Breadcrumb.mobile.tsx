@@ -2,7 +2,7 @@
 import Link from '../../../atoms/Link';
 
 // Definitions
-import { Props } from '../Breadcrumb.defs';
+import { Props } from '../types';
 
 const BreadcrumbMobile = (props: Props) => {
   // Props

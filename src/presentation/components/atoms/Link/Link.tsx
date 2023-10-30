@@ -1,8 +1,8 @@
 // Definitions
-import { Props } from './Link.defs';
+import { Props } from './types';
 
 // Styled component
-import { LinkStyled } from './Link.style';
+import { LinkStyled } from './styles';
 
 const Link = (props: Props) => {
   // Props
