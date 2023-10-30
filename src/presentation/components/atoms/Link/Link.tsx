@@ -4,7 +4,7 @@ import { Props } from './Link.defs';
 // Styled component
 import { LinkStyled } from './Link.style';
 
-const CustomLink = (props: Props) => {
+const Link = (props: Props) => {
   // Props
   const { url, target = '_self', children } = props;
 
@@ -15,4 +15,4 @@ const CustomLink = (props: Props) => {
   );
 };
 
-export default CustomLink;
+export default Link;
