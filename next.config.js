@@ -18,6 +18,11 @@ const nextConfig = {
   },
 
   webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    });
+
     config.plugins.push(
       new NextFederationPlugin({
         name: 'plp',
