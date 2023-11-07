@@ -19,11 +19,9 @@ const Filter = (props: Props) => {
   const defaultOption = options.find((option) => option.value === defaultValue);
 
   // Methods
-  const methods = {
-    onOrderChange: (option: Option) => {
-      const order = option.value as Order;
-      if (order) onChange?.(order);
-    },
+  const onOrderChange = (option: Option) => {
+    const order = option.value as Order;
+    if (order) onChange?.(order);
   };
 
   return (
@@ -36,7 +34,7 @@ const Filter = (props: Props) => {
         className="select-order"
         defaultValue={defaultOption}
         options={options}
-        onChange={methods.onOrderChange}
+        onChange={onOrderChange}
       />
     </Container>
   );

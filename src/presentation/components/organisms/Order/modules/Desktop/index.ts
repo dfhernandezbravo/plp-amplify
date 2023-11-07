@@ -1,1 +1,1 @@
-export { default } from './Order.desktop';
+export { default } from './Desktop';

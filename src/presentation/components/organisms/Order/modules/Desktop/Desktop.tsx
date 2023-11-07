@@ -13,20 +13,18 @@ const Desktop = (props: Props) => {
   const { onChange, defaultQueryParams } = props;
 
   // Methods
-  const methods = {
-    onFilterChange: (order: Order) => onChange?.({ order }),
-    onDisplayChange: (layout: Layout) => onChange?.({ layout }),
-  };
+  const onFilterChange = (order: Order) => onChange?.({ order });
+  const onDisplayChange = (layout: Layout) => onChange?.({ layout });
 
   return (
     <Container>
       <Filter
+        onChange={onFilterChange}
         defaultValue={defaultQueryParams?.order}
-        onChange={methods.onFilterChange}
       />
       <Display
+        onChange={onDisplayChange}
         defaultValue={defaultQueryParams?.layout}
-        onChange={methods.onDisplayChange}
       />
     </Container>
   );
