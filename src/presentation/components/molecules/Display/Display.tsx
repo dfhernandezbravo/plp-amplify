@@ -12,7 +12,7 @@ import { Props, Layout } from './types';
 
 const Display = (props: Props) => {
   // Props
-  const { onChange, defaultValue = 'grid' } = props;
+  const { isShowText, onChange, defaultValue = 'grid' } = props;
 
   // State
   const [layout, setLayout] = useState<Layout>(defaultValue);
@@ -26,7 +26,7 @@ const Display = (props: Props) => {
 
   return (
     <Container>
-      <Text>Ver en:</Text>
+      {isShowText && <Text>Ver en:</Text>}
       <Radio
         id="display-order-grid"
         name="display-order"
