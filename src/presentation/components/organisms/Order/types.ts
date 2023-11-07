@@ -1,6 +1,7 @@
 // TODO: Agregar variables de dominio para estos casos
 export type QueryParams = {
   layout?: 'grid' | 'list';
+  event?: 'order' | 'filter';
   order?:
     | 'OrderByPriceASC'
     | 'OrderByPriceDESC'
@@ -9,7 +10,10 @@ export type QueryParams = {
 };
 
 export type Props = {
-  mobile?: boolean;
+  count?: number;
+  title?: string;
+  isMobile?: boolean;
+  isShowButtonBox?: boolean;
   defaultQueryParams?: QueryParams;
   onChange: (queryParams: QueryParams) => void;
 };

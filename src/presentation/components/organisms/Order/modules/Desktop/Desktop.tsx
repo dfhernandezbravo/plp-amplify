@@ -13,8 +13,8 @@ const Desktop = (props: Props) => {
   const { onChange, defaultQueryParams } = props;
 
   // Methods
-  const onFilterChange = (order: Order) => onChange?.({ order });
-  const onDisplayChange = (layout: Layout) => onChange?.({ layout });
+  const onFilterChange = (order: Order) => onChange({ order });
+  const onDisplayChange = (layout: Layout) => onChange({ layout });
 
   return (
     <Container>
@@ -23,6 +23,7 @@ const Desktop = (props: Props) => {
         defaultValue={defaultQueryParams?.order}
       />
       <Display
+        isShowText
         onChange={onDisplayChange}
         defaultValue={defaultQueryParams?.layout}
       />

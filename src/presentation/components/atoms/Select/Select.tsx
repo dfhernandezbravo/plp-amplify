@@ -12,9 +12,12 @@ const Select = (props: Props) => {
     id,
     name,
     label,
+    prefix = 'easy-select',
     className,
     required,
     options,
+    searchable = false,
+    clearable = false,
     defaultValue,
     onChange,
   } = props;
@@ -34,6 +37,9 @@ const Select = (props: Props) => {
         options={options}
         required={required}
         className={className}
+        classNamePrefix={prefix}
+        isClearable={clearable}
+        isSearchable={searchable}
         defaultValue={defaultValue}
         onChange={onChangeSelect}
       />

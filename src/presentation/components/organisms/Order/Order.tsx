@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 // Components
+import Mobile from './modules/Mobile';
 import Desktop from './modules/Desktop';
 
 // Styled components
@@ -11,7 +12,14 @@ import { Props } from './types';
 
 const Order = (props: Props) => {
   // Props
-  const { mobile, defaultQueryParams, onChange } = props;
+  const {
+    isMobile,
+    isShowButtonBox,
+    count,
+    title,
+    defaultQueryParams,
+    onChange,
+  } = props;
 
   // States
   const [key, setKey] = useState(0);
@@ -23,11 +31,21 @@ const Order = (props: Props) => {
 
   return (
     <Container>
-      {!mobile && (
+      {!isMobile && (
         <Desktop
           key={key}
-          defaultQueryParams={defaultQueryParams}
           onChange={onChange}
+          defaultQueryParams={defaultQueryParams}
+        />
+      )}
+      {isMobile && (
+        <Mobile
+          key={key}
+          count={count}
+          title={title}
+          onChange={onChange}
+          isShowButtonBox={isShowButtonBox}
+          defaultQueryParams={defaultQueryParams}
         />
       )}
     </Container>

@@ -15,10 +15,13 @@ export type Props = {
   id: string;
   name: string;
   label?: string;
+  prefix?: string;
   options: Option[];
   className?: string;
   required?: boolean;
   defaultValue?: Option;
   style?: CSSProperties;
+  clearable?: boolean;
+  searchable?: boolean;
   onChange?: (option: Option) => void;
 };
