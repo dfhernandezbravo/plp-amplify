@@ -12,13 +12,7 @@ import { Props } from '../../types';
 
 const Mobile = (props: Props) => {
   // Props
-  const {
-    count,
-    title,
-    isShowButtonBox = true,
-    defaultQueryParams,
-    onChange,
-  } = props;
+  const { count, title, queryParams, isShowButtonBox = true, onChange } = props;
 
   // State
   const [countText, setCountText] = useState('Productos no encontrados');
@@ -47,7 +41,7 @@ const Mobile = (props: Props) => {
         <Display
           isShowText={false}
           onChange={onDisplayChange}
-          defaultValue={defaultQueryParams?.layout}
+          defaultValue={queryParams?.layout}
         />
       </DisplayArea>
       {isShowButtonBox && (
