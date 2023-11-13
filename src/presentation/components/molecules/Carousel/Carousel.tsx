@@ -23,6 +23,7 @@ const Carousel = (props: Props) => {
     center,
     keyboard,
     autoplay,
+    scrollbar,
     pagination,
     navigation,
     slidesPerView,
@@ -61,7 +62,8 @@ const Carousel = (props: Props) => {
         slidesPerGroup={slidesPerGroup}
         centerInsufficientSlides={center}
         keyboard={{ enabled: keyboard }}
-        pagination={{ clickable: true, enabled: pagination }}
+        pagination={{ enabled: pagination, clickable: true }}
+        scrollbar={{ enabled: scrollbar, draggable: true }}
         modules={[Keyboard, Scrollbar, Navigation, Pagination]}
       >
         {swipes?.map((swipe, index) => (

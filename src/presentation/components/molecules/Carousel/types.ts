@@ -11,6 +11,7 @@ export type Props = {
   center?: boolean;
   keyboard?: boolean;
   autoplay?: boolean;
+  scrollbar?: boolean;
   pagination?: boolean;
   navigation?: boolean;
   initialSlide?: number;
