@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 // Components
 import Link from '../../atoms/Link';
-import Carousel, { Props as CarouselProps } from '../../molecules/Carousel';
+import Carousel, { BreakPoints } from '../../molecules/Carousel';
 
 // Styled components
 import { Container, Item, Image, Background, Title } from './styles';
@@ -15,7 +15,7 @@ const QuickFilters = (props: Props) => {
   const { filters, currentUrl, indicator, ring, onClick } = props;
 
   // Constants
-  const breakpoints: CarouselProps['breakpoints'] = {
+  const breakpoints: BreakPoints = {
     320: {
       slidesPerView: 3.5,
       slidesPerGroup: 3,

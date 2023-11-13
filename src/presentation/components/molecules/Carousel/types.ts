@@ -3,6 +3,8 @@ import { SwiperProps } from 'swiper/react';
 
 export type Swipe = Array<Exclude<ReactNode, boolean | null | undefined>>;
 
+export type BreakPoints = SwiperProps['breakpoints'];
+
 export type Props = {
   children: ReactNode[];
   loop?: boolean;
@@ -14,5 +16,5 @@ export type Props = {
   initialSlide?: number;
   slidesPerView?: number;
   slidesPerGroup?: number;
-  breakpoints?: SwiperProps['breakpoints'];
+  breakpoints?: BreakPoints;
 };
