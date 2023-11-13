@@ -7,6 +7,7 @@ export type Props = {
   children: ReactNode[];
   loop?: boolean;
   center?: boolean;
+  keyboard?: boolean;
   autoplay?: boolean;
   pagination?: boolean;
   navigation?: boolean;

@@ -1,6 +1,6 @@
 import { Children, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Keyboard, Navigation, Scrollbar } from 'swiper/modules';
+import { Keyboard, Navigation, Scrollbar, Pagination } from 'swiper/modules';
 
 // Styles
 import 'swiper/css';
@@ -8,6 +8,7 @@ import 'swiper/css/grid';
 import 'swiper/css/keyboard';
 import 'swiper/css/scrollbar';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 // Styled components
 import { Container } from './styles';
@@ -20,6 +21,7 @@ const Carousel = (props: Props) => {
   const {
     loop,
     center,
+    keyboard,
     autoplay,
     pagination,
     navigation,
@@ -58,9 +60,9 @@ const Carousel = (props: Props) => {
         slidesPerView={slidesPerView}
         slidesPerGroup={slidesPerGroup}
         centerInsufficientSlides={center}
-        pagination={{ clickable: pagination }}
-        modules={[Keyboard, Scrollbar, Navigation]}
-        keyboard={{ enabled: true }}
+        keyboard={{ enabled: keyboard }}
+        pagination={{ clickable: true, enabled: pagination }}
+        modules={[Keyboard, Scrollbar, Navigation, Pagination]}
       >
         {swipes?.map((swipe, index) => (
           <SwiperSlide key={index}>{swipe}</SwiperSlide>

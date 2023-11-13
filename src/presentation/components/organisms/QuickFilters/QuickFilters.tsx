@@ -50,12 +50,7 @@ const QuickFilters = (props: Props) => {
 
   return (
     <Container>
-      <Carousel
-        center
-        pagination
-        breakpoints={breakpoints}
-        initialSlide={initialSlide}
-      >
+      <Carousel center breakpoints={breakpoints} initialSlide={initialSlide}>
         {filters.map((filter, filterIndex) => {
           const { url, image, alt } = filter;
           return (
