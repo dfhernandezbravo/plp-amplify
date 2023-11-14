@@ -20,21 +20,29 @@ export const Container = styled.div`
 export const Image = styled(NextImage)<ItemImage>`
   margin: 0;
   border-radius: 50%;
-  ${(props) =>
-    props.padding
-      ? css`
-          padding: ${props.padding}px;
-        `
-      : css`
-          padding: 0;
-        `}
-  ${(props) =>
-    props.active &&
-    props.indicator &&
-    css`
-      filter: invert(100%) sepia(100%) saturate(0) hue-rotate(2deg)
-        brightness(109%) contrast(101%);
-    `};
+  ${(props) => {
+    if (props.padding)
+      return css`
+        padding: ${props.padding}px;
+      `;
+    return css`
+      padding: 0;
+    `;
+  }}
+  ${(props) => {
+    if (props.active && props.indicator)
+      return css`
+        filter: invert(100%) sepia(100%) saturate(0) hue-rotate(2deg)
+          brightness(109%) contrast(101%);
+      `;
+    if (!props.active && props.indicator)
+      return css`
+        &:hover {
+          filter: invert(100%) sepia(100%) saturate(0) hue-rotate(2deg)
+            brightness(109%) contrast(101%);
+        }
+      `;
+  }};
 `;
 
 export const Background = styled.div<Background>`
@@ -42,22 +50,39 @@ export const Background = styled.div<Background>`
   padding: 0;
   display: flex;
   border-radius: 50%;
-  ${(props) =>
-    props.ring && props.active
-      ? css`
+  ${(props) => {
+    if (props.active && props.ring)
+      return css`
+        border: 2px solid #990a06;
+      `;
+    else if (!props.active && props.ring)
+      return css`
+        border: 2px solid #fff;
+        &:hover {
           border: 2px solid #990a06;
-        `
-      : css`
-          border: 2px solid #fff;
-        `};
-  ${(props) =>
-    props.indicator && props.active
-      ? css`
+        }
+      `;
+    else
+      return css`
+        border: 2px solid #fff;
+      `;
+  }};
+  ${(props) => {
+    if (props.active && props.indicator)
+      return css`
+        background-color: #990a06;
+      `;
+    else if (!props.active && props.indicator)
+      return css`
+        &:hover {
           background-color: #990a06;
-        `
-      : css`
-          background-color: #fff;
-        `};
+        }
+      `;
+    else
+      return css`
+        background-color: #fff;
+      `;
+  }}
 `;
 
 export const Item = styled.div`
