@@ -1,2 +1,2 @@
 export { default } from './Carousel';
-export type { Props, BreakPoints } from './types';
+export type { Props, BreakPoints, AutoPlay } from './types';
