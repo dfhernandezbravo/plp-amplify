@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   gap: 0.5rem;
-
+  min-width: 340px;
   .select-order {
     width: 200px;
   }

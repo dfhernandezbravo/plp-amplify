@@ -13,7 +13,7 @@ export type Props = {
   count?: number;
   title?: string;
   isMobile?: boolean;
+  queryParams?: QueryParams;
   isShowButtonBox?: boolean;
-  defaultQueryParams?: QueryParams;
   onChange: (queryParams: QueryParams) => void;
 };

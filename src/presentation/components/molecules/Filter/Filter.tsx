@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 // Components
 import Icon from '@components/atoms/Icon';
 import Select, { Option } from '@components/atoms/Select';
@@ -15,26 +17,43 @@ const Filter = (props: Props) => {
   // Props
   const { onChange, defaultValue = '' } = props;
 
-  // Constants
-  const defaultOption = options.find((option) => option.value === defaultValue);
+  // State
+  const [key, setKey] = useState(0);
+  const [currentOption, setCurrentOption] = useState<Option>();
 
   // Methods
   const onOrderChange = (option: Option) => {
     const order = option.value as Order;
     if (order) onChange?.(order);
+    else onChange?.(null as unknown as Order);
   };
+  const calculateDefaultOption = () => {
+    const defaultOption = options.find(
+      (option) => option.value === defaultValue,
+    );
+    if (defaultOption) {
+      setCurrentOption(defaultOption);
+      setKey((prev) => ++prev);
+    }
+  };
+
+  // Effects
+  useEffect(() => {
+    calculateDefaultOption();
+  }, [defaultValue]);
 
   return (
     <Container>
       <Icon id="icon-sort" name="sort" />
       <Text>Ordenar por:</Text>
       <Select
+        key={key}
         id="select-order"
         name="select-order"
         className="select-order"
-        defaultValue={defaultOption}
         options={options}
         onChange={onOrderChange}
+        defaultValue={currentOption}
       />
     </Container>
   );

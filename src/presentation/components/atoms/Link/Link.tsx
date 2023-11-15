@@ -6,10 +6,10 @@ import { LinkStyled } from './styles';
 
 const Link = (props: Props) => {
   // Props
-  const { url, target = '_self', children } = props;
+  const { url, target = '_self', onClick, children } = props;
 
   return (
-    <LinkStyled href={url} target={target}>
+    <LinkStyled href={url} target={target} onClick={onClick}>
       {children}
     </LinkStyled>
   );

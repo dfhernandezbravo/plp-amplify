@@ -7,4 +7,5 @@ export type Props = {
   url: string;
   target?: Target;
   children: ReactNode;
+  onClick?: () => void;
 };

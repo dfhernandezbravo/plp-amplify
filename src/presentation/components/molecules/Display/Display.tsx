@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 // Components
 import Icon from '@components/atoms/Icon';
 import Radio from '@components/atoms/Radio';
@@ -14,13 +12,9 @@ const Display = (props: Props) => {
   // Props
   const { isShowText, onChange, defaultValue = 'grid' } = props;
 
-  // State
-  const [layout, setLayout] = useState<Layout>(defaultValue);
-
   // Methods
   const onRadioChange = (value: string) => {
     const current = value as Layout;
-    setLayout(current);
     onChange(current);
   };
 
@@ -34,7 +28,10 @@ const Display = (props: Props) => {
         onChange={onRadioChange}
         checked={defaultValue === 'grid'}
       >
-        <Icon id="icon-grid" name={layout === 'grid' ? 'grid-red' : 'grid'} />
+        <Icon
+          id="icon-grid"
+          name={defaultValue === 'grid' ? 'grid-red' : 'grid'}
+        />
       </Radio>
       <Radio
         id="display-order-list"
@@ -43,7 +40,10 @@ const Display = (props: Props) => {
         onChange={onRadioChange}
         checked={defaultValue === 'list'}
       >
-        <Icon id="icon-list" name={layout === 'list' ? 'list-red' : 'list'} />
+        <Icon
+          id="icon-list"
+          name={defaultValue === 'list' ? 'list-red' : 'list'}
+        />
       </Radio>
     </Container>
   );

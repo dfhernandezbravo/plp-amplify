@@ -10,7 +10,7 @@ import { Props } from '../../types';
 
 const Desktop = (props: Props) => {
   // Props
-  const { onChange, defaultQueryParams } = props;
+  const { onChange, queryParams } = props;
 
   // Methods
   const onFilterChange = (order: Order) => onChange({ order });
@@ -18,14 +18,11 @@ const Desktop = (props: Props) => {
 
   return (
     <Container>
-      <Filter
-        onChange={onFilterChange}
-        defaultValue={defaultQueryParams?.order}
-      />
+      <Filter onChange={onFilterChange} defaultValue={queryParams?.order} />
       <Display
         isShowText
         onChange={onDisplayChange}
-        defaultValue={defaultQueryParams?.layout}
+        defaultValue={queryParams?.layout}
       />
     </Container>
   );
