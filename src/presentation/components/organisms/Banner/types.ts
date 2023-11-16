@@ -5,8 +5,9 @@ export type Item = {
   title: string;
   image: string;
   external?: boolean;
-  startDatetime?: string;
-  endDatetime?: string;
+  startDate?: string;
+  endDate?: string;
+  isActive?: boolean;
 };
 
 export type Props = {

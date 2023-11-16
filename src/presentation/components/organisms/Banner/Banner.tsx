@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import isWithinInterval from 'date-fns/isWithinInterval';
+
+// Hooks
+import cmsDateValidator from '@utils/cmsDateValidator';
 
 // Components
 import Link from '../../atoms/Link';
@@ -20,17 +22,9 @@ const Banner = (props: Props) => {
 
   // Methods
   const calculateFilteredItems = () => {
-    const currentDate = new Date();
     const filteredItems = items.filter((item) => {
-      const { startDatetime, endDatetime } = item;
-      if (startDatetime && endDatetime) {
-        const interval = {
-          start: new Date(startDatetime),
-          end: new Date(endDatetime),
-        };
-        return isWithinInterval(currentDate, interval);
-      }
-      return true;
+      const { startDate, endDate, isActive } = item;
+      return cmsDateValidator({ startDate, endDate, isActive });
     });
     setFiltered(filteredItems);
   };
