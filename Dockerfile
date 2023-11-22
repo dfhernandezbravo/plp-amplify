@@ -9,10 +9,14 @@ WORKDIR /app
 COPY . ./
 
 COPY --from=newrelic /tmp/newrelic.js .
+ARG NPM_TOKEN
+ENV NPM_TOKEN=$NPM_TOKEN
 
+RUN npm config set -- //gitlab.com/api/v4/packages/npm/:_authToken=$NPM_TOKEN
+RUN echo "npm config set -- //gitlab.com/api/v4/packages/npm/:_authToken=$NPM_TOKEN"
 
 RUN NODE_ENV='' yarn install && \
-yarn build
+  yarn build
 
 # CMD ["sh", "-c", "pm2-runtime dist/src/main.js"]
 EXPOSE 8080
