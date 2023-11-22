@@ -23,6 +23,8 @@ staging:
   stage: init
   image: registry.gitlab.com/cencosud-ds/cencommerce/utils/docker-images/node:16.18.0-alpine3.16
   script:
+    - npm config set -- //gitlab.com/api/v4/packages/npm/:_authToken=$NPM_TOKEN
+    - echo 'npm token ---> npm config set -- //gitlab.com/api/v4/packages/npm/:_authToken='$NPM_TOKEN
     - NODE_ENV=  yarn install # install dependencies
   artifacts:
     paths:
@@ -61,6 +63,8 @@ pkg:container:
     name: staging
   rules:
     - if: $CI_COMMIT_BRANCH != "master"
+  variables:
+    BUILD_IMAGE_EXTRA_ARGS: '--build-arg NPM_TOKEN=$NPM_TOKEN --build-arg NEW_RELIC_APP_NAME=$NEW_RELIC_APP_NAME --build-arg NEW_RELIC_LICENSE_KEY=$NEW_RELIC_LICENSE_KEY --build-arg NEW_RELIC_LABELS=$NEW_RELIC_LABELS'
 
 pkg:production:
   stage: package
@@ -69,3 +73,5 @@ pkg:production:
     name: production
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
+  variables:
+    BUILD_IMAGE_EXTRA_ARGS: '--build-arg NPM_TOKEN=$NPM_TOKEN --build-arg NEW_RELIC_APP_NAME=$NEW_RELIC_APP_NAME --build-arg NEW_RELIC_LICENSE_KEY=$NEW_RELIC_LICENSE_KEY --build-arg NEW_RELIC_LABELS=$NEW_RELIC_LABELS'
