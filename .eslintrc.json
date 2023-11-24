@@ -24,7 +24,7 @@
     "complexity": ["error", 7],
     "default-case": "error",
     "eqeqeq": ["error", "always"],
-    "max-lines": ["error", 350],
+    "max-lines": ["error", { "max": 150, "skipComments": true }],
     "max-params": ["error", 3],
     "no-alert": "error",
     // "no-console": "error",
