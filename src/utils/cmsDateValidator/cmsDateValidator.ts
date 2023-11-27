@@ -3,12 +3,12 @@ import { DatesInNumber, TimeProps } from './types';
 const checkDates = (dates: DatesInNumber) => {
   const { now, start, end } = dates;
   if (start && end) return now >= start && now < end;
-  if (!start && end) return now < end;
   if (start) return now >= start;
+  if (end) return now < end;
   return true;
 };
 
-const convertTimezoneToNumber = (current?: string | Date) => {
+const convertDatetimeToNumber = (current?: string | Date) => {
   if (!current) return undefined;
   const date = new Date(current);
   const currentOffset = -240;
@@ -19,11 +19,11 @@ const convertTimezoneToNumber = (current?: string | Date) => {
 
 const cmsDateValidator = (values: TimeProps): boolean => {
   const { startDate, endDate, isActive } = values;
-  const now = convertTimezoneToNumber(new Date());
-  const start = convertTimezoneToNumber(startDate);
-  const end = convertTimezoneToNumber(endDate);
+  const now = convertDatetimeToNumber(new Date());
+  const start = convertDatetimeToNumber(startDate);
+  const end = convertDatetimeToNumber(endDate);
   if (isActive && now) return checkDates({ now, start, end });
-  else return false;
+  return false;
 };
 
 export default cmsDateValidator;
