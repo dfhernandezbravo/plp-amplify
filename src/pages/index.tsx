@@ -1,18 +1,20 @@
 import * as React from 'react';
 import {
   ButtonEasy,
-  ThemeProviderEasy,
+  Textfield,
   useDevice,
 } from '@cencosud-ds/easy-design-system';
 
 const App = () => {
-  const { device, os } = useDevice();
+  const { os } = useDevice();
+
   return (
-    <ThemeProviderEasy>
-      <h3>Device: {device}</h3>
-      <h3>OS: {os}</h3>
+    <div>
+      <h3>Hola</h3>
       <ButtonEasy variant="primary" label="Button Test" />
-    </ThemeProviderEasy>
+      <h3>OS: {os}</h3>
+      <Textfield placeholder="Hola" label="Hola" />
+    </div>
   );
 };
 

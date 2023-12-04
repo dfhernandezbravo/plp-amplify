@@ -14,34 +14,36 @@ export type ItemImage = {
 
 export const Container = styled.div`
   margin: 0;
-  padding: 1rem 0;
 `;
 
 export const Image = styled(NextImage)<ItemImage>`
   margin: 0;
   border-radius: 50%;
   ${(props) => {
-    if (props.padding)
+    if (props.padding) {
       return css`
         padding: ${props.padding}px;
       `;
+    }
     return css`
       padding: 0;
     `;
   }}
   ${(props) => {
-    if (props.active && props.indicator)
+    if (props.active && props.indicator) {
       return css`
         filter: invert(100%) sepia(100%) saturate(0) hue-rotate(2deg)
           brightness(109%) contrast(101%);
       `;
-    if (!props.active && props.indicator)
+    }
+    if (!props.active && props.indicator) {
       return css`
         &:hover {
           filter: invert(100%) sepia(100%) saturate(0) hue-rotate(2deg)
             brightness(109%) contrast(101%);
         }
       `;
+    }
   }};
 `;
 
@@ -51,37 +53,39 @@ export const Background = styled.div<Background>`
   display: flex;
   border-radius: 50%;
   ${(props) => {
-    if (props.active && props.ring)
+    if (props.active && props.ring) {
       return css`
         border: 2px solid #990a06;
       `;
-    else if (!props.active && props.ring)
+    } else if (!props.active && props.ring) {
       return css`
         border: 2px solid #fff;
         &:hover {
           border: 2px solid #990a06;
         }
       `;
-    else
+    } else {
       return css`
         border: 2px solid #fff;
       `;
+    }
   }};
   ${(props) => {
-    if (props.active && props.indicator)
+    if (props.active && props.indicator) {
       return css`
         background-color: #990a06;
       `;
-    else if (!props.active && props.indicator)
+    } else if (!props.active && props.indicator) {
       return css`
         &:hover {
           background-color: #990a06;
         }
       `;
-    else
+    } else {
       return css`
         background-color: #fff;
       `;
+    }
   }}
 `;
 

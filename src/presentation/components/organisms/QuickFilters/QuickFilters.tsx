@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 // Components
 import Link from '../../atoms/Link';
 import Carousel, { BreakPoints } from '../../molecules/Carousel';
 
 // Styled components
-import { Container, Item, Image, Background, Title } from './styles';
+import { Background, Container, Image, Item, Title } from './styles';
 
 // Definitions
 import { Props } from './types';
@@ -38,7 +38,7 @@ const QuickFilters = (props: Props) => {
     !!currentUrl && url.includes(currentUrl);
   const calculateInitialSlide = () => {
     if (currentUrl) {
-      const index = filters.findIndex((filter) => filter.url === currentUrl);
+      const index = filters.findIndex((filter) => filter.link === currentUrl);
       setInitialSlide(index);
     }
   };
@@ -52,14 +52,18 @@ const QuickFilters = (props: Props) => {
     <Container>
       <Carousel center breakpoints={breakpoints} initialSlide={initialSlide}>
         {filters.map((filter, filterIndex) => {
-          const { url, image, alt } = filter;
+          const { link, image, alt } = filter;
           return (
-            <Link key={filterIndex} url={url} onClick={() => onClick?.(filter)}>
+            <Link
+              key={filterIndex}
+              url={link}
+              onClick={() => onClick?.(filter)}
+            >
               <Item>
                 <Background
                   ring={ring}
                   indicator={indicator}
-                  active={calculateActive(url)}
+                  active={calculateActive(link)}
                 >
                   <Image
                     src={image}
@@ -69,7 +73,7 @@ const QuickFilters = (props: Props) => {
                     padding={15}
                     ring={ring}
                     indicator={indicator}
-                    active={calculateActive(url)}
+                    active={calculateActive(link)}
                     priority
                   />
                 </Background>

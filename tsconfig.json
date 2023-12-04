@@ -15,10 +15,10 @@
     "jsx": "preserve",
     "incremental": true,
     "allowImportingTsExtensions": true,
+    "baseUrl": ".",
     "paths": {
-      // "@/*": ["./src/*"],
       "@assets/*": ["./src/presentation/assets/*"],
-      "@store/*": ["./src/presentation/store/*"],
+      "@store/*": ["./src/presentation/providers/store/*"],
       "@components/*": ["./src/presentation/components/*"],
       "@hooks/*": ["./src/presentation/hooks/*"],
       "@mocks/*": ["./src/presentation/mocks/*"],
@@ -29,7 +29,7 @@
       "@repositories/*": ["./src/application/repositories/*"],
       "@modules/*": ["./src/presentation/modules/*"],
       "@presentation/*": ["./src/presentation/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@providers/*": ["./src/presentation/providers/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
