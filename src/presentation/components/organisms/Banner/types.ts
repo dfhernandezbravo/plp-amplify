@@ -1,14 +1,5 @@
+import { Item } from '@entities/cms';
 import { AutoPlay } from '../../molecules/Carousel';
-
-export type Item = {
-  url: string;
-  title: string;
-  image: string;
-  external?: boolean;
-  startDate?: string;
-  endDate?: string;
-  isActive?: boolean;
-};
 
 export type Props = {
   items: Item[];

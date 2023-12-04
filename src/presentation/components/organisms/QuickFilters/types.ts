@@ -1,13 +1,9 @@
-export type Filter = {
-  image: string;
-  url: string;
-  alt: string;
-};
+import { Item } from '@entities/cms';
 
 export type Props = {
-  filters: Filter[];
+  filters: Item[];
   ring?: boolean;
   indicator?: boolean;
   currentUrl?: string;
-  onClick?: (filter: Filter) => void;
+  onClick?: (filter: Item) => void;
 };

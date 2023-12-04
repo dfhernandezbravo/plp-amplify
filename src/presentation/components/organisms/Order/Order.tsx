@@ -1,15 +1,9 @@
-// Components
-import Mobile from './modules/Mobile';
 import Desktop from './modules/Desktop';
-
-// Styled components
+import Mobile from './modules/Mobile';
 import { Container } from './styles';
-
-// Definitions
 import { Props } from './types';
 
 const Order = (props: Props) => {
-  // Props
   const { isMobile, count, title, queryParams, isShowButtonBox, onChange } =
     props;
 

@@ -1,60 +1,28 @@
-import { useEffect, useState } from 'react';
-
-// Hooks
-import cmsDateValidator from '@utils/cmsDateValidator';
-
-// Components
+import { useDevice } from '@cencosud-ds/easy-design-system';
 import Link from '../../atoms/Link';
 import Carousel from '../../molecules/Carousel';
-
-// Styled components
 import { Container, Image } from './styles';
-
-// Definitions
-import { Props, Item } from './types';
+import { Props } from './types';
 
 const Banner = (props: Props) => {
-  // Props
   const { items, autoplay, loop, pagination, onClick } = props;
-
-  // State
-  const [filtered, setFiltered] = useState<Item[]>();
-
-  // Methods
-  const calculateFilteredItems = () => {
-    const filteredItems = items.filter((item) => {
-      const { startDate, endDate, isActive } = item;
-      return cmsDateValidator({ startDate, endDate, isActive });
-    });
-    setFiltered(filteredItems);
-  };
-
-  // Effects
-  useEffect(() => {
-    calculateFilteredItems();
-  }, [items]);
+  const { device } = useDevice();
 
   return (
     <Container>
-      {filtered && (
+      {items && (
         <Carousel
           center
           loop={loop}
           autoplay={autoplay}
           pagination={pagination}
         >
-          {filtered.map((item, key) => {
-            const { url, image, title, external } = item;
-            const target = external ? '_blank' : '_self';
+          {items.map((item, key) => {
+            const { link, image, title, mobileImage } = item;
             return (
-              <Link
-                key={key}
-                url={url}
-                target={target}
-                onClick={() => onClick?.(item)}
-              >
+              <Link key={key} url={link} onClick={() => onClick?.(item)}>
                 <Image
-                  src={image}
+                  src={device === 'Desktop' ? image || '' : mobileImage || ''}
                   alt={`Banner ${title}`}
                   width={1920}
                   height={350}

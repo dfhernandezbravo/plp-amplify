@@ -7,7 +7,7 @@ export const Container = styled.section`
   --swiper-pagination-color: rgb(204, 21, 21);
 
   width: 100%;
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
   padding: 0;
   position: relative;
   box-sizing: border-box;
