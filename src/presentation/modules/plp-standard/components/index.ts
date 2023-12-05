@@ -6,6 +6,7 @@ import Facets from './facets';
 import OrderCMS from './order';
 import QuickFiltersCMS from './quick-filters';
 import ProductsPLP from './products';
+import PromotionalText from './promotional-text';
 
 type R<P = Record<string, never>> = React.FC<P>;
 
@@ -21,6 +22,7 @@ const ContentComponent: ComponentsCMS = {
   'order-plp': OrderCMS,
   'quick-filter-plp': QuickFiltersCMS,
   'products-plp': ProductsPLP,
+  'promotional-text-plp': PromotionalText,
 };
 
 export default ContentComponent;
