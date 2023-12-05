@@ -4,16 +4,16 @@
   "private": true,
   "type": "esnext",
   "scripts": {
-    "dev": "NODE_OPTIONS='-r @newrelic/next' next dev --port 3006",
+    "dev": "NODE_OPTIONS='-r @newrelic/next' next dev --port 3004",
     "build": "next build",
     "start": "NODE_OPTIONS='-r @newrelic/next' next start",
-    "start:prod": "next build && next start -p 3000",
+    "start:prod": "next build && next start -p 3004",
     "lint": "next lint",
     "prepare": "husky install",
     "format": "prettier --write . --config .prettierrc"
   },
   "dependencies": {
-    "@cencosud-ds/easy-design-system": "^1.0.94",
+    "@cencosud-ds/easy-design-system": "^1.1.1",
     "@elgorditosalsero/react-gtm-hook": "^2.7.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",

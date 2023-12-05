@@ -29,7 +29,9 @@ const nextConfig = {
       new NextFederationPlugin({
         name: 'plp',
         filename: 'static/chunks/remoteEntry.js',
-        exposes: {},
+        exposes: {
+          './plp': './src/pages/index.tsx',
+        },
         extraOptions: {
           automaticAsyncBoundary: true,
         },

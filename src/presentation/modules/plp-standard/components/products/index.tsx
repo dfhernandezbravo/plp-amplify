@@ -10,10 +10,10 @@ const ProductsPLP = () => {
   return (
     <div className={styles.products}>
       <ProductsContainer>
-        {products.map((product) => (
+        {products?.map((product, index) => (
           <ProductCard
             product={product}
-            key={product.productId}
+            key={product.productId + '-' + index}
             layout="grid"
           />
         ))}
