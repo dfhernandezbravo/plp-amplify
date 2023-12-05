@@ -4,10 +4,10 @@
   "private": true,
   "type": "esnext",
   "scripts": {
-    "dev": "NODE_OPTIONS='-r @newrelic/next' next dev --port 3004",
+    "dev": "NODE_OPTIONS='-r @newrelic/next' next dev --port 3006",
     "build": "next build",
     "start": "NODE_OPTIONS='-r @newrelic/next' next start",
-    "start:prod": "next build && next start -p 3004",
+    "start:prod": "next build && next start -p 3000",
     "lint": "next lint",
     "prepare": "husky install",
     "format": "prettier --write . --config .prettierrc"
