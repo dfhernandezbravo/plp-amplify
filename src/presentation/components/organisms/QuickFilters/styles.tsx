@@ -1,7 +1,7 @@
 import NextImage, { ImageProps } from 'next/image';
 import styled, { css } from 'styled-components';
 
-export type Background = {
+export type BackgroundStruct = {
   ring?: boolean;
   active?: boolean;
   indicator?: boolean;
@@ -9,7 +9,7 @@ export type Background = {
 
 export type ItemImage = {
   padding?: number;
-} & Background &
+} & BackgroundStruct &
   ImageProps;
 
 export const Container = styled.div`
@@ -47,7 +47,7 @@ export const Image = styled(NextImage)<ItemImage>`
   }};
 `;
 
-export const Background = styled.div<Background>`
+export const Background = styled.div<BackgroundStruct>`
   margin: 0;
   padding: 0;
   display: flex;

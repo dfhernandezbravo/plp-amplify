@@ -2,7 +2,6 @@
   "name": "plp",
   "version": "0.1.0",
   "private": true,
-  "type": "esnext",
   "scripts": {
     "dev": "NODE_OPTIONS='-r @newrelic/next' next dev --port 3004",
     "build": "next build",

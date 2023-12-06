@@ -4,15 +4,15 @@ import styled from 'styled-components';
 import { Props } from '@components/atoms/Button';
 
 // Definitions
-export type Container = {
+export type ContainerStruct = {
   area?: string;
 };
 
-export type CustomButton = {
+export type CustomButtonStruct = {
   area?: string;
 } & Props;
 
-export const Container = styled.section<Container>`
+export const Container = styled.section<ContainerStruct>`
   width: 100%;
   display: grid;
   grid-column-gap: 0;
@@ -26,7 +26,7 @@ export const Container = styled.section<Container>`
   }}
 `;
 
-export const CustomButton = styled.button<CustomButton>`
+export const CustomButton = styled.button<CustomButtonStruct>`
   cursor: pointer;
   font-weight: bold;
   gap: 0.5rem;
