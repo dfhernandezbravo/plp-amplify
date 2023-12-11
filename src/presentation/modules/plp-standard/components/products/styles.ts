@@ -9,7 +9,7 @@ export const ProductsContainer = styled.div`
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media screen and and (max-width: 767px) {
+  @media screen and (max-width: 767px) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;

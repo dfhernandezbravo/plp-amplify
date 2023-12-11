@@ -42,3 +42,13 @@ export const DisplayArea = styled.div`
   justify-content: flex-end;
   padding: 0.5rem 1rem;
 `;
+
+export const ButtonBoxContainer = styled.div`
+  grid-area: buttons;
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+`;
