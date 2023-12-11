@@ -9,10 +9,10 @@ import { Props } from './types';
 
 const ButtonBox = (props: Props) => {
   // Props
-  const { area, onClick } = props;
+  const { onClick } = props;
 
   return (
-    <Container area={area}>
+    <Container>
       <CustomButton name="button-box-left" onClick={() => onClick('order')}>
         <Icon id="button-box-icon-order" name="sort" />
         Ordenar por

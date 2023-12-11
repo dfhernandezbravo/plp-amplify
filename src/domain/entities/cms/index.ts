@@ -20,6 +20,8 @@ export type Content = {
   items?: Item[];
   description?: string;
   title?: string;
+  visibleMobile?: boolean;
+  visibleDesktop?: boolean;
 };
 
 export type CMSBody = {

@@ -6,10 +6,14 @@ import { Content } from './style';
 
 // Definitions
 import { Props } from './types';
+import { useDevice } from '@cencosud-ds/easy-design-system';
 
 const HtmlText = (props: Props) => {
   // Props
   const { children, options } = props;
+
+  // Hooks
+  const { device } = useDevice();
 
   // State
   const [html, setHtml] = useState<string>('');
@@ -99,7 +103,12 @@ const HtmlText = (props: Props) => {
     calculateHtml();
   }, [children, options]);
 
-  return <Content dangerouslySetInnerHTML={{ __html: html }} />;
+  return (
+    <Content
+      dangerouslySetInnerHTML={{ __html: html }}
+      style={{ fontSize: device === 'Phone' ? '14px' : '16px' }}
+    />
+  );
 };
 
 export default HtmlText;

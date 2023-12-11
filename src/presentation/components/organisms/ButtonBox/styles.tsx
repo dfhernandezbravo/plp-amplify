@@ -13,7 +13,9 @@ export type CustomButtonStruct = {
 } & Props;
 
 export const Container = styled.section<ContainerStruct>`
+  position: relative;
   width: 100%;
+  height: 52px;
   display: grid;
   grid-column-gap: 0;
   grid-template-columns: repeat(2, 1fr);
