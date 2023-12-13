@@ -30,7 +30,7 @@ const nextConfig = {
         name: 'plp',
         filename: 'static/chunks/remoteEntry.js',
         exposes: {
-          './plp': './src/pages/index.tsx',
+          './plp': './src/presentation/modules/plp-standard/index.tsx',
         },
         extraOptions: {
           automaticAsyncBoundary: true,
