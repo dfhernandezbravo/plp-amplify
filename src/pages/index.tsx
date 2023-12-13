@@ -1,12 +1,11 @@
-import * as React from 'react';
+import { ThemeProvider } from '@cencosud-ds/easy-design-system';
 import PLPStandard from '@modules/plp-standard';
-import { ThemeProviderEasy } from '@cencosud-ds/easy-design-system';
 
 const App = () => {
   return (
-    <ThemeProviderEasy>
+    <ThemeProvider>
       <PLPStandard />
-    </ThemeProviderEasy>
+    </ThemeProvider>
   );
 };
 

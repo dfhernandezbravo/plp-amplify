@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-rows: 0.1fr 0.1fr 0.5fr 0.2fr 0.2fr 4fr 0.5fr;
+  max-width: 80rem;
+  /* grid-template-rows: 0.1fr 0.1fr 0.5fr 0.2fr 0.2fr 4fr 0.5fr; */
   gap: 12px;
   grid-auto-flow: row;
   grid-template-areas:
