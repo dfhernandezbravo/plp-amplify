@@ -8,7 +8,7 @@ import Select, { Option } from '@components/atoms/Select';
 import { Container, Text } from './styles';
 
 // Definitions
-import { Props, Order } from './types';
+import { Props, OrderOptions } from './types';
 
 // Constants
 import { options } from './constants';
@@ -23,9 +23,9 @@ const Filter = (props: Props) => {
 
   // Methods
   const onOrderChange = (option: Option) => {
-    const order = option.value as Order;
+    const order = option.value as OrderOptions;
     if (order) onChange?.(order);
-    else onChange?.(null as unknown as Order);
+    else onChange?.(null as unknown as OrderOptions);
   };
   const calculateDefaultOption = () => {
     const defaultOption = options.find(

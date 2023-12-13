@@ -1,10 +1,11 @@
-export type Order =
-  | 'OrderByPriceASC'
-  | 'OrderByPriceDESC'
-  | 'OrderByBestDiscountDESC'
-  | 'OrderByReleaseDateDESC';
+export type OrderOptions =
+  | 'price:asc'
+  | 'price:desc'
+  | 'discount:desc'
+  | 'release:desc'
+  | 'orders:desc';
 
 export type Props = {
-  defaultValue?: Order;
-  onChange?: (order: Order) => void;
+  defaultValue?: OrderOptions;
+  onChange?: (order: OrderOptions) => void;
 };

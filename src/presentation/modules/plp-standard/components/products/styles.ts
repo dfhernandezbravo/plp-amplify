@@ -1,7 +1,9 @@
+import { LayoutOptions } from '@components/molecules/Display/types';
 import { styled } from 'styled-components';
 
-export const ProductsContainer = styled.div`
-  display: grid;
+export const ProductsContainer = styled.div<{ $layout: LayoutOptions }>`
+  display: ${(props) => (props.$layout === 'grid' ? 'grid' : 'flex')};
+  flex-direction: column;
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
 

@@ -1,2 +1,2 @@
 export { default } from './Filter';
-export type { Props, Order } from './types';
+export type { Props, OrderOptions } from './types';

@@ -1,2 +1,2 @@
 export { default } from './Display';
-export type { Props, Layout } from './types';
+export type { Props, LayoutOptions } from './types';
