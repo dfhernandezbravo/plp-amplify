@@ -1,20 +1,13 @@
-// Components
-import Filter, { Order } from '../../../../molecules/Filter';
-import Display, { Layout } from '../../../../molecules/Display';
-
-// Styled components
 import { Container } from './styles';
 
 // Definitions
 import { Props } from '../../types';
+import Filter from '@components/molecules/Filter';
+import Display from '@components/molecules/Display';
 
 const Desktop = (props: Props) => {
   // Props
-  const { onChange, queryParams } = props;
-
-  // Methods
-  const onFilterChange = (order: Order) => onChange({ order });
-  const onDisplayChange = (layout: Layout) => onChange({ layout });
+  const { queryParams, onFilterChange, onDisplayChange } = props;
 
   return (
     <Container>

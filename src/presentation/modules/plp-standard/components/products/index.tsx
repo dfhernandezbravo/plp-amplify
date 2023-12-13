@@ -1,20 +1,19 @@
-import { Product, ProductCard } from '@cencosud-ds/easy-design-system';
-import React from 'react';
+import { ProductCard } from '@cencosud-ds/easy-design-system';
+import { useAppSelector } from '@store/hooks';
 import styles from '../../styles.module.css';
-import { productInitial } from './product-mock';
 import { ProductsContainer } from './styles';
 
 const ProductsPLP = () => {
-  const products: Product[] = Array(16).fill(productInitial);
+  const { products, layout } = useAppSelector((state) => state.products);
 
   return (
     <div className={styles.products}>
-      <ProductsContainer>
+      <ProductsContainer $layout={layout}>
         {products?.map((product, index) => (
           <ProductCard
             product={product}
             key={product.productId + '-' + index}
-            layout="grid"
+            layout={layout}
           />
         ))}
       </ProductsContainer>

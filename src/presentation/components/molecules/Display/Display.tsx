@@ -6,7 +6,7 @@ import Radio from '@components/atoms/Radio';
 import { Container, Text } from './styles';
 
 // Definitions
-import { Props, Layout } from './types';
+import { LayoutOptions, Props } from './types';
 
 const Display = (props: Props) => {
   // Props
@@ -14,7 +14,7 @@ const Display = (props: Props) => {
 
   // Methods
   const onRadioChange = (value: string) => {
-    const current = value as Layout;
+    const current = value as LayoutOptions;
     onChange(current);
   };
 

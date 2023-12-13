@@ -1,12 +1,11 @@
+import { LayoutOptions } from '@components/molecules/Display/types';
+import { OrderOptions } from '@components/molecules/Filter/types';
+
 // TODO: Agregar variables de dominio para estos casos
 export type QueryParams = {
-  layout?: 'grid' | 'list';
+  layout?: LayoutOptions;
   event?: 'order' | 'filter';
-  order?:
-    | 'OrderByPriceASC'
-    | 'OrderByPriceDESC'
-    | 'OrderByBestDiscountDESC'
-    | 'OrderByReleaseDateDESC';
+  order?: OrderOptions;
 };
 
 export type Props = {
@@ -16,4 +15,6 @@ export type Props = {
   queryParams?: QueryParams;
   isShowButtonBox?: boolean;
   onChange: (queryParams: QueryParams) => void;
+  onFilterChange: (order: OrderOptions) => void;
+  onDisplayChange: (layout: LayoutOptions) => void;
 };

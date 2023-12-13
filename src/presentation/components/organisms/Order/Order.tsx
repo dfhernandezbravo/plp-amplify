@@ -4,12 +4,27 @@ import { Container } from './styles';
 import { Props } from './types';
 
 const Order = (props: Props) => {
-  const { isMobile, count, title, queryParams, isShowButtonBox, onChange } =
-    props;
+  const {
+    isMobile,
+    count,
+    title,
+    queryParams,
+    isShowButtonBox,
+    onChange,
+    onDisplayChange,
+    onFilterChange,
+  } = props;
 
   return (
     <Container>
-      {!isMobile && <Desktop onChange={onChange} queryParams={queryParams} />}
+      {!isMobile && (
+        <Desktop
+          onChange={onChange}
+          queryParams={queryParams}
+          onDisplayChange={onDisplayChange}
+          onFilterChange={onFilterChange}
+        />
+      )}
       {isMobile && (
         <Mobile
           count={count}
@@ -17,6 +32,8 @@ const Order = (props: Props) => {
           onChange={onChange}
           isShowButtonBox={isShowButtonBox}
           queryParams={queryParams}
+          onDisplayChange={onDisplayChange}
+          onFilterChange={onFilterChange}
         />
       )}
     </Container>
