@@ -6,6 +6,7 @@ export type SearchByCategoriesRequest = {
   page: number;
   categories: string;
   sort?: string;
+  filter?: string;
 };
 
 export type SearchByCategoriesResponse = {
