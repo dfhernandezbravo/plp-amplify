@@ -1,11 +1,8 @@
-import { ThemeProvider } from '@cencosud-ds/easy-design-system';
-import PLPStandard from '@modules/plp-standard';
-
 const App = () => {
   return (
-    <ThemeProvider>
-      <PLPStandard />
-    </ThemeProvider>
+    <div>
+      <h1>PLP Search</h1>
+    </div>
   );
 };
 

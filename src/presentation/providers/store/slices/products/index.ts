@@ -11,8 +11,9 @@ type ProductSliceState = {
   recordsFiltered: number;
   count: number;
   page: number;
-  sort: OrderOptions;
+  sort?: OrderOptions;
   layout: LayoutOptions;
+  filter?: string;
 };
 
 const initialState: ProductSliceState = {

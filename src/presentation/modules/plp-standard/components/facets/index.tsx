@@ -1,14 +1,11 @@
-import React from 'react';
-import styles from '../../styles.module.css';
-import { FacetsContainer } from './styles';
+import { Layout } from '@cencosud-ds/easy-design-system';
+import FacetsDesktop from './layout/desktop';
 
 const Facets = () => {
   return (
-    <div className={styles.facets}>
-      <FacetsContainer>
-        <span>facets</span>
-      </FacetsContainer>
-    </div>
+    <Layout is={['Desktop']}>
+      <FacetsDesktop />
+    </Layout>
   );
 };
 

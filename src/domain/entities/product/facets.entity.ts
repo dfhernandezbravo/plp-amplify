@@ -1,8 +1,9 @@
-type ValueFacets = {
+export type ValueFacets = {
   id: string;
   quantity: number;
   name: string;
   key: string;
+  value: string;
   selected: boolean;
   href: string;
   range: {

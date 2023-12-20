@@ -12,6 +12,7 @@
 
 .facets {
   grid-area: facets;
+  max-width: 300px;
 }
 
 .order {
