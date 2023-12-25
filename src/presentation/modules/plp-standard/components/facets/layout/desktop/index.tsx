@@ -4,7 +4,7 @@ import { useAppSelector } from '@store/hooks';
 import styles from '../../../../styles.module.css';
 import CustomFacetComponents from '../../components/custom-facet-components';
 import FacetItem from '../../components/facet-item';
-import FacetsHeader from '../../sections/header';
+import FacetsHeader from '../../sections/facets-header';
 import { FacetsContainer } from './styles';
 
 const FacetsDesktop = () => {

@@ -5,4 +5,7 @@ export default interface PlpQueryParams extends ParsedUrlQuery {
   category: string;
   product?: string;
   filter?: string;
+  count?: string;
+  page?: string;
+  sort?: string;
 }

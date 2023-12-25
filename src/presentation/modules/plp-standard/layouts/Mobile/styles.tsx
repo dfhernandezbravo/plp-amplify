@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
@@ -15,4 +16,5 @@ export const Container = styled.div`
     'products'
     'pagination'
     'promotional-text';
+  overflow-y: hidden;
 `;

@@ -30,10 +30,19 @@ const nextConfig = {
         name: 'plp',
         filename: 'static/chunks/remoteEntry.js',
         exposes: {
-          './plp': './src/presentation/modules/plp-standard/index.tsx',
+          './plp-category': './src/pages/[department]/[category]/index.tsx',
+          './plp-product':
+            './src/pages/[department]/[category]/[product]/index.tsx',
         },
         extraOptions: {
+          exposePages: true,
           automaticAsyncBoundary: true,
+        },
+        shared: {
+          'next/link': {
+            requiredVersion: false,
+            singleton: true,
+          },
         },
       }),
     );

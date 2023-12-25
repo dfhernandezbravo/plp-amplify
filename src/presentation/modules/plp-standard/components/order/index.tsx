@@ -6,7 +6,13 @@ import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 import styles from '../../styles.module.css';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
-import { setLayout, setSort } from '@store/slices/products';
+import {
+  setLayout,
+  setOpenFacetsMobile,
+  setOpenOrderMobile,
+  setSort,
+} from '@store/slices/products';
+import { QueryParams } from '@components/organisms/Order';
 interface PageUrlQuery extends ParsedUrlQuery {
   department: string;
   category: string;
@@ -35,10 +41,16 @@ const OrderCMS = () => {
     dispatch(setLayout(layout));
   };
 
+  const onChange = (queryParams: QueryParams) => {
+    const { event } = queryParams;
+    if (event === 'filter') dispatch(setOpenFacetsMobile(true));
+    if (event === 'order') dispatch(setOpenOrderMobile(true));
+  };
+
   return (
     <div className={styles.order}>
       <Order
-        onChange={() => {}}
+        onChange={onChange}
         isMobile={device === 'Phone'}
         queryParams={{
           order: sort,

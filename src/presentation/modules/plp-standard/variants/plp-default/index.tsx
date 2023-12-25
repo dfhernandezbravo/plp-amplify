@@ -6,28 +6,28 @@ import ProductsPLP from '@modules/plp-standard/components/products';
 import Desktop from '@modules/plp-standard/layouts/Desktop';
 import Mobile from '@modules/plp-standard/layouts/Mobile';
 import { PlpContainer } from '@modules/plp-standard/styles';
+import { useAppSelector } from '@store/hooks';
 
 const PLPDefault = () => {
-  const Components = () => (
-    <>
-      <BreadcrumbPLP />
-      <OrderCMS />
-      <Facets />
-      <ProductsPLP />
-    </>
-  );
+  const { isOpenFacetsMobile } = useAppSelector((state) => state.products);
 
   return (
     <PlpContainer>
       <Layout is={['Desktop']}>
         <Desktop>
-          <Components />
+          <BreadcrumbPLP />
+          <OrderCMS />
+          <Facets />
+          <ProductsPLP />
         </Desktop>
       </Layout>
 
       <Layout is={['Tablet', 'Phone']}>
         <Mobile>
-          <Components />
+          <BreadcrumbPLP />
+          <OrderCMS />
+          {isOpenFacetsMobile && <Facets />}
+          <ProductsPLP />
         </Mobile>
       </Layout>
     </PlpContainer>

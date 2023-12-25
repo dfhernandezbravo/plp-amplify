@@ -9,7 +9,7 @@ import {
   TitleHeader,
 } from './styles';
 
-const FacetsHeader = () => {
+const FacetsHeaderDesktop = () => {
   const { clearText } = useTransformText();
   const { recordsFiltered } = useAppSelector((state) => state.products);
   const { query } = useRouter();
@@ -31,4 +31,4 @@ const FacetsHeader = () => {
   );
 };
 
-export default FacetsHeader;
+export default FacetsHeaderDesktop;
