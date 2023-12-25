@@ -14,6 +14,8 @@ type ProductSliceState = {
   sort?: OrderOptions;
   layout: LayoutOptions;
   filter?: string;
+  isOpenFacetsMobile: boolean;
+  isOpenOrderMobile: boolean;
 };
 
 const initialState: ProductSliceState = {
@@ -24,6 +26,8 @@ const initialState: ProductSliceState = {
   recordsFiltered: 0,
   sort: 'orders:desc',
   layout: 'grid',
+  isOpenFacetsMobile: false,
+  isOpenOrderMobile: false,
 };
 
 const productSlice = createSlice({
@@ -44,8 +48,20 @@ const productSlice = createSlice({
     setLayout: (state, { payload }: { payload: LayoutOptions }) => {
       state.layout = payload;
     },
+    setOpenFacetsMobile: (state, { payload }: { payload: boolean }) => {
+      state.isOpenFacetsMobile = payload;
+    },
+    setOpenOrderMobile: (state, { payload }: { payload: boolean }) => {
+      state.isOpenOrderMobile = payload;
+    },
   },
 });
 
-export const { setSearchState, setLayout, setSort } = productSlice.actions;
+export const {
+  setSearchState,
+  setLayout,
+  setSort,
+  setOpenFacetsMobile,
+  setOpenOrderMobile,
+} = productSlice.actions;
 export default productSlice;
