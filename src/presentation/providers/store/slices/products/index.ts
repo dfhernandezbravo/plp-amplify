@@ -5,8 +5,13 @@ import { Facets } from '@entities/product/facets.entity';
 import { SearchByCategoriesResponse } from '@entities/product/repository/product-repository.types';
 import { createSlice } from '@reduxjs/toolkit';
 
+type ProductTmp = Product &
+  Partial<{
+    linkText: string;
+  }>;
+
 type ProductSliceState = {
-  products: Product[];
+  products: ProductTmp[];
   facets: Facets[];
   recordsFiltered: number;
   count: number;
