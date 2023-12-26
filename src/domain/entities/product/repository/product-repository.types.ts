@@ -4,9 +4,10 @@ import { Facets } from '../facets.entity';
 export type SearchByCategoriesRequest = {
   count: number;
   page: number;
-  categories: string;
+  categories?: string;
   sort?: string;
   filter?: string;
+  query?: string;
 };
 
 export type SearchByCategoriesResponse = {

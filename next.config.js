@@ -33,6 +33,7 @@ const nextConfig = {
           './plp-category': './src/pages/[department]/[category]/index.tsx',
           './plp-product':
             './src/pages/[department]/[category]/[product]/index.tsx',
+          './plp-search': './src/pages/search/[search].tsx',
         },
         extraOptions: {
           exposePages: true,
