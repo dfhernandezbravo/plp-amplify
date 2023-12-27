@@ -12,7 +12,7 @@ const ProductsPLP = () => {
       <ProductsContainer $layout={layout}>
         {products?.map((product, index) => (
           <Link
-            href={`/${product.linkText}`}
+            href={`/${product.linkText}/p`}
             key={product.productId + '-' + index}
           >
             <ProductCard product={product} layout={layout} />
