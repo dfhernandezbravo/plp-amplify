@@ -1,4 +1,3 @@
-import NextImage, { ImageProps } from 'next/image';
 import styled, { css } from 'styled-components';
 
 export type BackgroundStruct = {
@@ -9,84 +8,59 @@ export type BackgroundStruct = {
 
 export type ItemImage = {
   padding?: number;
-} & BackgroundStruct &
-  ImageProps;
+  image?: string;
+  alt?: string;
+} & BackgroundStruct;
 
 export const Container = styled.div`
   margin: 0;
 `;
 
-export const Image = styled(NextImage)<ItemImage>`
+export const Image = styled.div<ItemImage>`
   margin: 0;
-  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-image: ${(props) => `url(${props.image})`};
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 50px;
+  height: 50px;
   ${(props) => {
-    if (props.padding) {
-      return css`
-        padding: ${props.padding}px;
-      `;
-    }
-    return css`
-      padding: 0;
-    `;
-  }}
-  ${(props) => {
-    if (props.active && props.indicator) {
+    if (props.active) {
       return css`
         filter: invert(100%) sepia(100%) saturate(0) hue-rotate(2deg)
           brightness(109%) contrast(101%);
       `;
     }
-    if (!props.active && props.indicator) {
-      return css`
-        &:hover {
-          filter: invert(100%) sepia(100%) saturate(0) hue-rotate(2deg)
-            brightness(109%) contrast(101%);
-        }
-      `;
-    }
+    return css``;
   }};
 `;
 
 export const Background = styled.div<BackgroundStruct>`
   margin: 0;
-  padding: 0;
   display: flex;
   border-radius: 50%;
-  ${(props) => {
-    if (props.active && props.ring) {
-      return css`
-        border: 2px solid #990a06;
-      `;
-    } else if (!props.active && props.ring) {
-      return css`
-        border: 2px solid #fff;
-        &:hover {
-          border: 2px solid #990a06;
-        }
-      `;
-    } else {
-      return css`
-        border: 2px solid #fff;
-      `;
+  padding: 15px;
+  background-color: #fff;
+  &:hover {
+    background-color: #990a06;
+    > * {
+      filter: invert(100%) sepia(100%) saturate(0) hue-rotate(2deg)
+        brightness(109%) contrast(101%);
     }
-  }};
+  }
+
   ${(props) => {
-    if (props.active && props.indicator) {
+    if (props.active) {
       return css`
         background-color: #990a06;
       `;
-    } else if (!props.active && props.indicator) {
-      return css`
-        &:hover {
-          background-color: #990a06;
-        }
-      `;
-    } else {
-      return css`
-        background-color: #fff;
-      `;
     }
-  }}
+    return css``;
+  }};
 `;
 
 export const Item = styled.div`
@@ -99,7 +73,13 @@ export const Item = styled.div`
 
 export const Title = styled.span`
   width: auto;
-  font-size: 1rem;
   margin-top: 0.5rem;
   text-align: center;
+  max-width: 110px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  @media (max-width: 640px) {
+    font-size: 13px;
+  }
 `;
