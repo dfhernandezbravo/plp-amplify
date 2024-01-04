@@ -8,6 +8,7 @@ export type SearchByCategoriesRequest = {
   sort?: string;
   filter?: string;
   query?: string;
+  clusterId?: string;
 };
 
 export type SearchByCategoriesResponse = {

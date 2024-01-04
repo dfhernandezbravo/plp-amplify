@@ -3,35 +3,35 @@ import PLPDefault from '@modules/plp-standard/variants/plp-default';
 import PLPLayout from '@presentation/layouts/plp-layout';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { setSearchState } from '@store/slices/products';
-import getSearch from '@use-cases/product/get-search';
+import getByClusterId from '@use-cases/product/get-cluster-id';
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 import React from 'react';
 import { useQuery } from 'react-query';
 
 interface SearchQueryParams extends ParsedUrlQuery {
-  search: string;
+  clusterId: string;
   filter: string;
 }
 
 const PLPContent: React.FC = () => {
   const { query } = useRouter();
-  const { search, filter } = query as SearchQueryParams;
+  const { clusterId, filter } = query as SearchQueryParams;
   const { count, page, sort } = useAppSelector((state) => state.products);
   const dispatch = useAppDispatch();
 
   const { data: searchResponse, isLoading: isLoadingProducts } = useQuery(
-    ['get-search', search, count, page, sort, filter],
+    ['get-search-by-cluster', clusterId, count, page, sort, filter],
     () =>
-      getSearch({
-        query: search,
+      getByClusterId({
+        clusterId,
         count,
         page,
         sort,
         filter,
       }),
     {
-      enabled: !!search,
+      enabled: !!clusterId,
     },
   );
 
@@ -42,7 +42,7 @@ const PLPContent: React.FC = () => {
   return <PLPDefault />;
 };
 
-const SearchPLPPage = () => {
+const ClusterPLPPage = () => {
   return (
     <PLPLayout>
       <PLPContent />
@@ -50,4 +50,4 @@ const SearchPLPPage = () => {
   );
 };
 
-export default SearchPLPPage;
+export default ClusterPLPPage;
