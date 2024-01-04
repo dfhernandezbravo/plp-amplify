@@ -1,9 +1,11 @@
 export type Item = {
   link: string;
   mobileImage?: string;
-  image: string;
+  image?: string;
   alt?: string;
   title?: string;
+  imageUrl?: string;
+  key: string;
 };
 
 export type Content = {

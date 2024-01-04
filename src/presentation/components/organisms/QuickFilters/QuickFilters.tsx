@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 // Components
-import Link from '../../atoms/Link';
 import Carousel, { BreakPoints } from '../../molecules/Carousel';
 
 // Styled components
@@ -9,10 +8,14 @@ import { Background, Container, Image, Item, Title } from './styles';
 
 // Definitions
 import { Props } from './types';
+import { useRouter } from 'next/router';
 
 const QuickFilters = (props: Props) => {
+  // Hooks
+  const router = useRouter();
+
   // Props
-  const { filters, currentUrl, indicator, ring, onClick } = props;
+  const { filters, currentUrl, ring, onClick } = props;
 
   // Constants
   const breakpoints: BreakPoints = {
@@ -32,10 +35,9 @@ const QuickFilters = (props: Props) => {
 
   // State
   const [initialSlide, setInitialSlide] = useState<number>(0);
+  const [filterActive, setFilterActive] = useState<string>('');
 
   // Methods
-  const calculateActive = (url: string) =>
-    !!currentUrl && url.includes(currentUrl);
   const calculateInitialSlide = () => {
     if (currentUrl) {
       const index = filters.findIndex((filter) => filter.link === currentUrl);
@@ -48,38 +50,34 @@ const QuickFilters = (props: Props) => {
     calculateInitialSlide();
   }, [filters, currentUrl]);
 
+  useEffect(() => {
+    const { product } = router.query;
+    if (product) {
+      setFilterActive(product as string);
+    }
+  }, [router.query]);
+
   return (
     <Container>
       <Carousel center breakpoints={breakpoints} initialSlide={initialSlide}>
         {filters.map((filter, filterIndex) => {
-          const { link, image, alt } = filter;
+          const { imageUrl, title, key } = filter;
           return (
-            <Link
-              key={filterIndex}
-              url={link}
-              onClick={() => onClick?.(filter)}
-            >
+            <div key={filterIndex} onClick={() => onClick?.(filter)}>
               <Item>
-                <Background
-                  ring={ring}
-                  indicator={indicator}
-                  active={calculateActive(link)}
-                >
-                  <Image
-                    src={image}
-                    alt={`Filtro ${alt}`}
-                    width={50}
-                    height={50}
-                    padding={15}
-                    ring={ring}
-                    indicator={indicator}
-                    active={calculateActive(link)}
-                    priority
-                  />
+                <Background ring={ring} active={key === filterActive}>
+                  {imageUrl && (
+                    <Image
+                      image={imageUrl}
+                      ring={ring}
+                      active={key === filterActive}
+                      alt={`Filtro ${title}`}
+                    />
+                  )}
                 </Background>
-                <Title>{alt}</Title>
+                <Title>{title}</Title>
               </Item>
-            </Link>
+            </div>
           );
         })}
       </Carousel>
