@@ -12,6 +12,9 @@ interface ProductRepository {
   getSearch: (
     request: SearchByCategoriesRequest,
   ) => Promise<AxiosResponse<SearchByCategoriesResponse>>;
+  getByClusterId: (
+    request: SearchByCategoriesRequest,
+  ) => Promise<AxiosResponse<SearchByCategoriesResponse>>;
 }
 
 const productRespository = (httpInstance = bffInstance): ProductRepository => ({
@@ -23,6 +26,13 @@ const productRespository = (httpInstance = bffInstance): ProductRepository => ({
     httpInstance.get<SearchByCategoriesResponse>('/search', {
       params: { count, page, query, sort, filter },
     }),
+  getByClusterId: ({ count, query, page, sort, filter, clusterId }) =>
+    httpInstance.get<SearchByCategoriesResponse>(
+      `/search/clusters/${clusterId}`,
+      {
+        params: { count, page, query, sort, filter },
+      },
+    ),
 });
 
 export default productRespository;
