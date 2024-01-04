@@ -2,15 +2,21 @@ import { ProductCard } from '@cencosud-ds/easy-design-system';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import styles from '../../styles.module.css';
 import { ProductsContainer } from './styles';
-import { useRouter } from 'next/router';
-import { ProductPLP, setPage } from '@store/slices/products';
-import Link from 'next/link';
 import ProductPagination from './components/product-pagination';
+import { setPage, ProductPLP } from '@store/slices/products';
+import { useRouter } from 'next/router';
 
 const ProductsPLP = () => {
-  const { products, layout } = useAppSelector((state) => state.products);
+  const dispatch = useAppDispatch();
   const router = useRouter();
+  const { products, layout, page, recordsFiltered, count } = useAppSelector(
+    (state) => state.products,
+  );
+  const pagesCount = Math.ceil(recordsFiltered / count);
 
+  const onPageChange = (page: number) => {
+    dispatch(setPage(page));
+  };
   const handleClickCard = (product: ProductPLP) => {
     router.push(`/${product.linkText}/p`);
   };
