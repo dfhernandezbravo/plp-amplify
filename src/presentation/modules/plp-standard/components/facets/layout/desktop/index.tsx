@@ -16,20 +16,33 @@ const FacetsDesktop = () => {
     return Element && <Component facet={facet} />;
   };
 
+  const handleRenderFacets = (facet: Facets) => {
+    /*
+     * Utilizar esta funcion para filtrados remotos desde el CMS por reglas de negocio
+     **/
+    if (!facet) return null;
+    return facet;
+  };
+
   return (
     <div className={styles.facets}>
       <FacetsContainer>
         <FacetsHeader />
-
-        {facets.map((facet) => (
-          <div key={facet.key}>
-            {!facet.key.includes('category') && (
-              <Accordion title={facet.name} isBeginOpen>
-                <ComponentRender facet={facet} />
-              </Accordion>
-            )}
-          </div>
-        ))}
+        {facets?.length > 0 &&
+          facets
+            ?.filter((f) => !f.hidden)
+            ?.map((facet) => {
+              const filterFacet = handleRenderFacets(facet);
+              return (
+                <div key={facet.key}>
+                  {filterFacet && (
+                    <Accordion title={facet.name} isBeginOpen>
+                      <ComponentRender facet={facet} />
+                    </Accordion>
+                  )}
+                </div>
+              );
+            })}
       </FacetsContainer>
     </div>
   );
