@@ -4,5 +4,7 @@
   "grid-red": "grid-red.svg",
   "list": "list.svg",
   "list-red": "list-red.svg",
-  "sort": "sort.svg"
+  "sort": "sort.svg",
+  "paginator-prev": "paginator-prev.svg",
+  "paginator-next": "paginator-next.svg"
 }

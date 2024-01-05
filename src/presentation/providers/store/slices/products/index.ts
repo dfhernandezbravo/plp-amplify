@@ -59,6 +59,9 @@ const productSlice = createSlice({
     setOpenOrderMobile: (state, { payload }: { payload: boolean }) => {
       state.isOpenOrderMobile = payload;
     },
+    setPage: (state, { payload }: { payload: number }) => {
+      state.page = payload;
+    },
   },
 });
 
@@ -68,5 +71,6 @@ export const {
   setSort,
   setOpenFacetsMobile,
   setOpenOrderMobile,
+  setPage,
 } = productSlice.actions;
 export default productSlice;
