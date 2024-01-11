@@ -1,6 +1,19 @@
-import { Textfield } from '@cencosud-ds/easy-design-system';
 import styled from 'styled-components';
 
-export const TextfieldPrice = styled(Textfield)`
-  min-width: 50px;
+export const PriceInputContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: ${({ theme: { spacing } }) => spacing[100]};
+  width: 100%;
+  padding: 10px ${({ theme: { spacing } }) => spacing[50]};
+`;
+
+export const TextfieldPrice = styled.input`
+  width: 80px;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px;
+  gap: 10px;
+  border: 1px solid #aaaaaa;
+  padding: 0px 10px;
 `;
