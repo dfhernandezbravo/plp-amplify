@@ -34,8 +34,7 @@ const PLPCMS = ({ contentCMS }: Props) => {
     const showElement = enabled && isVisible(element);
     const Component = ContentComponent[component];
     if (!Component) return null;
-
-    return Element ? showElement ? <Component {...element} /> : null : null;
+    return showElement ? <Component {...element} /> : null;
   };
 
   const ContentRender = (props: ContentRenderProps) => {

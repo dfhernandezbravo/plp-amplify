@@ -20,6 +20,14 @@ function useCMSDateValidator() {
 
   const cmsDateValidator = (values: TimeProps): boolean => {
     const { startDate, endDate, isActive } = values;
+
+    if (
+      isActive === undefined &&
+      endDate === undefined &&
+      startDate === undefined
+    )
+      return true;
+
     const now = convertTimezoneToNumber(new Date());
     const start = convertTimezoneToNumber(startDate);
     const end = convertTimezoneToNumber(endDate);

@@ -8,4 +8,5 @@ export default interface PlpQueryParams extends ParsedUrlQuery {
   count?: string;
   page?: string;
   sort?: string;
+  eventName?: string;
 }

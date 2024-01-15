@@ -4,7 +4,7 @@ export const Container = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   max-width: 80rem;
-  /* grid-template-rows: 0.1fr 0.1fr 0.5fr 0.2fr 0.2fr 4fr 0.5fr; */
+  grid-template-rows: auto auto auto auto auto 1fr auto;
   gap: 12px;
   grid-auto-flow: row;
   grid-template-areas:

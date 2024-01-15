@@ -25,6 +25,7 @@
 
 .products {
   grid-area: products;
+  align-self: start;
 }
 
 .pagination {
