@@ -24,6 +24,7 @@ export type Content = {
   title?: string;
   visibleMobile?: boolean;
   visibleDesktop?: boolean;
+  clusterId?: string;
 };
 
 export type CMSBody = {

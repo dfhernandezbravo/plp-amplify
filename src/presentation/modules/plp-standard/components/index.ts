@@ -7,6 +7,7 @@ import ProductsPLP from './products';
 import PromotionalRibbons from './promotional-ribbon';
 import PromotionalText from './promotional-text';
 import QuickFiltersCMS from './quick-filters';
+import InputClusterIdCMS from './input-cluster-id';
 
 type R<P = Record<string, never>> = React.FC<P>;
 
@@ -23,6 +24,7 @@ const ContentComponent: ComponentsCMS = {
   'quick-filter-plp': QuickFiltersCMS,
   'products-plp': ProductsPLP,
   'promotional-text-plp': PromotionalText,
+  'input-cluster-id': InputClusterIdCMS,
 };
 
 export default ContentComponent;
