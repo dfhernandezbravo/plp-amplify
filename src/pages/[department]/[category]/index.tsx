@@ -17,10 +17,10 @@ interface Props {
 }
 
 const PLPContent: React.FC<Props> = ({ contentCMS }) => {
-  const { count, page, sort } = useAppSelector((state) => state.products);
+  const { count, sort } = useAppSelector((state) => state.products);
   const dispatch = useAppDispatch();
   const { query } = useRouter();
-  const { category, department, filter } = query as PlpQueryParams;
+  const { category, department, filter, page } = query as PlpQueryParams;
   const urlBase = `${department}/${category}`;
 
   const { data: searchResponse, isLoading: isLoadingProducts } = useQuery(

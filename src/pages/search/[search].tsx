@@ -12,12 +12,13 @@ import { useQuery } from 'react-query';
 interface SearchQueryParams extends ParsedUrlQuery {
   search: string;
   filter: string;
+  page: string;
 }
 
 const PLPContent: React.FC = () => {
   const { query } = useRouter();
-  const { search, filter } = query as SearchQueryParams;
-  const { count, page, sort } = useAppSelector((state) => state.products);
+  const { search, filter, page } = query as SearchQueryParams;
+  const { count, sort } = useAppSelector((state) => state.products);
   const dispatch = useAppDispatch();
 
   const { data: searchResponse, isLoading: isLoadingProducts } = useQuery(
