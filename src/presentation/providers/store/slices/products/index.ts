@@ -15,24 +15,24 @@ type ProductSliceState = {
   facets: Facets[];
   recordsFiltered: number;
   count: number;
-  page: number;
   sort?: OrderOptions;
   layout: LayoutOptions;
   filter?: string;
   isOpenFacetsMobile: boolean;
   isOpenOrderMobile: boolean;
+  page: string;
 };
 
 const initialState: ProductSliceState = {
   products: [],
   facets: [],
   count: 10,
-  page: 1,
   recordsFiltered: 0,
   sort: 'orders:desc',
   layout: 'grid',
   isOpenFacetsMobile: false,
   isOpenOrderMobile: false,
+  page: '1',
 };
 
 const productSlice = createSlice({
@@ -59,9 +59,6 @@ const productSlice = createSlice({
     setOpenOrderMobile: (state, { payload }: { payload: boolean }) => {
       state.isOpenOrderMobile = payload;
     },
-    setPage: (state, { payload }: { payload: number }) => {
-      state.page = payload;
-    },
   },
 });
 
@@ -71,6 +68,5 @@ export const {
   setSort,
   setOpenFacetsMobile,
   setOpenOrderMobile,
-  setPage,
 } = productSlice.actions;
 export default productSlice;

@@ -11,7 +11,7 @@ interface Props {
   maxPagesCount: number;
   currentPage: number;
   pagesCount: number;
-  setCurrentPage: (page: number) => void;
+  setCurrentPage: (page: string) => void;
 }
 
 const ProductPagination = (props: Props) => {
@@ -22,7 +22,7 @@ const ProductPagination = (props: Props) => {
   const [endPage, setEndPage] = useState<number>(maxPagesCount);
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page);
+    setCurrentPage(page.toString());
   };
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const ProductPagination = (props: Props) => {
               active={page === currentPage}
               onClick={() => handlePageChange(page)}
             >
-              {page}
+              <span>{page}</span>
             </Page>
           ))}
         {endPage < pagesCount && (

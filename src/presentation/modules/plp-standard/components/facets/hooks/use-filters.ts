@@ -13,12 +13,12 @@ export default function useFilters(currentFilter: string) {
     const newCurrentFilter = currentFilter
       ? `${currentFilter}/${newFilter}`
       : newFilter;
-    updateQueryParams({ filter: newCurrentFilter });
+    updateQueryParams({ filter: newCurrentFilter, page: '1' });
   };
 
   const removeFilter = (oldFilter: string) => {
     const newCurrentFilter = removeSpecificBlock(currentFilter, oldFilter);
-    updateQueryParams({ filter: newCurrentFilter });
+    updateQueryParams({ filter: newCurrentFilter, page: '1' });
   };
 
   return {

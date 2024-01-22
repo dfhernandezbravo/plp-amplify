@@ -19,8 +19,6 @@ export const ButtonsContainer = styled.ul`
 `;
 
 export const Page = styled.li<PageProps>`
-  width: 32px;
-  height: 32px;
   list-style-type: none;
   border-radius: 50%;
   padding: 8px;
@@ -28,6 +26,12 @@ export const Page = styled.li<PageProps>`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  span {
+    font-weight: 600;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+  }
   &:hover {
     border: 1px solid #4d4d4d;
   }

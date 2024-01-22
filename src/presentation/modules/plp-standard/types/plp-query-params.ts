@@ -6,7 +6,7 @@ export default interface PlpQueryParams extends ParsedUrlQuery {
   product?: string;
   filter?: string;
   count?: string;
-  page?: string;
+  page: string;
   sort?: string;
   eventName?: string;
 }

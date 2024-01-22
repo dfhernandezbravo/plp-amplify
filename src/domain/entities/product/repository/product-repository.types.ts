@@ -3,7 +3,7 @@ import { Facets } from '../facets.entity';
 
 export type SearchByCategoriesRequest = {
   count: number;
-  page: number;
+  page: string;
   categories?: string;
   sort?: string;
   filter?: string;
