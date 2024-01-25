@@ -20,3 +20,9 @@ export type Facets = {
   quantity: number;
   values: ValueFacets[];
 };
+
+export type TagFacets = {
+  key: string;
+  value: string;
+  label: string;
+};
