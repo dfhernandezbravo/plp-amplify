@@ -1,12 +1,16 @@
-import { Product, ProductCard } from '@cencosud-ds/easy-design-system';
+import { ProductCard } from '@cencosud-ds/easy-design-system';
 import SwiperEasy, { BreakPoints } from '../swiper';
 import { CarouselContainer } from './styles';
+import { ProductPLP } from '@store/slices/products';
+import { useRouter } from 'next/router';
 
 interface Props {
-  items: Product[];
+  items: ProductPLP[];
 }
 
 const ProductsCarousel = ({ items }: Props) => {
+  const router = useRouter();
+
   const breakpoints: BreakPoints = {
     320: {
       slidesPerView: 1.5,
@@ -22,8 +26,16 @@ const ProductsCarousel = ({ items }: Props) => {
     },
   };
 
-  const renderItem = (item: Product) => (
-    <ProductCard product={item} onClickCard={() => {}} layout="grid" />
+  const handleClickCard = (product: ProductPLP) => {
+    router.push(product.link || '/');
+  };
+
+  const renderItem = (item: ProductPLP) => (
+    <ProductCard
+      product={item}
+      onClickCard={() => handleClickCard(item)}
+      layout="grid"
+    />
   );
 
   return (

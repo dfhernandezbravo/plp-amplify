@@ -1,6 +1,6 @@
-import { Product } from '@cencosud-ds/easy-design-system';
 import ProductsCarousel from '@components/molecules/products-carousel';
 import { Content } from '@entities/cms';
+import { ProductPLP } from '@store/slices/products';
 import getProductsByClusterId from '@use-cases/product/get-products-by-cluster';
 import getProductsByIds from '@use-cases/product/get-products-by-ids';
 import getProductBySkus from '@use-cases/product/get-products-by-skus';
@@ -14,7 +14,7 @@ const FeaturedProducts: React.FC<Content> = ({
   maxItems,
   title,
 }) => {
-  const [productItems, setProductItems] = useState<Product[]>([]);
+  const [productItems, setProductItems] = useState<ProductPLP[]>([]);
 
   const { data: productsCluster } = useQuery(
     ['get-products-by-cluster', { products, maxItems }],

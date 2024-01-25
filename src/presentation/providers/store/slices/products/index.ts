@@ -8,6 +8,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export type ProductPLP = Product &
   Partial<{
     linkText: string;
+    link: string;
   }>;
 
 type ProductSliceState = {

@@ -1,9 +1,9 @@
-import { Product } from '@cencosud-ds/easy-design-system';
 import bffInstance from '@data-sources/bff-web-instance';
 import {
   SearchByCategoriesRequest,
   SearchByCategoriesResponse,
 } from '@entities/product/repository/product-repository.types';
+import { ProductPLP } from '@store/slices/products';
 import { AxiosResponse } from 'axios';
 
 interface ProductRepository {
@@ -19,9 +19,9 @@ interface ProductRepository {
   getProductsByClusterId: (
     clusterId: string,
     maxItems: number,
-  ) => Promise<AxiosResponse<Product[]>>;
-  getProductsByIds: (ids: string) => Promise<AxiosResponse<Product[]>>;
-  getProductsBySkuIds: (skus: string) => Promise<AxiosResponse<Product[]>>;
+  ) => Promise<AxiosResponse<ProductPLP[]>>;
+  getProductsByIds: (ids: string) => Promise<AxiosResponse<ProductPLP[]>>;
+  getProductsBySkuIds: (skus: string) => Promise<AxiosResponse<ProductPLP[]>>;
 }
 
 const productRespository = (httpInstance = bffInstance): ProductRepository => ({
