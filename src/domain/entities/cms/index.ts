@@ -24,6 +24,8 @@ export type Content = {
   title?: string;
   visibleMobile?: boolean;
   visibleDesktop?: boolean;
+  popularSearches?: string;
+  icon?: string;
   clusterId?: string;
 };
 
