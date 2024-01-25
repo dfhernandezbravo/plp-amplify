@@ -8,6 +8,7 @@ import {
   TextRecords,
   TitleHeader,
 } from './styles';
+import FacetsTags from '../../facets-tags';
 
 const FacetsHeaderDesktop = () => {
   const { clearText } = useTransformText();
@@ -27,6 +28,8 @@ const FacetsHeaderDesktop = () => {
       </TextBreadcrumb>
 
       <TextRecords>{recordsFiltered} productos encontrados</TextRecords>
+
+      <FacetsTags />
     </HeaderContainer>
   );
 };
