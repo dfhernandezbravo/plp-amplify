@@ -18,4 +18,6 @@ export type Props = {
   slidesPerView?: number;
   slidesPerGroup?: number;
   breakpoints?: BreakPoints;
+  rowsGrid?: number;
+  fillGrid?: 'column' | 'row';
 };

@@ -1,15 +1,21 @@
 import styled from 'styled-components';
 
 export const SearchNotFoundContainer = styled.div`
-  display: flex;
   width: 100%;
-  /* justify-content: center; */
-  align-items: center;
-  flex-direction: column;
-  gap: 24px;
+
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+  }
 
   .container {
-    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    padding: 12px;
 
     @media (min-width: 1024px) {
       width: 80rem;

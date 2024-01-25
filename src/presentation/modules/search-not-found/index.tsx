@@ -13,7 +13,7 @@ const SearchNotFound: React.FC<Props> = ({ searchTerm }) => {
     getContentViewCms('search-not-found'),
   );
 
-  if (!data) return <div>Error!!!</div>;
+  if (!data) return null;
 
   return (
     <SearchNotFoundContainer>

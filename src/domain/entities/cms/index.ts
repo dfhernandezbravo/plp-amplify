@@ -8,6 +8,11 @@ export type Item = {
   key: string;
 };
 
+export enum ShapeTypes {
+  CIRCLE = 'circle',
+  SQUARE = 'square',
+}
+
 export type Content = {
   fullWidth?: boolean;
   backgroundColor?: string;
@@ -27,6 +32,11 @@ export type Content = {
   popularSearches?: string;
   icon?: string;
   clusterId?: string;
+  shape: ShapeTypes;
+  itemsPerRow: number;
+  products: string;
+  fieldName: 'clusterId' | 'skuId' | 'productId';
+  maxItems: number;
 };
 
 export type CMSBody = {
