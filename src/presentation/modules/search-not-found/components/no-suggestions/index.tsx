@@ -19,7 +19,7 @@ const NoSuggestions: React.FC<Content> = ({
       <PopularSearchesContainer>
         <h2 className="title">Búsquedas Populares</h2>
         {popularSearches?.split(',').map((item, index) => (
-          <LinkPopularSearch key={`${item}-${index}`} href={`/${item}/p`}>
+          <LinkPopularSearch key={`${item}-${index}`} href={`/search/${item}`}>
             {item}
           </LinkPopularSearch>
         ))}
