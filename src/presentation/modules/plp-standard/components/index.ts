@@ -1,4 +1,4 @@
-import { Content } from '@entities/cms';
+import { ComponentsCMS } from '@entities/cms/components-cms';
 import BannerCarousel from './banner-carousel';
 import BreadcrumbPLP from './breadcrumb';
 import Facets from './facets';
@@ -7,12 +7,6 @@ import ProductsPLP from './products';
 import PromotionalRibbons from './promotional-ribbon';
 import PromotionalText from './promotional-text';
 import QuickFiltersCMS from './quick-filters';
-
-type R<P = Record<string, never>> = React.FC<P>;
-
-export interface ComponentsCMS {
-  [key: string]: R<Content>;
-}
 
 const ContentComponent: ComponentsCMS = {
   'promotional-ribbon': PromotionalRibbons,
