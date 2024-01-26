@@ -10,7 +10,6 @@ import { useAppSelector } from '@store/hooks';
 
 const PLPDefault = () => {
   const { isOpenFacetsMobile } = useAppSelector((state) => state.products);
-
   return (
     <PlpContainer>
       <Layout is={['Desktop']}>

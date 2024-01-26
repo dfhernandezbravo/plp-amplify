@@ -21,6 +21,7 @@ const PLPContent: React.FC = () => {
   const { count, sort } = useAppSelector((state) => state.products);
   const dispatch = useAppDispatch();
 
+  console.log('search', { query, search });
   const { data: searchResponse, isLoading: isLoadingProducts } = useQuery(
     ['get-search', search, count, page, sort, filter],
     () =>
@@ -35,6 +36,7 @@ const PLPContent: React.FC = () => {
       enabled: !!search,
     },
   );
+  console.log('searchResponse', searchResponse);
 
   if (searchResponse) dispatch(setSearchState(searchResponse));
 
