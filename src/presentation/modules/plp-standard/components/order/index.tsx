@@ -23,7 +23,9 @@ const OrderCMS = () => {
   const { device } = useDevice();
   const { query } = useRouter();
   const { category } = query as PageUrlQuery;
-  const { sort, layout } = useAppSelector((state) => state.products);
+  const { sort, layout, recordsFiltered } = useAppSelector(
+    (state) => state.products,
+  );
   const dispatch = useAppDispatch();
 
   const getTitle = (): string => {
@@ -59,6 +61,7 @@ const OrderCMS = () => {
         title={getTitle()}
         onDisplayChange={onDisplayChange}
         onFilterChange={onFilterChange}
+        count={recordsFiltered}
       />
     </div>
   );
