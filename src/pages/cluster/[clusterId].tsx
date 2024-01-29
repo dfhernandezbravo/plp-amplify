@@ -1,5 +1,6 @@
 import SearchSkeleton from '@modules/plp-standard/components/search-skeleton';
 import PLPDefault from '@modules/plp-standard/variants/plp-default';
+import SearchNotFound from '@modules/search-not-found';
 import PLPLayout from '@presentation/layouts/plp-layout';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { setSearchState } from '@store/slices/products';
@@ -37,6 +38,10 @@ const PLPContent: React.FC = () => {
   );
 
   if (searchResponse) dispatch(setSearchState(searchResponse));
+
+  if (!searchResponse || searchResponse.recordsFiltered === 0) {
+    return <SearchNotFound view="plp-not-found" />;
+  }
 
   if (isLoadingProducts) return <SearchSkeleton />;
 

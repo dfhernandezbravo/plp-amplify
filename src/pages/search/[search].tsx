@@ -40,7 +40,12 @@ const PLPContent: React.FC = () => {
   if (isLoadingProducts) return <SearchSkeleton />;
 
   if (!searchResponse || searchResponse.recordsFiltered === 0) {
-    return <SearchNotFound searchTerm={search} />;
+    return (
+      <SearchNotFound
+        title={`Sin resultados de búsqueda para "${search}"`}
+        view="search-not-found"
+      />
+    );
   }
 
   if (searchResponse) {

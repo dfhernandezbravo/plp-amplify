@@ -1,7 +1,7 @@
 import { Content } from '@entities/cms';
 import SearchSkeleton from '@modules/plp-standard/components/search-skeleton';
 import PLPCMS from '@modules/plp-standard/variants/plp-cms';
-import PLPDefault from '@modules/plp-standard/variants/plp-default';
+import SearchNotFound from '@modules/search-not-found';
 import PLPLayout from '@presentation/layouts/plp-layout';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { setSearchState } from '@store/slices/products';
@@ -13,7 +13,7 @@ import { useMemo } from 'react';
 import { useQuery } from 'react-query';
 
 interface Props {
-  contentCMS: Content[] | null;
+  contentCMS: Content[];
 }
 interface PlpQueryParams extends ParsedUrlQuery {
   eventName: string;
@@ -45,18 +45,29 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
     },
   );
 
-  if (searchResponse) dispatch(setSearchState(searchResponse));
   if (isLoadingProducts) return <SearchSkeleton />;
 
-  if (contentCMS) return <PLPCMS contentCMS={contentCMS} />;
+  if (!searchResponse || searchResponse.recordsFiltered === 0) {
+    return <SearchNotFound view="plp-not-found" />;
+  }
 
-  return <PLPDefault />;
+  dispatch(setSearchState(searchResponse));
+
+  return <PLPCMS contentCMS={contentCMS} />;
 };
 
 export const getServerSideProps = (async (context) => {
   const { query } = context;
   const { eventName } = query as PlpQueryParams;
   const contentCMS = await getContentViewCms(eventName);
+
+  if (!contentCMS) {
+    return {
+      props: {
+        contentCMS: [],
+      },
+    };
+  }
 
   return {
     props: {
