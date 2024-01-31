@@ -9,10 +9,21 @@ import { Container, TextArea, DisplayArea, ButtonBoxContainer } from './styles';
 
 // Definitions
 import { Props } from '../../types';
+import { useAppSelector } from '@store/hooks';
+import Filter from '@components/molecules/Filter';
 
 const Mobile = (props: Props) => {
+  const { isOpenOrderMobile } = useAppSelector((state) => state.products);
   // Props
-  const { count, title, queryParams, isShowButtonBox = true, onChange } = props;
+  const {
+    count,
+    title,
+    queryParams,
+    isShowButtonBox = true,
+    onChange,
+    onFilterChange,
+    onBlur,
+  } = props;
 
   // Refs
   const buttonBoxRef = useRef<HTMLDivElement>(null);
@@ -68,6 +79,13 @@ const Mobile = (props: Props) => {
           <ButtonBox area="buttons" onClick={onButtonBoxClick} />
         </ButtonBoxContainer>
       )}
+      {isOpenOrderMobile ? (
+        <Filter
+          onChange={onFilterChange}
+          defaultValue={queryParams?.order}
+          onBlur={onBlur}
+        />
+      ) : null}
     </Container>
   );
 };

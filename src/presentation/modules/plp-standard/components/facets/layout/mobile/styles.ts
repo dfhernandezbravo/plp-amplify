@@ -14,6 +14,9 @@ const animationModal = keyframes`
 `;
 
 export const FacetsContainerMobile = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
   height: 100dvh;
   background-color: white;
   animation-name: ${animationModal};

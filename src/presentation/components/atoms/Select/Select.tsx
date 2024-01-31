@@ -20,6 +20,8 @@ const Select = (props: Props) => {
     clearable = false,
     defaultValue,
     onChange,
+    onBlur,
+    isMobile,
   } = props;
 
   // Methods
@@ -42,6 +44,10 @@ const Select = (props: Props) => {
         isSearchable={searchable}
         defaultValue={defaultValue}
         onChange={onChangeSelect}
+        onBlur={onBlur}
+        autoFocus={isMobile ? true : false}
+        openMenuOnFocus={true}
+        closeMenuOnSelect={true}
       />
     </Container>
   );

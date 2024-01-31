@@ -12,10 +12,11 @@ import { Props, OrderOptions } from './types';
 
 // Constants
 import { options } from './constants';
+import { Layout } from '@cencosud-ds/easy-design-system';
 
 const Filter = (props: Props) => {
   // Props
-  const { onChange, defaultValue = '' } = props;
+  const { onChange, defaultValue = '', onBlur } = props;
 
   // State
   const [key, setKey] = useState(0);
@@ -43,19 +44,36 @@ const Filter = (props: Props) => {
   }, [defaultValue]);
 
   return (
-    <Container>
-      <Icon id="icon-sort" name="sort" />
-      <Text>Ordenar por:</Text>
-      <Select
-        key={key}
-        id="select-order"
-        name="select-order"
-        className="select-order"
-        options={options}
-        onChange={onOrderChange}
-        defaultValue={currentOption}
-      />
-    </Container>
+    <>
+      <Layout is={['Desktop']}>
+        <Container>
+          <Icon id="icon-sort" name="sort" />
+          <Text>Ordenar por:</Text>
+          <Select
+            key={key}
+            id="select-order"
+            name="select-order"
+            className="select-order"
+            options={options}
+            onChange={onOrderChange}
+            defaultValue={currentOption}
+          />
+        </Container>
+      </Layout>
+      <Layout is={['Tablet', 'Phone']}>
+        <Select
+          key={key}
+          id="select-order"
+          name="select-order"
+          className="select-order"
+          options={options}
+          onChange={onOrderChange}
+          defaultValue={currentOption}
+          onBlur={onBlur}
+          isMobile={true}
+        />
+      </Layout>
+    </>
   );
 };
 
