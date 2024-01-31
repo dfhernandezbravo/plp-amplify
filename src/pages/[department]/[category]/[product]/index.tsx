@@ -3,6 +3,7 @@ import SearchSkeleton from '@modules/plp-standard/components/search-skeleton';
 import PlpQueryParams from '@modules/plp-standard/types/plp-query-params';
 import PLPCMS from '@modules/plp-standard/variants/plp-cms';
 import PLPDefault from '@modules/plp-standard/variants/plp-default';
+import SearchNotFound from '@modules/search-not-found';
 import PLPLayout from '@presentation/layouts/plp-layout';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { setSearchState } from '@store/slices/products';
@@ -35,12 +36,17 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
       }),
     {
       enabled: !!department && !!category && !!product,
+      cacheTime: 0,
     },
   );
 
-  if (searchResponse) dispatch(setSearchState(searchResponse));
-
   if (isLoadingProducts) return <SearchSkeleton />;
+
+  if (!searchResponse || searchResponse.recordsFiltered === 0) {
+    return <SearchNotFound view="plp-not-found" />;
+  }
+
+  dispatch(setSearchState(searchResponse));
 
   if (contentCMS) return <PLPCMS contentCMS={contentCMS} />;
 
