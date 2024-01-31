@@ -33,6 +33,7 @@ const ProductsPLP = () => {
             product={product}
             layout={layout}
             onClickCard={() => handleClickCard(product)}
+            hideCartButton={product.availableQuantity === 0}
           />
         ))}
       </ProductsContainer>
