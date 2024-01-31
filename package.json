@@ -12,6 +12,11 @@
     "format": "prettier --write . --config .prettierrc"
   },
   "dependencies": {
+    "@ccom-easy-design-system/atoms.select": "^0.0.10",
+    "@ccom-easy-design-system/hooks.use-device": "0.0.3",
+    "@ccom-easy-design-system/molecules.product-card": "^0.0.6",
+    "@ccom-easy-design-system/molecules.swiper": "^0.0.16",
+    "@ccom-easy-design-system/theme.theme-provider": "0.0.2",
     "@cencosud-ds/easy-design-system": "^1.1.17",
     "@elgorditosalsero/react-gtm-hook": "^2.7.2",
     "@emotion/react": "^11.11.1",
@@ -41,7 +46,7 @@
     "sanitize-html": "^2.11.0",
     "sass": "^1.62.1",
     "sharp": "^0.32.1",
-    "styled-components": "^6.1.0",
+    "styled-components": "^6.1.8",
     "swiper": "^10.3.1",
     "typescript": "^5.3.3",
     "webpack": "^5.80.0"

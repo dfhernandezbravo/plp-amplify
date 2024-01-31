@@ -1,5 +1,5 @@
 import { BreakPoints } from '@components/molecules/Carousel';
-import SwiperEasy from '@components/molecules/swiper';
+import Swiper from '@components/molecules/swiper';
 import { Content } from '@entities/cms';
 import React from 'react';
 import CategoryCard from './components/category-card';
@@ -35,7 +35,7 @@ const FeaturedCategories: React.FC<Content> = ({
         Descubre nuestras categorías destacadas
       </FeaturedCategoriesTitle>
 
-      <SwiperEasy
+      <Swiper
         items={items}
         renderItem={(item) => <CategoryCard item={item} shape={shape} />}
         isPositionAbsoluteButtons={false}
