@@ -1,0 +1,37 @@
+.promotional-ribbons {
+  grid-area: promotional-ribbons;
+}
+
+.breadcrumb {
+  grid-area: breadcrumb;
+}
+
+.banner-carousel {
+  grid-area: banner-carousel;
+}
+
+.facets {
+  grid-area: facets;
+  max-width: 320px;
+}
+
+.order {
+  grid-area: order;
+}
+
+.quickfilters {
+  grid-area: quickfilters;
+}
+
+.products {
+  grid-area: products;
+  align-self: start;
+}
+
+.pagination {
+  grid-area: pagination;
+}
+
+.promotional-text {
+  grid-area: promotional-text;
+}

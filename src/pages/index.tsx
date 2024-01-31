@@ -1,7 +1,9 @@
-import * as React from 'react';
-
 const App = () => {
-  return <></>;
+  return (
+    <div>
+      <h1>PLP Search</h1>
+    </div>
+  );
 };
 
 export default App;

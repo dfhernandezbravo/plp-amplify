@@ -13,18 +13,38 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: '**',
+        port: '',
+        pathname: '**',
       },
     ],
   },
-
   webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    });
+
     config.plugins.push(
       new NextFederationPlugin({
         name: 'plp',
         filename: 'static/chunks/remoteEntry.js',
-        exposes: {},
+        exposes: {
+          './plp-category': './src/pages/[department]/[category]/index.tsx',
+          './plp-product':
+            './src/pages/[department]/[category]/[product]/index.tsx',
+          './plp-search': './src/pages/search/[search].tsx',
+          './plp-cluster': './src/pages/cluster/[clusterId].tsx',
+          './plp-eventos': './src/pages/eventos/[eventName].tsx',
+        },
         extraOptions: {
+          exposePages: true,
           automaticAsyncBoundary: true,
+        },
+        shared: {
+          'next/link': {
+            requiredVersion: false,
+            singleton: true,
+          },
         },
       }),
     );

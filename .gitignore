@@ -39,3 +39,6 @@ next-env.d.ts
 # ide
 .idea
 **/.vscode/*
+
+# newrelic
+newrelic_agent.log

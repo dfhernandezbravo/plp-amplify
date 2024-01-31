@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["dom", "dom.iterable", "esnext", "ESNext.Array"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -14,10 +14,11 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "allowImportingTsExtensions": true,
+    "baseUrl": ".",
     "paths": {
-      // "@/*": ["./src/*"],
       "@assets/*": ["./src/presentation/assets/*"],
-      "@store/*": ["./src/presentation/store/*"],
+      "@store/*": ["./src/presentation/providers/store/*"],
       "@components/*": ["./src/presentation/components/*"],
       "@hooks/*": ["./src/presentation/hooks/*"],
       "@mocks/*": ["./src/presentation/mocks/*"],
@@ -27,7 +28,8 @@
       "@data-sources/*": ["./src/application/data-sources/*"],
       "@repositories/*": ["./src/application/repositories/*"],
       "@modules/*": ["./src/presentation/modules/*"],
-      "@presentation/*": ["./src/presentation/*"]
+      "@presentation/*": ["./src/presentation/*"],
+      "@providers/*": ["./src/presentation/providers/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
