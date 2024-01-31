@@ -12,9 +12,12 @@ import FacetsTags from '../../facets-tags';
 
 const FacetsHeaderDesktop = () => {
   const { clearText } = useTransformText();
-  const { recordsFiltered } = useAppSelector((state) => state.products);
+  const { recordsFiltered, facets } = useAppSelector((state) => state.products);
   const { query } = useRouter();
   const { department, category, product } = query as PlpQueryParams;
+
+  const title = facets?.find((facet) => facet.key === 'productclusternames')
+    ?.name;
 
   return (
     <HeaderContainer>
@@ -23,8 +26,13 @@ const FacetsHeaderDesktop = () => {
       </TitleHeader>
 
       <TextBreadcrumb>
-        {clearText(department)} • {clearText(category)}
+        {(department || category) && (
+          <>
+            {clearText(department)} • {clearText(category)}
+          </>
+        )}
         {product && <> • {clearText(product)}</>}
+        {title && <>{title}</>}
       </TextBreadcrumb>
 
       <TextRecords>{recordsFiltered} productos encontrados</TextRecords>
