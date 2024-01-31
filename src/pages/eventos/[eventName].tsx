@@ -33,7 +33,11 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
 
   const clusterId = cluster?.clusterId;
 
-  const { data: searchResponse, isLoading: isLoadingProducts } = useQuery(
+  const {
+    data: searchResponse,
+    isLoading: isLoadingProducts,
+    isError,
+  } = useQuery(
     ['get-search-by-cluster', clusterId, count, page, sort, filter],
     () =>
       getByClusterId({
@@ -50,11 +54,13 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
 
   if (isLoadingProducts) return <SearchSkeleton />;
 
-  if (!searchResponse || searchResponse.recordsFiltered === 0) {
+  if (isError) return <SearchNotFound view="plp-not-found" />;
+
+  if (searchResponse!.recordsFiltered === 0) {
     return <SearchNotFound view="plp-not-found" />;
   }
 
-  dispatch(setSearchState(searchResponse));
+  dispatch(setSearchState(searchResponse!));
 
   return <PLPCMS contentCMS={contentCMS} />;
 };

@@ -3,6 +3,7 @@ import getContentViewCms from '@use-cases/cms/get-content-view';
 import { useQuery } from 'react-query';
 import { ComponentsSearchNotFound } from './components';
 import { SearchNotFoundContainer } from './styles';
+import SearchSkeleton from '@modules/plp-standard/components/search-skeleton';
 
 interface Props {
   title?: React.ReactNode;
@@ -10,9 +11,11 @@ interface Props {
 }
 
 const SearchNotFound: React.FC<Props> = ({ title, view }) => {
-  const { data } = useQuery(['get-plp-not-found'], () =>
+  const { data, isLoading } = useQuery(['get-plp-not-found'], () =>
     getContentViewCms(view),
   );
+
+  if (isLoading) return <SearchSkeleton />;
 
   if (!data) return null;
 

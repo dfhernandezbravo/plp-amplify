@@ -24,7 +24,11 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
   const { category, department, filter, page } = query as PlpQueryParams;
   const urlBase = `${department}/${category}`;
 
-  const { data: searchResponse, isLoading: isLoadingProducts } = useQuery(
+  const {
+    data: searchResponse,
+    isLoading: isLoadingProducts,
+    isError,
+  } = useQuery(
     ['get-search-by-category', urlBase, count, page, sort, filter],
     () =>
       getSearchByCategories({
@@ -42,15 +46,15 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
 
   if (isLoadingProducts) return <SearchSkeleton />;
 
-  if (!searchResponse || searchResponse.recordsFiltered === 0) {
+  if (isError) return <SearchNotFound view="plp-not-found" />;
+
+  if (searchResponse!.recordsFiltered === 0) {
     return <SearchNotFound view="plp-not-found" />;
   }
 
-  dispatch(setSearchState(searchResponse));
+  dispatch(setSearchState(searchResponse!));
 
-  if (contentCMS) return <PLPCMS contentCMS={contentCMS} />;
-
-  return <PLPDefault />;
+  return contentCMS ? <PLPCMS contentCMS={contentCMS} /> : <PLPDefault />;
 };
 
 export const getServerSideProps = (async (context) => {

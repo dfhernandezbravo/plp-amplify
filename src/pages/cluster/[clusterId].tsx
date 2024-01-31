@@ -22,7 +22,11 @@ const PLPContent: React.FC = () => {
   const { count, sort } = useAppSelector((state) => state.products);
   const dispatch = useAppDispatch();
 
-  const { data: searchResponse, isLoading: isLoadingProducts } = useQuery(
+  const {
+    data: searchResponse,
+    isLoading: isLoadingProducts,
+    isError,
+  } = useQuery(
     ['get-search-by-cluster', clusterId, count, page, sort, filter],
     () =>
       getByClusterId({
@@ -37,13 +41,17 @@ const PLPContent: React.FC = () => {
     },
   );
 
-  if (searchResponse) dispatch(setSearchState(searchResponse));
+  if (isLoadingProducts) return <SearchSkeleton />;
 
-  if (!searchResponse || searchResponse.recordsFiltered === 0) {
+  if (isError) {
     return <SearchNotFound view="plp-not-found" />;
   }
 
-  if (isLoadingProducts) return <SearchSkeleton />;
+  if (searchResponse!.recordsFiltered === 0) {
+    return <SearchNotFound view="plp-not-found" />;
+  }
+
+  dispatch(setSearchState(searchResponse!));
 
   return <PLPDefault />;
 };
