@@ -22,7 +22,11 @@ const PLPContent: React.FC = () => {
   const { count, sort } = useAppSelector((state) => state.products);
   const dispatch = useAppDispatch();
 
-  const { data: searchResponse, isLoading: isLoadingProducts } = useQuery(
+  const {
+    data: searchResponse,
+    isLoading: isLoadingProducts,
+    isError,
+  } = useQuery(
     ['get-search', search, count, page, sort, filter],
     () =>
       getSearch({
@@ -34,12 +38,13 @@ const PLPContent: React.FC = () => {
       }),
     {
       enabled: !!search,
+      cacheTime: 0,
     },
   );
 
   if (isLoadingProducts) return <SearchSkeleton />;
 
-  if (!searchResponse || searchResponse.recordsFiltered === 0) {
+  if (isError) {
     return (
       <SearchNotFound
         title={`Sin resultados de búsqueda para "${search}"`}
@@ -48,9 +53,16 @@ const PLPContent: React.FC = () => {
     );
   }
 
-  if (searchResponse) {
-    dispatch(setSearchState(searchResponse));
+  if (searchResponse!.recordsFiltered === 0) {
+    return (
+      <SearchNotFound
+        title={`Sin resultados de búsqueda para "${search}"`}
+        view="search-not-found"
+      />
+    );
   }
+
+  dispatch(setSearchState(searchResponse!));
 
   return <PLPDefault />;
 };
