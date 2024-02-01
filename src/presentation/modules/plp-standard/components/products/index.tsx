@@ -1,11 +1,11 @@
-import { ProductCard } from '@cencosud-ds/easy-design-system';
+import ProductCard from '@components/molecules/product-card';
+import useQueryParams from '@hooks/use-query-params';
 import { useAppSelector } from '@store/hooks';
-import styles from '../../styles.module.css';
-import { ProductsContainer } from './styles';
-import ProductPagination from './components/product-pagination';
 import { ProductPLP } from '@store/slices/products';
 import { useRouter } from 'next/router';
-import useQueryParams from '@hooks/use-query-params';
+import styles from '../../styles.module.css';
+import ProductPagination from './components/product-pagination';
+import { ProductsContainer } from './styles';
 
 const ProductsPLP = () => {
   const router = useRouter();
@@ -33,6 +33,7 @@ const ProductsPLP = () => {
             product={product}
             layout={layout}
             onClickCard={() => handleClickCard(product)}
+            hideCartButton={product.availableQuantity === 0}
           />
         ))}
       </ProductsContainer>
@@ -41,7 +42,7 @@ const ProductsPLP = () => {
         currentPage={page ? parseInt(page as string) : 1}
         setCurrentPage={onPageChange}
         pagesCount={pagesCount}
-      ></ProductPagination>
+      />
     </div>
   );
 };

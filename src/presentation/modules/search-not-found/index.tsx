@@ -3,24 +3,26 @@ import getContentViewCms from '@use-cases/cms/get-content-view';
 import { useQuery } from 'react-query';
 import { ComponentsSearchNotFound } from './components';
 import { SearchNotFoundContainer } from './styles';
+import SearchSkeleton from '@modules/plp-standard/components/search-skeleton';
 
 interface Props {
-  searchTerm: string;
+  title?: React.ReactNode;
+  view: 'search-not-found' | 'plp-not-found';
 }
 
-const SearchNotFound: React.FC<Props> = ({ searchTerm }) => {
-  const { data } = useQuery(['get-search-not-found'], () =>
-    getContentViewCms('search-not-found'),
+const SearchNotFound: React.FC<Props> = ({ title, view }) => {
+  const { data, isLoading } = useQuery(['get-plp-not-found'], () =>
+    getContentViewCms(view),
   );
+
+  if (isLoading) return <SearchSkeleton />;
 
   if (!data) return null;
 
   return (
     <SearchNotFoundContainer>
       <div className="container">
-        <h2 className="title">
-          Sin resultados de búsqueda para {`"${searchTerm}"`}
-        </h2>
+        {title && <h2 className="title">{title}</h2>}
 
         <ComposerCMS contentCMS={data} components={ComponentsSearchNotFound} />
       </div>

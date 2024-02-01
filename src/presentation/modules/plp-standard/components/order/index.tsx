@@ -1,10 +1,8 @@
-import { useDevice } from '@cencosud-ds/easy-design-system';
+// import { useDevice } from '@ccom-easy-design-system/hooks.use-device';
 import { LayoutOptions } from '@components/molecules/Display/types';
 import { OrderOptions } from '@components/molecules/Filter/types';
+import { QueryParams } from '@components/organisms/Order';
 import Order from '@components/organisms/Order/Order';
-import { useRouter } from 'next/router';
-import { ParsedUrlQuery } from 'querystring';
-import styles from '../../styles.module.css';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import {
   setLayout,
@@ -12,7 +10,11 @@ import {
   setOpenOrderMobile,
   setSort,
 } from '@store/slices/products';
-import { QueryParams } from '@components/organisms/Order';
+import { useRouter } from 'next/router';
+import { ParsedUrlQuery } from 'querystring';
+import styles from '../../styles.module.css';
+import { useDevice } from '@cencosud-ds/easy-design-system';
+
 interface PageUrlQuery extends ParsedUrlQuery {
   department: string;
   category: string;

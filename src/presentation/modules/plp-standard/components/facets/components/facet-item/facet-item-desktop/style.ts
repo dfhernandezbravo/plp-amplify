@@ -16,6 +16,7 @@ export const FaceItemButton = styled.button`
   flex-direction: row;
   gap: ${({ theme: { spacing } }) => spacing[50]};
   align-items: center;
+  cursor: pointer;
   span {
     white-space: nowrap;
     overflow: hidden;

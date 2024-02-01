@@ -1,5 +1,6 @@
 import SearchSkeleton from '@modules/plp-standard/components/search-skeleton';
 import PLPDefault from '@modules/plp-standard/variants/plp-default';
+import SearchNotFound from '@modules/search-not-found';
 import PLPLayout from '@presentation/layouts/plp-layout';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { setSearchState } from '@store/slices/products';
@@ -21,7 +22,11 @@ const PLPContent: React.FC = () => {
   const { count, sort } = useAppSelector((state) => state.products);
   const dispatch = useAppDispatch();
 
-  const { data: searchResponse, isLoading: isLoadingProducts } = useQuery(
+  const {
+    data: searchResponse,
+    isLoading: isLoadingProducts,
+    isError,
+  } = useQuery(
     ['get-search-by-cluster', clusterId, count, page, sort, filter],
     () =>
       getByClusterId({
@@ -36,9 +41,17 @@ const PLPContent: React.FC = () => {
     },
   );
 
-  if (searchResponse) dispatch(setSearchState(searchResponse));
-
   if (isLoadingProducts) return <SearchSkeleton />;
+
+  if (isError) {
+    return <SearchNotFound view="plp-not-found" />;
+  }
+
+  if (searchResponse!.recordsFiltered === 0) {
+    return <SearchNotFound view="plp-not-found" />;
+  }
+
+  dispatch(setSearchState(searchResponse!));
 
   return <PLPDefault />;
 };

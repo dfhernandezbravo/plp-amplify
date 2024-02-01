@@ -1,62 +1,82 @@
 import { Content } from '@entities/cms';
 import SearchSkeleton from '@modules/plp-standard/components/search-skeleton';
 import PLPCMS from '@modules/plp-standard/variants/plp-cms';
-import PLPDefault from '@modules/plp-standard/variants/plp-default';
+import SearchNotFound from '@modules/search-not-found';
 import PLPLayout from '@presentation/layouts/plp-layout';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { setSearchState } from '@store/slices/products';
 import getContentViewCms from '@use-cases/cms/get-content-view';
 import getByClusterId from '@use-cases/product/get-cluster-id';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
-import { useMemo } from 'react';
 import { useQuery } from 'react-query';
 
 interface Props {
-  contentCMS: Content[] | null;
+  contentCMS: Content[];
 }
 interface PlpQueryParams extends ParsedUrlQuery {
   eventName: string;
+  page: string;
+  filter: string;
 }
 
 const PLPContent: React.FC<Props> = ({ contentCMS }) => {
-  const { count, page, sort } = useAppSelector((state) => state.products);
+  const { count, sort } = useAppSelector((state) => state.products);
+  const { query } = useRouter();
+  const { filter, page } = query as PlpQueryParams;
   const dispatch = useAppDispatch();
 
-  const cluster = useMemo(
-    () => contentCMS?.filter((item) => item.component === 'input-cluster-id'),
-    [contentCMS],
-  );
-  const clusterId = contentCMS?.filter(
+  const cluster = contentCMS?.find(
     (item) => item.component === 'input-cluster-id',
   );
 
-  const { data: searchResponse, isLoading: isLoadingProducts } = useQuery(
-    ['get-search-by-cluster', cluster, count, page, sort],
+  const clusterId = cluster?.clusterId;
+
+  const {
+    data: searchResponse,
+    isLoading: isLoadingProducts,
+    isError,
+  } = useQuery(
+    ['get-search-by-cluster', clusterId, count, page, sort, filter],
     () =>
       getByClusterId({
-        clusterId: clusterId ? clusterId[0].clusterId : '',
+        clusterId,
         count,
         page,
         sort,
+        filter,
       }),
     {
-      enabled: !!cluster && !!count && !!page && !!sort,
+      enabled: !!clusterId,
     },
   );
 
-  if (searchResponse) dispatch(setSearchState(searchResponse));
   if (isLoadingProducts) return <SearchSkeleton />;
 
-  if (contentCMS) return <PLPCMS contentCMS={contentCMS} />;
+  if (isError) return <SearchNotFound view="plp-not-found" />;
 
-  return <PLPDefault />;
+  if (searchResponse!.recordsFiltered === 0) {
+    return <SearchNotFound view="plp-not-found" />;
+  }
+
+  dispatch(setSearchState(searchResponse!));
+
+  return <PLPCMS contentCMS={contentCMS} />;
 };
 
 export const getServerSideProps = (async (context) => {
   const { query } = context;
   const { eventName } = query as PlpQueryParams;
   const contentCMS = await getContentViewCms(eventName);
+
+  if (!contentCMS) {
+    return {
+      props: {
+        contentCMS: [],
+      },
+    };
+  }
 
   return {
     props: {

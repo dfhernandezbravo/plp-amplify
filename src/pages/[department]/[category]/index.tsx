@@ -3,6 +3,7 @@ import SearchSkeleton from '@modules/plp-standard/components/search-skeleton';
 import PlpQueryParams from '@modules/plp-standard/types/plp-query-params';
 import PLPCMS from '@modules/plp-standard/variants/plp-cms';
 import PLPDefault from '@modules/plp-standard/variants/plp-default';
+import SearchNotFound from '@modules/search-not-found';
 import PLPLayout from '@presentation/layouts/plp-layout';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { setSearchState } from '@store/slices/products';
@@ -23,7 +24,11 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
   const { category, department, filter, page } = query as PlpQueryParams;
   const urlBase = `${department}/${category}`;
 
-  const { data: searchResponse, isLoading: isLoadingProducts } = useQuery(
+  const {
+    data: searchResponse,
+    isLoading: isLoadingProducts,
+    isError,
+  } = useQuery(
     ['get-search-by-category', urlBase, count, page, sort, filter],
     () =>
       getSearchByCategories({
@@ -35,16 +40,21 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
       }),
     {
       enabled: !!department && !!category,
+      cacheTime: 0,
     },
   );
 
-  if (searchResponse) dispatch(setSearchState(searchResponse));
-
   if (isLoadingProducts) return <SearchSkeleton />;
 
-  if (contentCMS) return <PLPCMS contentCMS={contentCMS} />;
+  if (isError) return <SearchNotFound view="plp-not-found" />;
 
-  return <PLPDefault />;
+  if (searchResponse!.recordsFiltered === 0) {
+    return <SearchNotFound view="plp-not-found" />;
+  }
+
+  dispatch(setSearchState(searchResponse!));
+
+  return contentCMS ? <PLPCMS contentCMS={contentCMS} /> : <PLPDefault />;
 };
 
 export const getServerSideProps = (async (context) => {
