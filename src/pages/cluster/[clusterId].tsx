@@ -38,6 +38,7 @@ const PLPContent: React.FC = () => {
       }),
     {
       enabled: !!clusterId,
+      cacheTime: 0,
     },
   );
 
