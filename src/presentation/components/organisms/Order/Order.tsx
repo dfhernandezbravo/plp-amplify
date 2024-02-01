@@ -13,6 +13,7 @@ const Order = (props: Props) => {
     onChange,
     onDisplayChange,
     onFilterChange,
+    onBlur,
   } = props;
 
   return (
@@ -34,6 +35,7 @@ const Order = (props: Props) => {
           queryParams={queryParams}
           onDisplayChange={onDisplayChange}
           onFilterChange={onFilterChange}
+          onBlur={onBlur}
         />
       )}
     </Container>

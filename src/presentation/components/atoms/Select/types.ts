@@ -23,5 +23,7 @@ export type Props = {
   style?: CSSProperties;
   clearable?: boolean;
   searchable?: boolean;
+  isMobile?: boolean;
   onChange?: (option: Option) => void;
+  onBlur?: () => void;
 };
