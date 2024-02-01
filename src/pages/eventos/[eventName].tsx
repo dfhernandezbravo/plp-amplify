@@ -49,6 +49,7 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
       }),
     {
       enabled: !!clusterId || !!contentCMS.length,
+      cacheTime: 0,
     },
   );
 
