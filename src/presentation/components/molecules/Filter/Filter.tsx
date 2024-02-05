@@ -37,12 +37,15 @@ const Filter = (props: Props) => {
         <Container>
           <Icon id="icon-sort" name="sort" />
           <Text>Ordenar por:</Text>
-          <Select
-            key={key}
-            options={options}
-            onChange={onOrderChange}
-            value={currentOption}
-          />
+          <div style={{ marginTop: '9px' }}>
+            <Select
+              key={key}
+              options={options}
+              onChange={onOrderChange}
+              value={currentOption}
+              height={40}
+            />
+          </div>
         </Container>
       </Layout>
       <Layout is={['Tablet', 'Phone']}>

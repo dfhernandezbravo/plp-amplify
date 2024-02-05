@@ -12,6 +12,6 @@ export const Container = styled.div`
   }
 `;
 
-export const Text = styled.p`
+export const Text = styled.div`
   font-weight: bold;
 `;
