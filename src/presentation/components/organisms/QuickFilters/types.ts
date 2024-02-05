@@ -4,6 +4,6 @@ export type Props = {
   filters: Item[];
   ring?: boolean;
   indicator?: boolean;
-  currentUrl?: string;
-  onClick?: (filter: Item) => void;
+  currentUrl: string;
+  onClick: (filter: Item) => void;
 };

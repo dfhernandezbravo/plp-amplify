@@ -1,8 +1,8 @@
-import { ProductCard } from '@cencosud-ds/easy-design-system';
-import { CarouselContainer } from './styles';
 import { ProductPLP } from '@store/slices/products';
 import { useRouter } from 'next/router';
+import ProductCard from '../product-card';
 import Swiper, { BreakPoints } from '../swiper';
+import { CarouselContainer } from './styles';
 
 interface Props {
   items: ProductPLP[];
