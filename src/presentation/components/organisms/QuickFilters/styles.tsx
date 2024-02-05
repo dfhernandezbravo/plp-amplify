@@ -1,15 +1,15 @@
 import styled, { css } from 'styled-components';
 
 export type BackgroundStruct = {
-  ring?: boolean;
-  active?: boolean;
-  indicator?: boolean;
+  $ring?: boolean;
+  $active?: boolean;
+  $indicator?: boolean;
 };
 
 export type ItemImage = {
-  padding?: number;
-  image?: string;
-  alt?: string;
+  $padding?: number;
+  $image?: string;
+  $alt?: string;
 } & BackgroundStruct;
 
 export const Container = styled.div`
@@ -22,14 +22,14 @@ export const Image = styled.div<ItemImage>`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-image: ${(props) => `url(${props.image})`};
+  background-image: ${(props) => `url(${props.$image})`};
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   width: 50px;
   height: 50px;
   ${(props) => {
-    if (props.active) {
+    if (props.$active) {
       return css`
         filter: invert(100%) sepia(100%) saturate(0) hue-rotate(2deg)
           brightness(109%) contrast(101%);
@@ -54,7 +54,7 @@ export const Background = styled.div<BackgroundStruct>`
   }
 
   ${(props) => {
-    if (props.active) {
+    if (props.$active) {
       return css`
         background-color: #990a06;
       `;

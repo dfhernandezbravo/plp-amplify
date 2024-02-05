@@ -1495,10 +1495,10 @@
     "@ccom-easy-design-system/theme.easy" "0.0.4"
     styled-components "^6.1.6"
 
-"@ccom-easy-design-system/atoms.select@^0.0.12":
-  version "0.0.12"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.select/-/atoms.select-0.0.12.tgz#1c82f40061a8c7b05fd5aea9ab5b8f34e05185e2"
-  integrity sha512-wQ2PvpZslP7JVW1zbTojxe5L6c0b7M2+ha1hd98NTWAerWXxj+OEkXguZuGSnFpCdEuqecse3x2wMcJeYwqEnA==
+"@ccom-easy-design-system/atoms.select@^0.0.14":
+  version "0.0.14"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.select/-/atoms.select-0.0.14.tgz#8b6369527b1bd9f5762f57be1fc1d193d68e593a"
+  integrity sha512-UkhZRi+bCpf2r3zAI+Dys34+QR/89Vdeg+y64HEbYFVAyofyZpkUrPqRj+h/KEjALFkIsSfNg8p82gfZnf2ndQ==
   dependencies:
     react-icons "^5.0.1"
     react-select "5.8.0"

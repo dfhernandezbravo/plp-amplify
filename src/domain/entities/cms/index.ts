@@ -6,6 +6,7 @@ export type Item = {
   title?: string;
   imageUrl?: string;
   key: string;
+  redirectTo: string;
 };
 
 export enum ShapeTypes {
