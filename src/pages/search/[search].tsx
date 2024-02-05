@@ -53,16 +53,18 @@ const PLPContent: React.FC = () => {
     );
   }
 
-  if (searchResponse!.recordsFiltered === 0) {
-    return (
-      <SearchNotFound
-        title={`Sin resultados de búsqueda para "${search}"`}
-        view="search-not-found"
-      />
-    );
-  }
+  if (searchResponse) {
+    if (searchResponse.recordsFiltered === 0) {
+      return (
+        <SearchNotFound
+          title={`Sin resultados de búsqueda para "${search}"`}
+          view="search-not-found"
+        />
+      );
+    }
 
-  dispatch(setSearchState(searchResponse!));
+    dispatch(setSearchState(searchResponse));
+  }
 
   return <PLPDefault />;
 };

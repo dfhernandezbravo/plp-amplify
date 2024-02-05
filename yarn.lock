@@ -1487,10 +1487,10 @@
     "@ccom-easy-design-system/atoms.icons" "0.0.2"
     styled-components "^6.1.6"
 
-"@ccom-easy-design-system/atoms.ribbon@0.0.5":
-  version "0.0.5"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.ribbon/-/atoms.ribbon-0.0.5.tgz#3e2509439b9e85f28044d06d9f3411c9a5d99f3e"
-  integrity sha512-kmusTVeJ99l9NY2Z4I5Ugvrn3rn+LD7sGtvWS3yZRjikTfHB71TflJ4i9yrUMIS92SZ0Iwq/vXnlJv6ZcqhdUA==
+"@ccom-easy-design-system/atoms.ribbon@0.0.6":
+  version "0.0.6"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.ribbon/-/atoms.ribbon-0.0.6.tgz#cf638375f3dfabee686aeacbfc8b356dd6a1ecbb"
+  integrity sha512-xcBeoEdsqO0aropvW8gYTo0nL+CA4r+ZHDwfGg0STv8+QyjxMJPh7v+0NHTHhyoicmfgDs1AtXRrhh6Fcaaicw==
   dependencies:
     "@ccom-easy-design-system/theme.easy" "0.0.4"
     styled-components "^6.1.6"
@@ -1525,27 +1525,21 @@
   dependencies:
     "@ccom-easy-design-system/hooks.use-media-query" "0.0.1"
 
-"@ccom-easy-design-system/hooks.use-dispatch-event@0.0.1":
-  version "0.0.1"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-dispatch-event/-/hooks.use-dispatch-event-0.0.1.tgz#fc1e968937220c16b40dd6b2d3be0c0b9a23599e"
-  integrity sha512-e8MGIIgblJ6hh1gwRZNJ/6bx3eTu7Yaq4JHmrgIy38fbUXFKRgrT0/Sg1UWzTMj+fdIKfFTIuNRFNJDtakhudQ==
-
 "@ccom-easy-design-system/hooks.use-media-query@0.0.1":
   version "0.0.1"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-media-query/-/hooks.use-media-query-0.0.1.tgz#e6f293dd7f5f67b1eff75cf2772c5b258bd0c932"
   integrity sha512-Cc13qhra7SUGGwSlJvJrbxk0O+p5YPIjWqeuTrUSr5FwfB5+4AyHY6tEH9gdZ3+GQ4D+x4orjS1ooSc/QvVy6g==
 
-"@ccom-easy-design-system/molecules.product-card@^0.0.9":
-  version "0.0.9"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.product-card/-/molecules.product-card-0.0.9.tgz#4ded4e3ff8fb7779ed6f58f4180818a5c69e4af3"
-  integrity sha512-WozWLkrNQ8q+yglXCFpkwvAfAZJTVvmkTTL/7W3WRQLu7Kds/UlVBspRQTKeohPTb06FKqCMcaDh/sRKK6mYEw==
+"@ccom-easy-design-system/molecules.product-card@^0.0.12":
+  version "0.0.12"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.product-card/-/molecules.product-card-0.0.12.tgz#cf855bbc76704d1653c7c315e476b691fadc648a"
+  integrity sha512-xd92jqbDX++/GcLoYYiJdo2+BziBUsi92zatKYJRSODHgDfrWvvwujtF+KKGixerXG3Bf6YJUuuX8kVR3kHpxw==
   dependencies:
     "@ccom-easy-design-system/atoms.button" "0.0.5"
     "@ccom-easy-design-system/atoms.layout" "0.0.4"
     "@ccom-easy-design-system/atoms.price" "0.0.6"
-    "@ccom-easy-design-system/atoms.ribbon" "0.0.5"
+    "@ccom-easy-design-system/atoms.ribbon" "0.0.6"
     "@ccom-easy-design-system/atoms.skeleton" "0.0.2"
-    "@ccom-easy-design-system/hooks.use-dispatch-event" "0.0.1"
     react-icons "^5.0.1"
     styled-components "^6.1.6"
 

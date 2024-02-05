@@ -48,11 +48,13 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
 
   if (isError) return <SearchNotFound view="plp-not-found" />;
 
-  if (searchResponse!.recordsFiltered === 0) {
-    return <SearchNotFound view="plp-not-found" />;
-  }
+  if (searchResponse) {
+    if (searchResponse.recordsFiltered === 0) {
+      return <SearchNotFound view="plp-not-found" />;
+    }
 
-  dispatch(setSearchState(searchResponse!));
+    dispatch(setSearchState(searchResponse!));
+  }
 
   return contentCMS ? <PLPCMS contentCMS={contentCMS} /> : <PLPDefault />;
 };
