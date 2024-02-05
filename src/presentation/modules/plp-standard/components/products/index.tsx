@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import styles from '../../styles.module.css';
 import ProductPagination from './components/product-pagination';
 import { ProductsContainer } from './styles';
+import { Product } from '@ccom-easy-design-system/molecules.product-card/dist/types';
 
 const ProductsPLP = () => {
   const router = useRouter();
@@ -20,8 +21,26 @@ const ProductsPLP = () => {
   const onPageChange = (page: string) => {
     updateQueryParams({ page });
   };
+
   const handleClickCard = (product: ProductPLP) => {
     router.push(`/${product.linkText}/p`);
+  };
+
+  const handleOnClickButton = ({
+    variantId,
+    product,
+  }: {
+    variantId: string;
+    product: Product;
+  }) => {
+    const productSelected = { ...product };
+    productSelected.productId = variantId;
+
+    document.dispatchEvent(
+      new CustomEvent('ADD_ITEM_SHOPPING_CART', {
+        detail: { product: productSelected, quantity: 1 },
+      }),
+    );
   };
 
   return (
@@ -34,6 +53,7 @@ const ProductsPLP = () => {
             layout={layout}
             onClickCard={() => handleClickCard(product)}
             hideCartButton={product.availableQuantity === 0}
+            onClickButton={handleOnClickButton}
           />
         ))}
       </ProductsContainer>

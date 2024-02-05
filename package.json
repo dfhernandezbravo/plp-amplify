@@ -14,7 +14,7 @@
   "dependencies": {
     "@ccom-easy-design-system/atoms.select": "^0.0.14",
     "@ccom-easy-design-system/hooks.use-device": "0.0.3",
-    "@ccom-easy-design-system/molecules.product-card": "^0.0.9",
+    "@ccom-easy-design-system/molecules.product-card": "^0.0.12",
     "@ccom-easy-design-system/molecules.swiper": "^0.0.16",
     "@ccom-easy-design-system/theme.theme-provider": "0.0.2",
     "@cencosud-ds/easy-design-system": "^1.1.17",
