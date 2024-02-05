@@ -2,10 +2,10 @@ import Desktop from './modules/Desktop';
 import Mobile from './modules/Mobile';
 import { Container } from './styles';
 import { Props } from './types';
+import { Layout } from '@cencosud-ds/easy-design-system';
 
 const Order = (props: Props) => {
   const {
-    isMobile,
     count,
     title,
     queryParams,
@@ -18,15 +18,15 @@ const Order = (props: Props) => {
 
   return (
     <Container>
-      {!isMobile && (
+      <Layout is={['Desktop']}>
         <Desktop
           onChange={onChange}
           queryParams={queryParams}
           onDisplayChange={onDisplayChange}
           onFilterChange={onFilterChange}
         />
-      )}
-      {isMobile && (
+      </Layout>
+      <Layout is={['Tablet', 'Phone']}>
         <Mobile
           count={count}
           title={title}
@@ -37,7 +37,7 @@ const Order = (props: Props) => {
           onFilterChange={onFilterChange}
           onBlur={onBlur}
         />
-      )}
+      </Layout>
     </Container>
   );
 };
