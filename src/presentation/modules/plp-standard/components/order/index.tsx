@@ -13,7 +13,6 @@ import {
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 import styles from '../../styles.module.css';
-import { useDevice } from '@cencosud-ds/easy-design-system';
 
 interface PageUrlQuery extends ParsedUrlQuery {
   department: string;
@@ -22,7 +21,6 @@ interface PageUrlQuery extends ParsedUrlQuery {
 }
 
 const OrderCMS = () => {
-  const { device } = useDevice();
   const { query } = useRouter();
   const { category } = query as PageUrlQuery;
   const { sort, layout, recordsFiltered, isOpenOrderMobile } = useAppSelector(
@@ -61,7 +59,6 @@ const OrderCMS = () => {
     <div className={styles.order}>
       <Order
         onChange={onChange}
-        isMobile={device === 'Phone'}
         queryParams={{
           order: sort,
           layout,

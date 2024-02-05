@@ -6,11 +6,9 @@ import ProductsPLP from '@modules/plp-standard/components/products';
 import Desktop from '@modules/plp-standard/layouts/Desktop';
 import Mobile from '@modules/plp-standard/layouts/Mobile';
 import { PlpContainer } from '@modules/plp-standard/styles';
-import { useAppSelector } from '@store/hooks';
 import { useRouter } from 'next/router';
 
 const PLPDefault = () => {
-  const { isOpenFacetsMobile } = useAppSelector((state) => state.products);
   const { asPath } = useRouter();
   const hideBreadcrumb = /cluster|eventos/.test(asPath);
   return (
@@ -28,7 +26,7 @@ const PLPDefault = () => {
         <Mobile>
           {!hideBreadcrumb && <BreadcrumbPLP />}
           <OrderCMS />
-          {isOpenFacetsMobile && <Facets />}
+          <Facets />
           <ProductsPLP />
         </Mobile>
       </Layout>
