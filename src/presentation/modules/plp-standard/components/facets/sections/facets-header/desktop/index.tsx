@@ -16,8 +16,11 @@ const FacetsHeaderDesktop = () => {
   const { query } = useRouter();
   const { department, category, product } = query as PlpQueryParams;
 
-  const title = facets?.find((facet) => facet.key === 'productclusternames')
-    ?.name;
+  const title =
+    facets
+      ?.find((facet) => facet.key === 'productclusternames')
+      ?.values?.map((facetValue) => facetValue.name)
+      ?.join(' - ') || '';
 
   return (
     <HeaderContainer>
