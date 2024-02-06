@@ -13,7 +13,6 @@ import {
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 import styles from '../../styles.module.css';
-import { useDevice } from '@cencosud-ds/easy-design-system';
 
 interface PageUrlQuery extends ParsedUrlQuery {
   department: string;
@@ -22,10 +21,9 @@ interface PageUrlQuery extends ParsedUrlQuery {
 }
 
 const OrderCMS = () => {
-  const { device } = useDevice();
   const { query } = useRouter();
   const { category } = query as PageUrlQuery;
-  const { sort, layout, recordsFiltered } = useAppSelector(
+  const { sort, layout, recordsFiltered, isOpenOrderMobile } = useAppSelector(
     (state) => state.products,
   );
   const dispatch = useAppDispatch();
@@ -48,14 +46,19 @@ const OrderCMS = () => {
   const onChange = (queryParams: QueryParams) => {
     const { event } = queryParams;
     if (event === 'filter') dispatch(setOpenFacetsMobile(true));
-    if (event === 'order') dispatch(setOpenOrderMobile(true));
+    if (event === 'order') dispatch(setOpenOrderMobile(!isOpenOrderMobile));
+  };
+
+  const onBlur = () => {
+    setTimeout(() => {
+      dispatch(setOpenOrderMobile(false));
+    }, 300);
   };
 
   return (
     <div className={styles.order}>
       <Order
         onChange={onChange}
-        isMobile={device === 'Phone'}
         queryParams={{
           order: sort,
           layout,
@@ -64,6 +67,7 @@ const OrderCMS = () => {
         onDisplayChange={onDisplayChange}
         onFilterChange={onFilterChange}
         count={recordsFiltered}
+        onBlur={onBlur}
       />
     </div>
   );

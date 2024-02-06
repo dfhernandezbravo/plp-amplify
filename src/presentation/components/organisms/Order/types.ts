@@ -17,4 +17,5 @@ export type Props = {
   onChange: (queryParams: QueryParams) => void;
   onFilterChange: (order: OrderOptions) => void;
   onDisplayChange: (layout: LayoutOptions) => void;
+  onBlur?: () => void;
 };

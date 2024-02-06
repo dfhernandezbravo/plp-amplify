@@ -8,4 +8,5 @@ export type OrderOptions =
 export type Props = {
   defaultValue?: OrderOptions;
   onChange?: (order: OrderOptions) => void;
+  onBlur?: () => void;
 };

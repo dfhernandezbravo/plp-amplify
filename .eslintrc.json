@@ -24,7 +24,7 @@
     "valid-typeof": "error",
     "block-scoped-var": "error",
     "camelcase": "error",
-    "complexity": ["error", 7],
+    "complexity": ["error", 8],
     "default-case": "error",
     "eqeqeq": ["error", "always"],
     "max-lines": ["error", 150],

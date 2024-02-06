@@ -48,7 +48,8 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
         filter,
       }),
     {
-      enabled: !!clusterId,
+      enabled: !!clusterId || !!contentCMS.length,
+      cacheTime: 0,
     },
   );
 
@@ -56,13 +57,19 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
 
   if (isError) return <SearchNotFound view="plp-not-found" />;
 
-  if (searchResponse!.recordsFiltered === 0) {
-    return <SearchNotFound view="plp-not-found" />;
+  if (searchResponse) {
+    if (searchResponse.recordsFiltered === 0) {
+      return <SearchNotFound view="plp-not-found" />;
+    }
+
+    dispatch(setSearchState(searchResponse));
   }
 
-  dispatch(setSearchState(searchResponse!));
-
-  return <PLPCMS contentCMS={contentCMS} />;
+  return contentCMS.length ? (
+    <PLPCMS contentCMS={contentCMS} />
+  ) : (
+    <SearchNotFound view="plp-not-found" />
+  );
 };
 
 export const getServerSideProps = (async (context) => {

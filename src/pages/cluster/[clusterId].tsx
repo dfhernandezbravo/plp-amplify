@@ -38,6 +38,7 @@ const PLPContent: React.FC = () => {
       }),
     {
       enabled: !!clusterId,
+      cacheTime: 0,
     },
   );
 
@@ -47,11 +48,13 @@ const PLPContent: React.FC = () => {
     return <SearchNotFound view="plp-not-found" />;
   }
 
-  if (searchResponse!.recordsFiltered === 0) {
-    return <SearchNotFound view="plp-not-found" />;
-  }
+  if (searchResponse) {
+    if (searchResponse.recordsFiltered === 0) {
+      return <SearchNotFound view="plp-not-found" />;
+    }
 
-  dispatch(setSearchState(searchResponse!));
+    dispatch(setSearchState(searchResponse!));
+  }
 
   return <PLPDefault />;
 };

@@ -8,4 +8,8 @@ export const Container = styled.div`
   & label {
     font-size: ${({ theme: { fontSize } }) => fontSize?.[100]};
   }
+
+  @media screen and (max-width: 768px) {
+    min-width: 215px;
+  }
 `;

@@ -6,7 +6,7 @@ import styles from '../../styles.module.css';
 const BreadcrumbPLP = () => {
   const { asPath } = useRouter();
   const { links } = useBreadcrumbs({
-    url: asPath.replace('/', ''),
+    url: decodeURIComponent(asPath.replace('/', '')),
   });
 
   return (

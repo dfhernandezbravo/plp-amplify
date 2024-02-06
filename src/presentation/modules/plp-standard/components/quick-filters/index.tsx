@@ -8,13 +8,9 @@ const QuickFiltersCMS = ({ items }: Content) => {
   const router = useRouter();
 
   const handleOnClick = (value: Item) => {
-    const { query } = router;
-    const { department, category, filter } = query;
-    const currentPath = `/${department}/${category}/${value.key}`;
-    router.push({
-      pathname: currentPath,
-      query: { filter },
-    });
+    const { redirectTo } = value;
+
+    router.push(redirectTo);
   };
 
   return (
@@ -23,7 +19,7 @@ const QuickFiltersCMS = ({ items }: Content) => {
         filters={items || []}
         ring
         onClick={handleOnClick}
-        currentUrl={router?.query?.product as string}
+        currentUrl={router.asPath}
       />
     </div>
   );
