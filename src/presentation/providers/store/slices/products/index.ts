@@ -9,6 +9,8 @@ export type ProductPLP = Product &
   Partial<{
     linkText: string;
     link: string;
+    id: string;
+    quantity: number;
   }>;
 
 type ProductSliceState = {

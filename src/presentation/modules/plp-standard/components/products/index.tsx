@@ -33,12 +33,15 @@ const ProductsPLP = () => {
     variantId: string;
     product: Product;
   }) => {
-    const productSelected = { ...product };
-    productSelected.productId = variantId;
+    const productSelected: ProductPLP = {
+      id: variantId,
+      quantity: 1,
+      ...product,
+    };
 
     document.dispatchEvent(
       new CustomEvent('ADD_ITEM_SHOPPING_CART', {
-        detail: { product: productSelected, quantity: 1 },
+        detail: { product: productSelected },
       }),
     );
   };
