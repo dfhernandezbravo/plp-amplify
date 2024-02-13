@@ -1479,12 +1479,13 @@
   dependencies:
     "@ccom-easy-design-system/hooks.use-device" "0.0.5"
 
-"@ccom-easy-design-system/atoms.price@0.0.6":
-  version "0.0.6"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.price/-/atoms.price-0.0.6.tgz#63b1d77262eccb6bfa8c5c4a5e44a38ff445bac2"
-  integrity sha512-k16Wh52tVHFbBgSl2vMsAxMpnz9RtiBCncQHFaFn1EGf0DOZJyzS6ZPezPqxD5emFg7MfRuXB6A0jbG9mrsC1A==
+"@ccom-easy-design-system/atoms.price@0.0.7":
+  version "0.0.7"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.price/-/atoms.price-0.0.7.tgz#2905ea3fb6861cd2fa65841051de568254566e99"
+  integrity sha512-VU/AqXyBHk7zP6MzCYvAO9I2kKU+iXwfCSKLizpyFj7KN7F2S0gidb/ExG57qb76XkYwaVPQFVa3DplXhQumZg==
   dependencies:
     "@ccom-easy-design-system/atoms.icons" "0.0.2"
+    number-currency-format-2 "^1.1.1"
     styled-components "^6.1.6"
 
 "@ccom-easy-design-system/atoms.ribbon@0.0.6":
@@ -1530,14 +1531,14 @@
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-media-query/-/hooks.use-media-query-0.0.1.tgz#e6f293dd7f5f67b1eff75cf2772c5b258bd0c932"
   integrity sha512-Cc13qhra7SUGGwSlJvJrbxk0O+p5YPIjWqeuTrUSr5FwfB5+4AyHY6tEH9gdZ3+GQ4D+x4orjS1ooSc/QvVy6g==
 
-"@ccom-easy-design-system/molecules.product-card@^0.0.14":
-  version "0.0.14"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.product-card/-/molecules.product-card-0.0.14.tgz#f063c8c95edf58a8b474d28d0003cf256e55b8bd"
-  integrity sha512-S4nMcxgvuYNK4SYCNrRhHiILAa6vcX4LNZyCj/y6Sg39JzzJVev6TuMnNvYlaFFew3PoQ0LR4FmV3RV0Jk/wag==
+"@ccom-easy-design-system/molecules.product-card@0.0.15":
+  version "0.0.15"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.product-card/-/molecules.product-card-0.0.15.tgz#03b4d339cc9019b1e8c841b52445287a6f918565"
+  integrity sha512-acrQcC1Sc7nfqA0OUSYphyyfO2GLHqSodWHpMnL9zhykOOQxbrYYMol09frxldOFu+vOwKSnJYcrweHWhYBrtA==
   dependencies:
     "@ccom-easy-design-system/atoms.button" "0.0.5"
     "@ccom-easy-design-system/atoms.layout" "0.0.5"
-    "@ccom-easy-design-system/atoms.price" "0.0.6"
+    "@ccom-easy-design-system/atoms.price" "0.0.7"
     "@ccom-easy-design-system/atoms.ribbon" "0.0.6"
     "@ccom-easy-design-system/atoms.skeleton" "0.0.2"
     react-icons "^5.0.1"
@@ -1832,7 +1833,7 @@
 
 "@emotion/memoize@^0.8.1":
   version "0.8.1"
-  resolved "https://registry.npmjs.org/@emotion/memoize/-/memoize-0.8.1.tgz"
+  resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.8.1.tgz#c1ddb040429c6d21d38cc945fe75c818cfb68e17"
   integrity sha512-W2P2c/VRW1/1tLox0mVUalvnWXxavmv/Oum2aPsRcoDJuob75FC3Y8FbpfLwUegRcxINtGUMPq0tFCvYNTBXNA==
 
 "@emotion/react@^11.11.1", "@emotion/react@^11.8.1":
@@ -3885,7 +3886,7 @@ camelcase@^6.2.0:
 
 camelize@^1.0.0:
   version "1.0.1"
-  resolved "https://registry.npmjs.org/camelize/-/camelize-1.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/camelize/-/camelize-1.0.1.tgz#89b7e16884056331a35d6b5ad064332c91daa6c3"
   integrity sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==
 
 caniuse-lite@^1.0.30001406, caniuse-lite@^1.0.30001489, caniuse-lite@^1.0.30001541:
@@ -4189,7 +4190,7 @@ cross-spawn@^7.0.2, cross-spawn@^7.0.3:
 
 css-color-keywords@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.npmjs.org/css-color-keywords/-/css-color-keywords-1.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/css-color-keywords/-/css-color-keywords-1.0.0.tgz#fea2616dc676b2962686b3af8dbdbe180b244e05"
   integrity sha512-FyyrDHZKEjXDpNJYvVsV960FiqQyXc/LlYmsxl2BcdMb2WPx0OGRVgTg55rPSyLSNMqP52R9r8geSp7apN3Ofg==
 
 css-select@^5.1.0:
@@ -6240,10 +6241,15 @@ nano-time@1.0.0:
   dependencies:
     big-integer "^1.6.16"
 
-nanoid@^3.3.4, nanoid@^3.3.6:
+nanoid@^3.3.4:
   version "3.3.6"
   resolved "https://registry.npmjs.org/nanoid/-/nanoid-3.3.6.tgz"
   integrity sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==
+
+nanoid@^3.3.6:
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.7.tgz#d0c301a691bc8d54efa0a2226ccf3fe2fd656bd8"
+  integrity sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==
 
 napi-build-utils@^1.0.1:
   version "1.0.2"
@@ -6395,6 +6401,11 @@ nth-check@^2.0.1:
   integrity sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==
   dependencies:
     boolbase "^1.0.0"
+
+number-currency-format-2@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/number-currency-format-2/-/number-currency-format-2-1.1.1.tgz#f139a8039906df136f028628e3a9c767a111e63d"
+  integrity sha512-4iUg3g0Jadzw7cWjewWw55kFmMr6JBykVJeMgci99eH7H1v702jYIOKf1C9J5ZQB+JSrDcyGDmUM4Pzdx0U5sw==
 
 object-assign@^4.1.1:
   version "4.1.1"
@@ -6604,7 +6615,7 @@ path-type@^4.0.0:
 
 picocolors@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
   integrity sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==
 
 picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.3.1:
@@ -6619,7 +6630,7 @@ pidtree@0.6.0:
 
 postcss-value-parser@^4.0.2:
   version "4.2.0"
-  resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
+  resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
 postcss@8.4.14:
@@ -7305,7 +7316,7 @@ snake-case@^3.0.4:
 
 "source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.1, source-map-js@^1.0.2:
   version "1.0.2"
-  resolved "https://registry.npmjs.org/source-map-js/-/source-map-js-1.0.2.tgz"
+  resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
   integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
 
 source-map-support@~0.5.20:
