@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import ProductCard from '../product-card';
 import Swiper, { BreakPoints } from '../swiper';
 import { CarouselContainer } from './styles';
+import Image from 'next/image';
 
 interface Props {
   items: ProductPLP[];
@@ -26,15 +27,31 @@ const breakpoints: BreakPoints = {
 const ProductsCarousel = ({ items }: Props) => {
   const router = useRouter();
 
-  const handleClickCard = (product: ProductPLP) => {
-    router.push(product.link || '/');
+  const handleClickCard = (product: ProductPLP, id: string | null) => {
+    let url = `/${product.linkText}/p`;
+    if (id) url += `?skuId=${id}`;
+    router.push(url);
+  };
+
+  const renderImage = (imageUrl: string, product: ProductPLP) => {
+    return (
+      <Image
+        src={imageUrl}
+        width={718}
+        height={575}
+        alt={product.productName}
+      />
+    );
   };
 
   const renderItem = (item: ProductPLP) => (
     <ProductCard
       product={item}
-      onClickCard={() => handleClickCard(item)}
+      onClickCard={(variantId: string | null) =>
+        handleClickCard(item, variantId)
+      }
       layout="grid"
+      renderImage={(imageUrl: string) => renderImage(imageUrl, item)}
     />
   );
 

@@ -7,6 +7,7 @@ import styles from '../../styles.module.css';
 import ProductPagination from './components/product-pagination';
 import { ProductsContainer } from './styles';
 import { Product } from '@ccom-easy-design-system/molecules.product-card/dist/types';
+import Image from 'next/image';
 
 const ProductsPLP = () => {
   const router = useRouter();
@@ -22,8 +23,10 @@ const ProductsPLP = () => {
     updateQueryParams({ page });
   };
 
-  const handleClickCard = (product: ProductPLP) => {
-    router.push(`/${product.linkText}/p`);
+  const handleClickCard = (product: ProductPLP, id: string | null) => {
+    let url = `/${product.linkText}/p`;
+    if (id) url += `?skuId=${id}`;
+    router.push(url);
   };
 
   const handleOnClickButton = ({
@@ -46,6 +49,17 @@ const ProductsPLP = () => {
     );
   };
 
+  const renderImage = (imageUrl: string, product: ProductPLP) => {
+    return (
+      <Image
+        src={imageUrl}
+        width={718}
+        height={575}
+        alt={product.productName}
+      />
+    );
+  };
+
   return (
     <div className={styles.products}>
       <ProductsContainer $layout={layout}>
@@ -54,9 +68,12 @@ const ProductsPLP = () => {
             key={product.productId + '-' + index}
             product={product}
             layout={layout}
-            onClickCard={() => handleClickCard(product)}
+            onClickCard={(selectedVariant: string | null) =>
+              handleClickCard(product, selectedVariant)
+            }
             hideCartButton={product.availableQuantity === 0}
             onClickButton={handleOnClickButton}
+            renderImage={(imageUrl: string) => renderImage(imageUrl, product)}
           />
         ))}
       </ProductsContainer>
