@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 // Components
-import Display, { LayoutOptions } from '@components/molecules/Display';
+import Display from '@components/molecules/Display';
 import ButtonBox, { Event } from '@components/organisms/ButtonBox';
 
 // Styled components
@@ -23,6 +23,7 @@ const Mobile = (props: Props) => {
     onChange,
     onFilterChange,
     onBlur,
+    onDisplayChange,
   } = props;
 
   // Refs
@@ -32,7 +33,7 @@ const Mobile = (props: Props) => {
   const [countText, setCountText] = useState('Productos no encontrados');
 
   // Methods
-  const onDisplayChange = (layout: LayoutOptions) => onChange({ layout });
+  // const onDisplayChange = (layout: LayoutOptions) => onChange({ layout });
   const onButtonBoxClick = (event: Event) => onChange({ event });
   const calculateCountText = (count?: number) => {
     if (!count) setCountText('Productos no encontrados');
