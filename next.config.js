@@ -35,6 +35,7 @@ const nextConfig = {
           './plp-search': './src/pages/search/[search].tsx',
           './plp-cluster': './src/pages/cluster/[clusterId].tsx',
           './plp-eventos': './src/pages/eventos/[eventName].tsx',
+          './plp-not-found': './src/pages/not-found/index.tsx',
         },
         extraOptions: {
           exposePages: true,
