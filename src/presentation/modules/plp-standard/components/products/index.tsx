@@ -5,9 +5,15 @@ import { ProductPLP } from '@store/slices/products';
 import { useRouter } from 'next/router';
 import styles from '../../styles.module.css';
 import ProductPagination from './components/product-pagination';
-import { ProductsContainer } from './styles';
+import {
+  Modal,
+  ProductsContainer,
+  SpinnerElement,
+  SpinnerWrapper,
+} from './styles';
 import { Product } from '@ccom-easy-design-system/molecules.product-card/dist/types';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const ProductsPLP = () => {
   const router = useRouter();
@@ -19,14 +25,18 @@ const ProductsPLP = () => {
   );
   const pagesCount = Math.ceil(recordsFiltered / count);
 
+  const [loadPDP, setLoadPDP] = useState(false);
+
   const onPageChange = (page: string) => {
     updateQueryParams({ page });
   };
 
-  const handleClickCard = (product: ProductPLP, id: string | null) => {
+  const handleClickCard = async (product: ProductPLP, id: string | null) => {
     let url = `/${product.linkText}/p`;
     if (id) url += `?skuId=${id}`;
-    router.push(url);
+
+    setLoadPDP(true);
+    await router.push(url);
   };
 
   const handleOnClickButton = ({
@@ -62,6 +72,13 @@ const ProductsPLP = () => {
 
   return (
     <div className={styles.products}>
+      {loadPDP && (
+        <Modal>
+          <SpinnerWrapper>
+            <SpinnerElement />
+          </SpinnerWrapper>
+        </Modal>
+      )}
       <ProductsContainer $layout={layout}>
         {products?.map((product, index) => (
           <ProductCard
