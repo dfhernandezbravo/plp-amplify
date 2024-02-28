@@ -13,15 +13,6 @@ const PLPDefault = () => {
   const hideBreadcrumb = /cluster|eventos/.test(asPath);
   return (
     <PlpContainer>
-      <Layout is={['Desktop']}>
-        <Desktop>
-          {!hideBreadcrumb && <BreadcrumbPLP />}
-          <OrderCMS />
-          <Facets />
-          <ProductsPLP />
-        </Desktop>
-      </Layout>
-
       <Layout is={['Tablet', 'Phone']}>
         <Mobile>
           {!hideBreadcrumb && <BreadcrumbPLP />}
@@ -29,6 +20,14 @@ const PLPDefault = () => {
           <Facets />
           <ProductsPLP />
         </Mobile>
+      </Layout>
+      <Layout is={['Desktop']}>
+        <Desktop>
+          {!hideBreadcrumb && <BreadcrumbPLP />}
+          <OrderCMS />
+          <Facets />
+          <ProductsPLP />
+        </Desktop>
       </Layout>
     </PlpContainer>
   );
