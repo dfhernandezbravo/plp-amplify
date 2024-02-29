@@ -1,4 +1,3 @@
-import { Layout } from '@cencosud-ds/easy-design-system';
 import BreadcrumbPLP from '@modules/plp-standard/components/breadcrumb';
 import Facets from '@modules/plp-standard/components/facets';
 import OrderCMS from '@modules/plp-standard/components/order';
@@ -13,22 +12,18 @@ const PLPDefault = () => {
   const hideBreadcrumb = /cluster|eventos/.test(asPath);
   return (
     <PlpContainer>
-      <Layout is={['Tablet', 'Phone']}>
-        <Mobile>
-          {!hideBreadcrumb && <BreadcrumbPLP />}
-          <OrderCMS />
-          <Facets />
-          <ProductsPLP />
-        </Mobile>
-      </Layout>
-      <Layout is={['Desktop']}>
-        <Desktop>
-          {!hideBreadcrumb && <BreadcrumbPLP />}
-          <OrderCMS />
-          <Facets />
-          <ProductsPLP />
-        </Desktop>
-      </Layout>
+      <Mobile>
+        {!hideBreadcrumb && <BreadcrumbPLP />}
+        <OrderCMS />
+        <Facets />
+        <ProductsPLP />
+      </Mobile>
+      <Desktop>
+        {!hideBreadcrumb && <BreadcrumbPLP />}
+        <OrderCMS />
+        <Facets />
+        <ProductsPLP />
+      </Desktop>
     </PlpContainer>
   );
 };
