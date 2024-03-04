@@ -19,7 +19,6 @@ export const FacetsTagsHeader = styled.div`
 `;
 
 export const Tag = styled.div`
-  align-items: center;
   width: fit-content;
   display: flex;
   justify-content: space-between;
@@ -39,5 +38,5 @@ export const TagText = styled.div`
 
 export const TagClose = styled.div`
   cursor: pointer;
-  margin: 4px 6px 0 6px;
+  margin: 0px 6px 0 6px;
 `;

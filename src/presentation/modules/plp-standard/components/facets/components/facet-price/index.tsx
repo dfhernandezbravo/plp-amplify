@@ -10,6 +10,7 @@ import {
   FacetItemContainer,
 } from '../facet-item/facet-item-desktop/style';
 import { PriceInputContainer, TextfieldPrice } from './styles';
+const { format } = require('number-currency-format-2');
 
 interface Props {
   facet: Facets;
@@ -52,6 +53,14 @@ const FacetPrice: React.FC<Props> = ({ facet }) => {
     addFilter(newFilter);
   };
 
+  const formatPrice = (price: number) => {
+    return format(price, {
+      thousandSeparator: '.',
+      decimalSeparator: ',',
+      showDecimals: 'IF_NEEDED',
+    });
+  };
+
   return (
     <FacetItemContainer>
       <PriceInputContainer>
@@ -86,7 +95,8 @@ const FacetPrice: React.FC<Props> = ({ facet }) => {
           )}
 
           <span>
-            ${value.range.from} - ${value.range.to} ({value.quantity})
+            ${formatPrice(value.range.from)} - ${formatPrice(value.range.to)} (
+            {value.quantity})
           </span>
         </FaceItemButton>
       ))}
