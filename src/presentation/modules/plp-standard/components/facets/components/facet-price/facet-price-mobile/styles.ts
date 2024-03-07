@@ -5,7 +5,7 @@ export const PriceInputContainer = styled.div`
   flex-direction: row;
   gap: ${({ theme: { spacing } }) => spacing[100]};
   width: 100%;
-  padding: 10px ${({ theme: { spacing } }) => spacing[50]};
+  padding: 10px ${({ theme: { spacing } }) => spacing[100]};
 `;
 
 export const TextfieldPrice = styled.input`
@@ -15,5 +15,6 @@ export const TextfieldPrice = styled.input`
   border: 1px;
   gap: 10px;
   border: 1px solid #aaaaaa;
-  padding: 0px 10px;
+  padding: 0px 8px;
+  font-size: 12px;
 `;
