@@ -14,6 +14,7 @@ import {
   TagsContainer,
 } from './styles';
 import { AiOutlineClose } from 'react-icons/ai';
+const { format } = require('number-currency-format-2');
 
 const FacetsTags = () => {
   const { query } = useRouter();
@@ -33,6 +34,24 @@ const FacetsTags = () => {
   const formatFilter = (str: string) =>
     str?.replaceAll('-', ' ').toLocaleLowerCase();
 
+  const formatPrices = (prices: string) => {
+    const splitNumber = prices.split(':');
+
+    // Formatear cada número
+    const number1 = format(splitNumber[0], {
+      thousandSeparator: '.',
+      decimalSeparator: ',',
+      showDecimals: 'IF_NEEDED',
+    });
+    const number2 = format(splitNumber[1], {
+      thousandSeparator: '.',
+      decimalSeparator: ',',
+      showDecimals: 'IF_NEEDED',
+    });
+
+    return `$${number1} - $${number2}`;
+  };
+
   useEffect(() => {
     const items = filter?.split('/').filter((item) => item !== '');
     const result = [];
@@ -40,11 +59,19 @@ const FacetsTags = () => {
     if (items?.length) {
       for (let i = 0; i < items.length; i += 2) {
         if (!items[i + 1]) continue;
-        result.push({
-          key: items[i],
-          value: items[i + 1],
-          label: formatFilter(items[i + 1]),
-        } as TagFacets);
+        if (items[i] === 'price') {
+          result.push({
+            key: items[i],
+            value: items[i + 1],
+            label: formatPrices(items[i + 1]),
+          } as TagFacets);
+        } else {
+          result.push({
+            key: items[i],
+            value: items[i + 1],
+            label: formatFilter(items[i + 1]),
+          } as TagFacets);
+        }
       }
     }
     setItemsTags(result);

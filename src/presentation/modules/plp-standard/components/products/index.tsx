@@ -1,9 +1,12 @@
+import { Product } from '@ccom-easy-design-system/molecules.product-card/dist/types';
 import ProductCard from '@components/molecules/product-card';
 import useQueryParams from '@hooks/use-query-params';
 import { useAppSelector } from '@store/hooks';
 import { ProductPLP } from '@store/slices/products';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import styles from '../../styles.module.css';
+import ProductImage from './components/product-image';
 import ProductPagination from './components/product-pagination';
 import {
   Modal,
@@ -11,9 +14,6 @@ import {
   SpinnerElement,
   SpinnerWrapper,
 } from './styles';
-import { Product } from '@ccom-easy-design-system/molecules.product-card/dist/types';
-import Image from 'next/image';
-import { useState } from 'react';
 
 const ProductsPLP = () => {
   const router = useRouter();
@@ -59,17 +59,6 @@ const ProductsPLP = () => {
     );
   };
 
-  const renderImage = (imageUrl: string, product: ProductPLP) => {
-    return (
-      <Image
-        src={imageUrl}
-        width={718}
-        height={575}
-        alt={product.productName}
-      />
-    );
-  };
-
   return (
     <div className={styles.products}>
       {loadPDP && (
@@ -90,7 +79,9 @@ const ProductsPLP = () => {
             }
             hideCartButton={product.availableQuantity === 0}
             onClickButton={handleOnClickButton}
-            renderImage={(imageUrl: string) => renderImage(imageUrl, product)}
+            renderImage={(imageUrl: string) => (
+              <ProductImage imageUrl={imageUrl} product={product} />
+            )}
           />
         ))}
       </ProductsContainer>
