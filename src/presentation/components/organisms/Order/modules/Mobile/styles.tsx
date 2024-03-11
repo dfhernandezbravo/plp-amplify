@@ -52,4 +52,8 @@ export const ButtonBoxContainer = styled.div`
     width: 100%;
     z-index: 999;
   }
+  &.fixed-header {
+    top: 115px;
+    transition: all 1s ease;
+  }
 `;
