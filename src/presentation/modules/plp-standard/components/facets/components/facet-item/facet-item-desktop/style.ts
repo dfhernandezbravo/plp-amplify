@@ -18,6 +18,7 @@ export const FaceItemButton = styled.button`
   align-items: center;
   cursor: pointer;
   span {
+    color: #363f45;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
