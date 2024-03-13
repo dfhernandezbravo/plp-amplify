@@ -1,5 +1,5 @@
 import React, { useState, ReactNode } from 'react';
-import { AiOutlineDown, AiOutlineUp } from 'react-icons/ai';
+import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md';
 import { AccordionContainer, HeaderAccordion } from './styles';
 
 type AccordionProps = {
@@ -20,7 +20,11 @@ const Accordion: React.FC<AccordionProps> = ({
     <AccordionContainer>
       <HeaderAccordion onClick={toggle}>
         {title}
-        {isOpen ? <AiOutlineUp /> : <AiOutlineDown />}
+        {isOpen ? (
+          <MdKeyboardArrowUp size={25} />
+        ) : (
+          <MdKeyboardArrowDown size={25} />
+        )}
       </HeaderAccordion>
       {isOpen && <div>{children}</div>}
     </AccordionContainer>

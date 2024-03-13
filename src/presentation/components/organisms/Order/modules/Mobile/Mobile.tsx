@@ -31,6 +31,7 @@ const Mobile = (props: Props) => {
 
   // State
   const [countText, setCountText] = useState('Productos no encontrados');
+  const lastScrollPosition = useRef(0);
 
   // Methods
   // const onDisplayChange = (layout: LayoutOptions) => onChange({ layout });
@@ -51,11 +52,19 @@ const Mobile = (props: Props) => {
     const buttonBoxPosition = buttonBoxRef?.current?.offsetTop;
 
     const onScroll = () => {
-      if (buttonBoxPosition && window.scrollY > buttonBoxPosition) {
+      const currentScrollPosition = window.scrollY;
+      if (buttonBoxPosition && currentScrollPosition > buttonBoxPosition) {
         buttonBoxRef?.current?.classList.add('fixed');
       } else {
         buttonBoxRef?.current?.classList.remove('fixed');
       }
+
+      if (currentScrollPosition > lastScrollPosition?.current) {
+        buttonBoxRef?.current?.classList.remove('fixed-header');
+      } else if (currentScrollPosition < lastScrollPosition?.current) {
+        buttonBoxRef?.current?.classList.add('fixed-header');
+      }
+      lastScrollPosition.current = currentScrollPosition;
     };
 
     window.addEventListener('scroll', onScroll);
