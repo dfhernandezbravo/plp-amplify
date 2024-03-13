@@ -1,3 +1,4 @@
+import { Variant } from '@ccom-easy-design-system/molecules.product-card/dist/types';
 import { Product } from '@cencosud-ds/easy-design-system';
 import { LayoutOptions } from '@components/molecules/Display/types';
 import { OrderOptions } from '@components/molecules/Filter/types';
@@ -5,12 +6,23 @@ import { Facets } from '@entities/product/facets.entity';
 import { SearchByCategoriesResponse } from '@entities/product/repository/product-repository.types';
 import { createSlice } from '@reduxjs/toolkit';
 
+export enum TipoClick {
+  AddClic = 'add clic',
+  ClicPdp = 'clic PDP',
+}
 export type ProductPLP = Product &
   Partial<{
     linkText: string;
     link: string;
     id: string;
     quantity: number;
+    categories: string[];
+    referenceId: {
+      Key: string;
+      Value: string;
+    }[];
+    variants: Variant[];
+    tipoClick: TipoClick;
   }>;
 
 type ProductSliceState = {
