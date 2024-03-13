@@ -1,11 +1,10 @@
-import { themeEasy } from '@cencosud-ds/easy-design-system';
 import { Facets, ValueFacets } from '@entities/product/facets.entity';
 import PlpQueryParams from '@modules/plp-standard/types/plp-query-params';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
 import useFilters from '../../../hooks/use-filters';
 import { FaceItemButton, FacetItemContainer } from './style';
+import Checkbox from '@components/atoms/Checkbox';
 
 interface Props {
   facet: Facets;
@@ -34,15 +33,10 @@ const FacetItemDesktop: React.FC<Props> = ({ facet }) => {
             key={`${value.id}-${index}`}
             onClick={() => handleOnClick(value)}
           >
-            {value.selected ? (
-              <MdCheckBox color={themeEasy.colors.success.main} size={24} />
-            ) : (
-              <MdCheckBoxOutlineBlank size={24} />
-            )}
-
-            <span>
-              {value.name} ({value.quantity})
-            </span>
+            <Checkbox
+              checked={value.selected}
+              label={`${value.name} (${value.quantity})`}
+            />
           </FaceItemButton>
         ))}
     </FacetItemContainer>

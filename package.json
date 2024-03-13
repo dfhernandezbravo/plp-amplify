@@ -12,6 +12,7 @@
     "format": "prettier --write . --config .prettierrc"
   },
   "dependencies": {
+    "@ccom-easy-design-system/atoms.checkbox": "^0.0.11",
     "@ccom-easy-design-system/atoms.select": "^0.0.14",
     "@ccom-easy-design-system/atoms.skeleton": "^0.0.2",
     "@ccom-easy-design-system/hooks.use-device": "0.0.3",

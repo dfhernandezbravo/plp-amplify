@@ -1,15 +1,15 @@
-import { Button, themeEasy } from '@cencosud-ds/easy-design-system';
+import { Button } from '@cencosud-ds/easy-design-system';
 import { Facets, ValueFacets } from '@entities/product/facets.entity';
 import PlpQueryParams from '@modules/plp-standard/types/plp-query-params';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
 import useFilters from '../../../hooks/use-filters';
 import {
   FaceItemButton,
   FacetItemContainer,
 } from '../../facet-item/facet-item-desktop/style';
 import { PriceInputContainer, TextfieldPrice } from './styles';
+import Checkbox from '@components/atoms/Checkbox';
 const { format } = require('number-currency-format-2');
 
 interface Props {
@@ -88,16 +88,12 @@ const FacetPriceDesktop: React.FC<Props> = ({ facet }) => {
           key={`${value.id}-${index}`}
           onClick={() => onClickPriceRangeItem(value)}
         >
-          {value.selected ? (
-            <MdCheckBox color={themeEasy.colors.success.main} size={24} />
-          ) : (
-            <MdCheckBoxOutlineBlank size={24} />
-          )}
-
-          <span>
-            ${formatPrice(value.range.from)} - ${formatPrice(value.range.to)} (
-            {value.quantity})
-          </span>
+          <Checkbox
+            checked={value.selected}
+            label={`${formatPrice(value.range.from)} - ${formatPrice(
+              value.range.to,
+            )} (${value.quantity})`}
+          />
         </FaceItemButton>
       ))}
     </FacetItemContainer>
