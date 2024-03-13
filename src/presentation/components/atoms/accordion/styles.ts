@@ -17,4 +17,5 @@ export const HeaderAccordion = styled.div`
   font-weight: 700;
   text-transform: inherit;
   width: 100%;
+  color: #363f45;
 `;

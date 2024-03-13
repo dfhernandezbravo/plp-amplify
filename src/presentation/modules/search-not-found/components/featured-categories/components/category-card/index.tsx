@@ -1,5 +1,6 @@
 import { Item, ShapeTypes } from '@entities/cms';
 import { Card, CardTitle, ImageCardContainer, ImageIcon } from './style';
+import useRedirectLink from '@hooks/use-redirect-link';
 
 interface Props {
   item: Item;
@@ -7,8 +8,10 @@ interface Props {
 }
 
 const CategoryCard: React.FC<Props> = ({ shape, item }) => {
+  const { redirect } = useRedirectLink();
+
   return (
-    <Card shape={shape} href={item.link}>
+    <Card shape={shape} href={redirect(item.link)}>
       <ImageCardContainer shape={shape}>
         <ImageIcon
           src={item.image!}

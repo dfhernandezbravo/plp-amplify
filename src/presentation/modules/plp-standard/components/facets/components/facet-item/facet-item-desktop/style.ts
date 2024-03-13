@@ -17,10 +17,4 @@ export const FaceItemButton = styled.button`
   gap: ${({ theme: { spacing } }) => spacing[50]};
   align-items: center;
   cursor: pointer;
-  span {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 250px;
-  }
 `;
