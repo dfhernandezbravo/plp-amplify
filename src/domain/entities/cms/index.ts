@@ -36,7 +36,7 @@ export type Content = {
   shape: ShapeTypes;
   itemsPerRow: number;
   products: string;
-  fieldName: 'clusterId' | 'skuId' | 'productId';
+  fieldName: 'clusterId' | 'sku' | 'productId';
   maxItems: number;
 };
 
