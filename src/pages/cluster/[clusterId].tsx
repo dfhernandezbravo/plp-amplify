@@ -37,7 +37,7 @@ const PLPContent: React.FC = () => {
         filter,
       }),
     {
-      enabled: !!clusterId,
+      enabled: !!clusterId && !!count,
       cacheTime: 0,
     },
   );

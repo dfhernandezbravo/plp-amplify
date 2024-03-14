@@ -39,7 +39,7 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
         filter,
       }),
     {
-      enabled: !!department && !!category,
+      enabled: !!department && !!category && !!count,
       cacheTime: 0,
     },
   );

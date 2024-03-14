@@ -48,7 +48,7 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
         filter,
       }),
     {
-      enabled: !!clusterId || !!contentCMS.length,
+      enabled: (!!clusterId || !!contentCMS.length) && !!count,
       cacheTime: 0,
     },
   );

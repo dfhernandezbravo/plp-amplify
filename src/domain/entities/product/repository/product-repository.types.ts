@@ -2,7 +2,7 @@ import { Product } from '@cencosud-ds/easy-design-system';
 import { Facets } from '../facets.entity';
 
 export type SearchByCategoriesRequest = {
-  count: number;
+  count?: number;
   page: string;
   categories?: string;
   sort?: string;
