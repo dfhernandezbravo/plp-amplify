@@ -19,7 +19,7 @@ interface ProductRepository {
   getProductsByClusterId: (
     clusterId: string,
     maxItems: number,
-  ) => Promise<AxiosResponse<ProductPLP[]>>;
+  ) => Promise<AxiosResponse<{ data: ProductPLP[] }>>;
   getProductsByIds: (ids: string) => Promise<AxiosResponse<ProductPLP[]>>;
   getProductsBySkuIds: (skus: string) => Promise<AxiosResponse<ProductPLP[]>>;
 }
@@ -44,19 +44,15 @@ const productRespository = (httpInstance = bffInstance): ProductRepository => ({
     ),
 
   getProductsByClusterId: (clusterId, maxItems) =>
-    httpInstance.get(
-      `/api/catalog/products/byClusterId/${encodeURIComponent(
-        `${clusterId}&_from=0&_to=${maxItems - 1}`,
-      )}`,
-    ),
+    httpInstance.get(`/search/home/clusters/${clusterId}`, {
+      params: { count: maxItems },
+    }),
 
   getProductsByIds: (ids) =>
     httpInstance.get(`/products/list?productIds=${ids}`),
 
   getProductsBySkuIds: (skus: string) =>
-    httpInstance.get(
-      `/api/catalog/products/bySkus/${encodeURIComponent(skus)}`,
-    ),
+    httpInstance.get(`/products/list?skuIds=${skus}`),
 });
 
 export default productRespository;

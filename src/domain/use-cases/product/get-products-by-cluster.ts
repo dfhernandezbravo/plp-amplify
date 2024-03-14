@@ -6,7 +6,7 @@ async function getProductsByClusterId(clusterId: string, maxItems: number) {
       clusterId,
       maxItems,
     );
-    return data;
+    return data.data;
   } catch (err) {
     throw new Error(`Error: ${err} `);
   }
