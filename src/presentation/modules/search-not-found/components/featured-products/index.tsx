@@ -28,7 +28,7 @@ const FeaturedProducts: React.FC<Content> = ({
     ['get-products-by-sku', { products }],
     () => getProductBySkus(products),
     {
-      enabled: fieldName === 'skuId',
+      enabled: fieldName === 'sku',
     },
   );
 
