@@ -1488,7 +1488,16 @@
   dependencies:
     "@ccom-easy-design-system/hooks.use-device" "0.0.6"
 
-"@ccom-easy-design-system/atoms.price@0.0.34", "@ccom-easy-design-system/atoms.price@^0.0.34":
+"@ccom-easy-design-system/atoms.price@0.0.36":
+  version "0.0.36"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.price/-/atoms.price-0.0.36.tgz#ec77a4e198ba7ddea01d554888972315b6c5bb30"
+  integrity sha512-VHzl6zlpmDISuPgv2aQPQqIe/HNDV/8JMoUk1ktqjXWXakyqzmuQ1yG/SQj+Qv2Wp9thkKK1Qgfl9SVU1QJE4Q==
+  dependencies:
+    "@ccom-easy-design-system/atoms.icons" "0.0.4"
+    "@ccom-easy-design-system/utils.format-currency" "0.0.6"
+    styled-components "^6.1.6"
+
+"@ccom-easy-design-system/atoms.price@^0.0.34":
   version "0.0.34"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.price/-/atoms.price-0.0.34.tgz#0987e19a4094d846d4776d5f421f94ab4bf2aeae"
   integrity sha512-UF/14tINKNZO3l2NBinGbuyDFwgpWDPok7EwqLWC/toGs/UVblUeb3GX2+/8j07tY5RSr0mNggZHlf8yv18d5g==
@@ -1545,14 +1554,14 @@
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-media-query/-/hooks.use-media-query-0.0.2.tgz#83eadccba9e45836d537ffef3282d08a9fc6efd2"
   integrity sha512-u5ZJvBGC+VNXoRgGzt7lLmHcuL34zjok27pktUM/1eLnQeSisM7AWRuPHobEgZ5trGdXc1LE4AsZ1JVznyOFXA==
 
-"@ccom-easy-design-system/molecules.product-card@^0.0.52":
-  version "0.0.52"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.product-card/-/molecules.product-card-0.0.52.tgz#0f7fd6849b86390dff36f63686a56c90c54d2d28"
-  integrity sha512-/ithmKCf7rPtVXtv0vQ5HxzseGn95r0mlJ1De6N0vS9rs/dli++dq44aEDjzPB9GEqI7j77atWAHyS9VOtoLqg==
+"@ccom-easy-design-system/molecules.product-card@^0.0.55":
+  version "0.0.55"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.product-card/-/molecules.product-card-0.0.55.tgz#ef1f151eea366800502ad8b025f207e4f5eda6d7"
+  integrity sha512-lbPaoaNV5awrpvGkIvf5aroHf08K9XowhhXVRHp3/4v9yVcZ/1VmTK76iRrI7ufpAhnIYUgJtvQbX12fVsFsYQ==
   dependencies:
     "@ccom-easy-design-system/atoms.button" "0.0.11"
     "@ccom-easy-design-system/atoms.layout" "0.0.7"
-    "@ccom-easy-design-system/atoms.price" "0.0.34"
+    "@ccom-easy-design-system/atoms.price" "0.0.36"
     "@ccom-easy-design-system/atoms.ribbon" "0.0.11"
     react-icons "^5.0.1"
     styled-components "^6.1.6"
