@@ -12,7 +12,8 @@ const PlpProvider = ({ children }: Props) => {
   const dispatch = useAppDispatch();
 
   const getCountProducts = async () => {
-    const maxCountProducts = process.env.NEXT_PUBLIC_MAX_COUNT_PRODUCTS_PLP;
+    const maxCountProducts =
+      process.env.NEXT_PUBLIC_MAX_COUNT_PRODUCTS_PLP || '10';
     if (maxCountProducts) {
       dispatch(setCount(parseInt(maxCountProducts)));
     }
