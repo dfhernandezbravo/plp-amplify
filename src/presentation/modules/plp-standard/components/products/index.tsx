@@ -23,7 +23,8 @@ const ProductsPLP = () => {
   const { products, layout, recordsFiltered, count } = useAppSelector(
     (state) => state.products,
   );
-  const pagesCount = Math.ceil(recordsFiltered / count);
+  let pagesCount = recordsFiltered;
+  if (count) pagesCount = Math.ceil(recordsFiltered / count);
 
   const [loadPDP, setLoadPDP] = useState(false);
 

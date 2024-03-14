@@ -37,7 +37,7 @@ const PLPContent: React.FC = () => {
         filter,
       }),
     {
-      enabled: !!search,
+      enabled: !!search && !!count,
       cacheTime: 0,
     },
   );
