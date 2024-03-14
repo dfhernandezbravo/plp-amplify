@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+import { Item } from '@entities/cms';
 import { useEvents } from '@hooks/use-events';
 import { ProductPLP, TipoClick } from '@store/slices/products';
 import { ANALYTICS_EVENTS } from 'src/application/infra/events/analytics.';
@@ -7,6 +8,8 @@ enum EventType {
   SelectItem = 'select_item',
   ViewItemList = 'view_item_list',
   AddToCart = 'add_to_cart',
+  ViewPromotion = 'view_promotion',
+  SelectPromotion = 'select_promotion',
 }
 
 const createItemObject = (product: ProductPLP) => {
@@ -55,6 +58,27 @@ export const useDispatchProductEvent = () => {
     });
   };
 
+  const dispatchPromotionEvent = (item: Item, event: EventType) => {
+    dispatchEvent({
+      name: ANALYTICS_EVENTS.Analytics,
+      detail: {
+        event,
+        eccommerce: {
+          promo_id: item?.key || '',
+          promo_name: item?.alt || '',
+          creative_name: item?.image || '',
+          creative_slot: item?.alt || '',
+        },
+      },
+    });
+  };
+
+  const dispatchViewPromotionEvent = (item: Item) =>
+    dispatchPromotionEvent(item, EventType.ViewPromotion);
+
+  const dispatchSelectPromotionEvent = (item: Item) =>
+    dispatchPromotionEvent(item, EventType.SelectPromotion);
+
   const dispatchSelectItemEvent = (product: ProductPLP, tipoClic: TipoClick) =>
     dispatchProductEvent(EventType.SelectItem, product, tipoClic);
 
@@ -68,5 +92,7 @@ export const useDispatchProductEvent = () => {
     dispatchSelectItemEvent,
     dispatchViewItemListEvent,
     dispatchAddToCartEvent,
+    dispatchViewPromotionEvent,
+    dispatchSelectPromotionEvent,
   };
 };
