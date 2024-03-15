@@ -3,10 +3,18 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '../../styles.module.css';
 
+const getUrl = (path: string) => {
+  const url = path.split('?');
+  if (url.length > 1) {
+    return decodeURIComponent(url[0].replace('/', ''));
+  }
+  return decodeURIComponent(path.replace('/', ''));
+};
+
 const BreadcrumbPLP = () => {
   const { asPath } = useRouter();
   const { links } = useBreadcrumbs({
-    url: decodeURIComponent(asPath.replace('/', '')),
+    url: decodeURIComponent(getUrl(asPath)),
   });
 
   return (
