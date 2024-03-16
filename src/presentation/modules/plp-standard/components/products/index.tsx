@@ -81,7 +81,11 @@ const ProductsPLP = () => {
             hideCartButton={product.availableQuantity === 0}
             onClickButton={handleOnClickButton}
             renderImage={(imageUrl: string) => (
-              <ProductImage imageUrl={imageUrl} product={product} />
+              <ProductImage
+                imageUrl={imageUrl}
+                product={product}
+                layout={layout}
+              />
             )}
           />
         ))}
