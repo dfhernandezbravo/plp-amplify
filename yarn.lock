@@ -1459,12 +1459,12 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@ccom-easy-design-system/atoms.button@0.0.10":
-  version "0.0.10"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.button/-/atoms.button-0.0.10.tgz#22cd3465472593dc459ecb6f74a7983b4c64b991"
-  integrity sha512-klfiuRVBn2KDSuRapQISklA4PzEeUp/6Dv/1pnsgNiw8M42kx05yoFWPF83YgvAB5cpXdWW7oXjg9aLJ5x6KuA==
+"@ccom-easy-design-system/atoms.button@0.0.11":
+  version "0.0.11"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.button/-/atoms.button-0.0.11.tgz#edaa3618684bed0bca6604d4c80aa51222b4c014"
+  integrity sha512-H3TPm6rBchjzQrLqoVz2FyCynmsHGLq4EtQD5eGgHrF3uiBypV9lwLi9KeNXFebF4pJ5tMkYs8whJJdaL/HHhQ==
   dependencies:
-    "@ccom-easy-design-system/theme.easy" "0.0.8"
+    "@ccom-easy-design-system/theme.easy" "0.0.9"
     styled-components "^6.1.6"
 
 "@ccom-easy-design-system/atoms.checkbox@^0.0.11":
@@ -1476,33 +1476,42 @@
     react-icons "^5.0.1"
     styled-components "^6.1.6"
 
-"@ccom-easy-design-system/atoms.icons@0.0.4":
+"@ccom-easy-design-system/atoms.icons@0.0.4", "@ccom-easy-design-system/atoms.icons@^0.0.4":
   version "0.0.4"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.icons/-/atoms.icons-0.0.4.tgz#b9dd7359703914585cb675fcf253956caf5350be"
   integrity sha512-WWgU0DynviJXamDhsQqm70rTt1+4NZsKKlGi8N/4brZjxw1uey1ItqRrHDcsiuqjFdTQWBfCzklmz4snDqZamw==
 
-"@ccom-easy-design-system/atoms.layout@0.0.6":
-  version "0.0.6"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.layout/-/atoms.layout-0.0.6.tgz#2b5d11c2d14f07e5c7a592db2d2a793b53fdfbc9"
-  integrity sha512-CdFiiTD5GsfS00JAg6w1H61d4NpN6mnnASneXfw37J1/pLOULsDx2s3+gQj2ajf58Mbaxoe2QESlTgxvTUIw2w==
+"@ccom-easy-design-system/atoms.layout@0.0.7":
+  version "0.0.7"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.layout/-/atoms.layout-0.0.7.tgz#f016e1be360bc61f9281c823cd50c3a26a211f93"
+  integrity sha512-lC/NDX6TOvXDY20dUVaeD1/v/hNjiwUOtN+I6SdPfbYYJSd2H+Wfiu6CE/steHU6n2OKHVGRc9m4YzhMHY4Rqw==
   dependencies:
-    "@ccom-easy-design-system/hooks.use-device" "0.0.5"
+    "@ccom-easy-design-system/hooks.use-device" "0.0.6"
 
-"@ccom-easy-design-system/atoms.price@0.0.25":
-  version "0.0.25"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.price/-/atoms.price-0.0.25.tgz#f09534b738fc92a481ace0ba107b268c793e754f"
-  integrity sha512-rz4UfEz2wMCitO7+axBiJ13XR6A/PYBTrvZh6LtFsCt/vHnXTrRowa8V/S9kRQmvBl2xsBuIEDr8Op6Ij/dWCw==
+"@ccom-easy-design-system/atoms.price@0.0.36":
+  version "0.0.36"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.price/-/atoms.price-0.0.36.tgz#ec77a4e198ba7ddea01d554888972315b6c5bb30"
+  integrity sha512-VHzl6zlpmDISuPgv2aQPQqIe/HNDV/8JMoUk1ktqjXWXakyqzmuQ1yG/SQj+Qv2Wp9thkKK1Qgfl9SVU1QJE4Q==
   dependencies:
     "@ccom-easy-design-system/atoms.icons" "0.0.4"
-    "@ccom-easy-design-system/utils.format-currency" "0.0.1"
+    "@ccom-easy-design-system/utils.format-currency" "0.0.6"
     styled-components "^6.1.6"
 
-"@ccom-easy-design-system/atoms.ribbon@0.0.10":
-  version "0.0.10"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.ribbon/-/atoms.ribbon-0.0.10.tgz#8fb23eac14a344d9c4775293cf48fdccfc06b1c4"
-  integrity sha512-yysfU59a/mZ5nL83vUmTVhMEWJJV62qoIB+GQCaxJzB7VpYKZh6qsQxeDsyiz6TSFSJ/jsf1fPw4TsZCsHHdtQ==
+"@ccom-easy-design-system/atoms.price@^0.0.34":
+  version "0.0.34"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.price/-/atoms.price-0.0.34.tgz#0987e19a4094d846d4776d5f421f94ab4bf2aeae"
+  integrity sha512-UF/14tINKNZO3l2NBinGbuyDFwgpWDPok7EwqLWC/toGs/UVblUeb3GX2+/8j07tY5RSr0mNggZHlf8yv18d5g==
   dependencies:
-    "@ccom-easy-design-system/theme.easy" "0.0.8"
+    "@ccom-easy-design-system/atoms.icons" "0.0.4"
+    "@ccom-easy-design-system/utils.format-currency" "0.0.6"
+    styled-components "^6.1.6"
+
+"@ccom-easy-design-system/atoms.ribbon@0.0.11":
+  version "0.0.11"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.ribbon/-/atoms.ribbon-0.0.11.tgz#fe72ced7d9483f523e4e2fb9868ce1d4fd847708"
+  integrity sha512-b5+AP778kxt9eYOLWJUGwhEXtoI3xNBYI7T1K+m6RjffaCSs0ePW8in1Xm8FG0R8L17RUFgamXBak9ROAqRiLw==
+  dependencies:
+    "@ccom-easy-design-system/theme.easy" "0.0.9"
     styled-components "^6.1.6"
 
 "@ccom-easy-design-system/atoms.select@^0.0.14":
@@ -1528,27 +1537,32 @@
   dependencies:
     "@ccom-easy-design-system/hooks.use-media-query" "0.0.1"
 
-"@ccom-easy-design-system/hooks.use-device@0.0.5":
-  version "0.0.5"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-device/-/hooks.use-device-0.0.5.tgz#53b913eb23ac0da04dc0b0085313c89afd3c0372"
-  integrity sha512-a0eUHXNX8JyvQCEncxa+VmBSUXH46b1cqFjMefnIZQYSfz9ch7Ay7iIy7GsrKh0vSAou1ZCVORwY3DGFvgB6GA==
+"@ccom-easy-design-system/hooks.use-device@0.0.6":
+  version "0.0.6"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-device/-/hooks.use-device-0.0.6.tgz#2439d213c5ca3be043b879a89a3d979770232526"
+  integrity sha512-OTaW/NJJNLiwcje66r8/3N1JXUyyv+7WTxxCkWgJ1r+Ffm7gBpLlRTm0Bl+T9wRiXjFO6Z1H7vSPL/l/6ZMrTw==
   dependencies:
-    "@ccom-easy-design-system/hooks.use-media-query" "0.0.1"
+    "@ccom-easy-design-system/hooks.use-media-query" "0.0.2"
 
 "@ccom-easy-design-system/hooks.use-media-query@0.0.1":
   version "0.0.1"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-media-query/-/hooks.use-media-query-0.0.1.tgz#e6f293dd7f5f67b1eff75cf2772c5b258bd0c932"
   integrity sha512-Cc13qhra7SUGGwSlJvJrbxk0O+p5YPIjWqeuTrUSr5FwfB5+4AyHY6tEH9gdZ3+GQ4D+x4orjS1ooSc/QvVy6g==
 
-"@ccom-easy-design-system/molecules.product-card@^0.0.43":
-  version "0.0.43"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.product-card/-/molecules.product-card-0.0.43.tgz#b7be7983feda14331e5a40f4be52742a81467113"
-  integrity sha512-jiOBbxoaOodKn8drZWwOB4AjbdhZzymqLEIan+2wMWE3Q4vGXH4B430fVey9bwpzPLmypRQwn4+QvgnuNvimDg==
+"@ccom-easy-design-system/hooks.use-media-query@0.0.2":
+  version "0.0.2"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-media-query/-/hooks.use-media-query-0.0.2.tgz#83eadccba9e45836d537ffef3282d08a9fc6efd2"
+  integrity sha512-u5ZJvBGC+VNXoRgGzt7lLmHcuL34zjok27pktUM/1eLnQeSisM7AWRuPHobEgZ5trGdXc1LE4AsZ1JVznyOFXA==
+
+"@ccom-easy-design-system/molecules.product-card@^0.0.55":
+  version "0.0.55"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.product-card/-/molecules.product-card-0.0.55.tgz#ef1f151eea366800502ad8b025f207e4f5eda6d7"
+  integrity sha512-lbPaoaNV5awrpvGkIvf5aroHf08K9XowhhXVRHp3/4v9yVcZ/1VmTK76iRrI7ufpAhnIYUgJtvQbX12fVsFsYQ==
   dependencies:
-    "@ccom-easy-design-system/atoms.button" "0.0.10"
-    "@ccom-easy-design-system/atoms.layout" "0.0.6"
-    "@ccom-easy-design-system/atoms.price" "0.0.25"
-    "@ccom-easy-design-system/atoms.ribbon" "0.0.10"
+    "@ccom-easy-design-system/atoms.button" "0.0.11"
+    "@ccom-easy-design-system/atoms.layout" "0.0.7"
+    "@ccom-easy-design-system/atoms.price" "0.0.36"
+    "@ccom-easy-design-system/atoms.ribbon" "0.0.11"
     react-icons "^5.0.1"
     styled-components "^6.1.6"
 
@@ -1574,6 +1588,13 @@
   dependencies:
     styled-components "^6.1.6"
 
+"@ccom-easy-design-system/theme.easy@0.0.9":
+  version "0.0.9"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.easy/-/theme.easy-0.0.9.tgz#38c3b39211ed0142e805053cede4f430b3b6b33d"
+  integrity sha512-bAXkXPwYB4RuPcDeQU+DWMZA74rtTAlPE6KpIKencsqynAtWVg9jfkph3YP1TgTNHcmHSjsBmM/OpuVrUlH+SA==
+  dependencies:
+    styled-components "^6.1.6"
+
 "@ccom-easy-design-system/theme.theme-provider@0.0.2":
   version "0.0.2"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.theme-provider/-/theme.theme-provider-0.0.2.tgz#23d00f3735ed0f9952618b68ef23de2248e80742"
@@ -1582,10 +1603,10 @@
     "@ccom-easy-design-system/theme.easy" "0.0.4"
     styled-components "^6.1.6"
 
-"@ccom-easy-design-system/utils.format-currency@0.0.1":
-  version "0.0.1"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/utils.format-currency/-/utils.format-currency-0.0.1.tgz#181a60560d59bb21d843f38f8caaee3adf85ef80"
-  integrity sha512-NJXBoBgrZo09Hs6LshRkAdz1bN/IyrV+IYNkUzrJ1hKtkFoUlK7Srs0k4fgM3BGF+XYdwyrHX2iUclE+bjfvAA==
+"@ccom-easy-design-system/utils.format-currency@0.0.6":
+  version "0.0.6"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/utils.format-currency/-/utils.format-currency-0.0.6.tgz#261d6f6b212a3b4475508efb0fc9b2e4875cf276"
+  integrity sha512-dmC7qqEnCguJlgdhX31x3Yaf4pE19ZzoIBLg/50r7rHEZ6FPAcOl1un6okQls35HNNBIy7iDAMuObawxA6uKjQ==
   dependencies:
     number-currency-format-2 "^1.1.1"
 

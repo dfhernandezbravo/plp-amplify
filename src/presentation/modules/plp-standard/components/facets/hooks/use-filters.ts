@@ -9,9 +9,21 @@ function removeSpecificBlock(filter: string, payload: string) {
 export default function useFilters(currentFilter: string) {
   const { updateQueryParams } = useQueryParams();
 
-  const addFilter = (newFilter: string) => {
-    const newCurrentFilter = currentFilter
-      ? `${currentFilter}/${newFilter}`
+  const addFilter = (newFilter: string, evaluateDuplicate?: boolean) => {
+    let currentFilterPath = currentFilter;
+    if (evaluateDuplicate) {
+      const keyFilter = newFilter.split('/')?.[0];
+      if (currentFilter?.includes(keyFilter)) {
+        const filterToRemove =
+          keyFilter + currentFilter.match(/\/\d+:\d+/)?.[0] || '';
+        currentFilterPath = removeSpecificBlock(
+          currentFilterPath,
+          filterToRemove,
+        );
+      }
+    }
+    const newCurrentFilter = currentFilterPath
+      ? `${currentFilterPath}/${newFilter}`
       : newFilter;
     updateQueryParams({ filter: newCurrentFilter, page: '1' });
   };

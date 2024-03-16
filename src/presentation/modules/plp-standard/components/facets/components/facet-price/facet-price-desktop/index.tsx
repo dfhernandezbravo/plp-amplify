@@ -28,7 +28,7 @@ const FacetPriceDesktop: React.FC<Props> = ({ facet }) => {
     if (value.selected) {
       removeFilter(newFilter);
     } else {
-      addFilter(newFilter);
+      addFilter(newFilter, true);
     }
   };
 
@@ -50,7 +50,7 @@ const FacetPriceDesktop: React.FC<Props> = ({ facet }) => {
     }
 
     const newFilter = `price/${from}:${to}`;
-    addFilter(newFilter);
+    addFilter(newFilter, true);
   };
 
   const formatPrice = (price: number) => {
@@ -68,11 +68,13 @@ const FacetPriceDesktop: React.FC<Props> = ({ facet }) => {
           placeholder="Mínimo"
           onChange={(e) => setMinValue(e.target.value)}
           type="number"
+          min={0}
         />
         <TextfieldPrice
           placeholder="Máximo"
           type="number"
           onChange={(e) => setMaxValue(e.target.value)}
+          min={0}
         />
         <Button
           variant="link"
