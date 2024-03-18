@@ -1,4 +1,5 @@
 import { SkeletonComponent } from '@components/atoms/skeleton/skeleton';
+import { LayoutOptions } from '@components/molecules/Display';
 import { ProductPLP } from '@store/slices/products';
 import Image from 'next/image';
 import React, { useState } from 'react';
@@ -6,7 +7,7 @@ import React, { useState } from 'react';
 interface Props {
   imageUrl: string;
   product: ProductPLP;
-  layout: 'grid' | 'list';
+  layout: LayoutOptions;
 }
 
 const ProductImage: React.FC<Props> = ({ imageUrl, product, layout }) => {
@@ -29,9 +30,9 @@ const ProductImage: React.FC<Props> = ({ imageUrl, product, layout }) => {
       }}
     >
       <Image
-        src={product.imageUrl}
-        width={450}
-        height={333}
+        src={imageUrl}
+        width={layout === 'list' ? 150 : 200}
+        height={layout === 'list' ? 150 : 180}
         placeholder="empty"
         loading="lazy"
         alt={product.productName || ''}
