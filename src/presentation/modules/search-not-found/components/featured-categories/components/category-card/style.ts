@@ -54,13 +54,13 @@ const CircleImageContainer = css`
     height: 61px;
   }
 
-  @media (max-width: 500px) {
-    width: 58px;
-    min-height: 58px;
+  @media (max-width: 350px) {
+    width: 80px;
+    min-height: 80px;
 
     img {
-      width: 33px;
-      height: 33px;
+      width: 50px;
+      height: 50px;
     }
   }
 `;
