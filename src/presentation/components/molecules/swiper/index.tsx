@@ -55,12 +55,14 @@ function SwiperEasy<T>({
   return (
     <SwiperContainer paginationStyle={paginationStyle}>
       <SwiperComponent>
-        <ArrowButton
-          position="left"
-          isPositionAbsolute={isPositionAbsoluteButtons}
-          disabled={getDisabledArrowButton(isLoop, isStart)}
-          onClick={() => swiper && swiper.slidePrev()}
-        />
+        {hasActionButton && (
+          <ArrowButton
+            position="left"
+            isPositionAbsolute={isPositionAbsoluteButtons}
+            disabled={getDisabledArrowButton(isLoop, isStart)}
+            onClick={() => swiper && swiper.slidePrev()}
+          />
+        )}
 
         <SwiperWrapper>
           <Swiper
@@ -92,12 +94,14 @@ function SwiperEasy<T>({
           </Swiper>
         </SwiperWrapper>
 
-        <ArrowButton
-          position="right"
-          isPositionAbsolute={isPositionAbsoluteButtons}
-          disabled={getDisabledArrowButton(isLoop, isEnd)}
-          onClick={() => swiper && swiper.slideNext()}
-        />
+        {hasActionButton && (
+          <ArrowButton
+            position="right"
+            isPositionAbsolute={isPositionAbsoluteButtons}
+            disabled={getDisabledArrowButton(isLoop, isEnd)}
+            onClick={() => swiper && swiper.slideNext()}
+          />
+        )}
       </SwiperComponent>
     </SwiperContainer>
   );

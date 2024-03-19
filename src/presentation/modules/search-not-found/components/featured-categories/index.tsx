@@ -16,15 +16,15 @@ const FeaturedCategories: React.FC<Content> = ({
 
   const breakpoints: BreakPoints = {
     320: {
-      slidesPerView: 2,
-      slidesPerGroup: 2,
+      slidesPerView: 3,
+      slidesPerGroup: 3,
     },
     768: {
       slidesPerView: 4,
       slidesPerGroup: 4,
     },
     1024: {
-      slidesPerView: itemsPerRow + 0.5,
+      slidesPerView: itemsPerRow,
       slidesPerGroup: itemsPerRow,
     },
   };
@@ -44,6 +44,7 @@ const FeaturedCategories: React.FC<Content> = ({
         breakpoints={breakpoints}
         rowsGrid={device === 'Desktop' ? 1 : 2}
         fillGrid="row"
+        hasActionButton={device === 'Desktop' ? true : false}
       />
     </FeaturedCategoriesContainer>
   );
