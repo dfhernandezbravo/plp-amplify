@@ -18,3 +18,15 @@ export const FaceItemButton = styled.button`
   align-items: center;
   cursor: pointer;
 `;
+
+export const ShowMoreButton = styled.button`
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: fit-content;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration: underline;
+  padding: 8px 16px 8px 4px;
+`;
