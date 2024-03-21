@@ -97,7 +97,10 @@ const FacetsTags = () => {
       <TagsContainer>
         {itemsTags &&
           itemsTags.map((item: TagFacets, index) => (
-            <Tag key={`${index}_${item.value}`}>
+            <Tag
+              data-id={`facet-tag-${item.label}`}
+              key={`${index}_${item.value}`}
+            >
               <TagText>{item.label}</TagText>
               <TagClose>
                 <AiOutlineClose

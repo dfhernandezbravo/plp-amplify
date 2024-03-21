@@ -4,11 +4,13 @@ import Carousel from '../../molecules/Carousel';
 import { Container, Image } from './styles';
 import { Props } from './types';
 import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
+import useRedirectLink from '@hooks/use-redirect-link';
 
 const Banner = (props: Props) => {
   const { items, autoplay, loop, pagination, onClick } = props;
   const { device } = useDevice();
   const { dispatchSelectPromotionEvent } = useDispatchProductEvent();
+  const { redirect } = useRedirectLink();
 
   return (
     <Container>
@@ -24,7 +26,7 @@ const Banner = (props: Props) => {
             return (
               <Link
                 key={key}
-                url={link}
+                url={redirect(link)}
                 onClick={() => {
                   dispatchSelectPromotionEvent(item, device);
                   onClick?.(item);

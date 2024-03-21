@@ -1,6 +1,6 @@
 import ThemeProvider from '@components/atoms/theme-provider';
-import UserNavigationProvider from '@modules/plp-standard/components/products/providers/UserNavigationProvider';
 import QueryProvider from '@presentation/providers/query-provider';
+import PlpProvider from '@store/plp-provider';
 import StoreProvider from '@store/provider';
 import React from 'react';
 
@@ -12,9 +12,9 @@ const PLPLayout: React.FC<Props> = ({ children }) => {
   return (
     <QueryProvider>
       <StoreProvider>
-        <UserNavigationProvider>
+        <PlpProvider>
           <ThemeProvider>{children}</ThemeProvider>
-        </UserNavigationProvider>
+        </PlpProvider>
       </StoreProvider>
     </QueryProvider>
   );

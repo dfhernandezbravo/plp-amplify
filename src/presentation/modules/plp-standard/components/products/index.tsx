@@ -26,7 +26,8 @@ const ProductsPLP = () => {
   const { products, layout, recordsFiltered, count } = useAppSelector(
     (state) => state.products,
   );
-  const pagesCount = Math.ceil(recordsFiltered / count);
+  let pagesCount = recordsFiltered;
+  if (count) pagesCount = Math.ceil(recordsFiltered / count);
 
   const [loadPDP, setLoadPDP] = useState(false);
 
@@ -86,7 +87,11 @@ const ProductsPLP = () => {
             hideCartButton={product.availableQuantity === 0}
             onClickButton={handleOnClickButton}
             renderImage={(imageUrl: string) => (
-              <ProductImage imageUrl={imageUrl} product={product} />
+              <ProductImage
+                imageUrl={imageUrl}
+                product={product}
+                layout={layout}
+              />
             )}
           />
         ))}

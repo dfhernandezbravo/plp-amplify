@@ -29,7 +29,7 @@ type ProductSliceState = {
   products: ProductPLP[];
   facets: Facets[];
   recordsFiltered: number;
-  count: number;
+  count?: number;
   sort?: OrderOptions;
   layout: LayoutOptions;
   filter?: string;
@@ -41,7 +41,7 @@ type ProductSliceState = {
 const initialState: ProductSliceState = {
   products: [],
   facets: [],
-  count: 10,
+  count: undefined,
   recordsFiltered: 0,
   sort: 'orders:desc',
   layout: 'grid',
@@ -74,6 +74,9 @@ const productSlice = createSlice({
     setOpenOrderMobile: (state, { payload }: { payload: boolean }) => {
       state.isOpenOrderMobile = payload;
     },
+    setCount: (state, { payload }: { payload: number }) => {
+      state.count = payload;
+    },
   },
 });
 
@@ -83,5 +86,6 @@ export const {
   setSort,
   setOpenFacetsMobile,
   setOpenOrderMobile,
+  setCount,
 } = productSlice.actions;
 export default productSlice;
