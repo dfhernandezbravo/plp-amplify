@@ -16,7 +16,6 @@ const BreadcrumbPLP = () => {
   const { links } = useBreadcrumbs({
     url: decodeURIComponent(getUrl(asPath)),
   });
-  console.log(links);
   return (
     <div className={styles.breadcrumb}>
       <Breadcrumbs>
