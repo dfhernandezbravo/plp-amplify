@@ -4,10 +4,11 @@ import SearchNotFound from '@modules/search-not-found';
 import PLPLayout from '@presentation/layouts/plp-layout';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { setSearchState } from '@store/slices/products';
+import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
 import getSearch from '@use-cases/product/get-search';
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useQuery } from 'react-query';
 
 interface SearchQueryParams extends ParsedUrlQuery {
@@ -19,8 +20,15 @@ interface SearchQueryParams extends ParsedUrlQuery {
 const PLPContent: React.FC = () => {
   const { query } = useRouter();
   const { search, filter, page } = query as SearchQueryParams;
-  const { count, sort } = useAppSelector((state) => state.products);
+  const { count, sort, products } = useAppSelector((state) => state.products);
   const dispatch = useAppDispatch();
+  const { dispatchViewItemListEvent } = useDispatchProductEvent();
+
+  useEffect(() => {
+    if (products.length > 0) {
+      dispatchViewItemListEvent(products);
+    }
+  }, [products]);
 
   const {
     data: searchResponse,
@@ -62,7 +70,6 @@ const PLPContent: React.FC = () => {
         />
       );
     }
-
     dispatch(setSearchState(searchResponse));
   }
 

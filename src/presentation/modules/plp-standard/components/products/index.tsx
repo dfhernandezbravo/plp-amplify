@@ -4,7 +4,7 @@ import useQueryParams from '@hooks/use-query-params';
 import { useAppSelector } from '@store/hooks';
 import { ProductPLP, TipoClick } from '@store/slices/products';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from '../../styles.module.css';
 import ProductImage from './components/product-image';
 import ProductPagination from './components/product-pagination';
@@ -15,15 +15,10 @@ import {
   SpinnerWrapper,
 } from './styles';
 import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
-import { useUserNavigation } from './hooks/useUserNavigation';
 
 const ProductsPLP = () => {
-  const {
-    dispatchSelectItemEvent,
-    dispatchViewItemListEvent,
-    dispatchAddToCartEvent,
-  } = useDispatchProductEvent();
-  const { setRoutesNavigated } = useUserNavigation();
+  const { dispatchSelectItemEvent, dispatchAddToCartEvent } =
+    useDispatchProductEvent();
   const router = useRouter();
   const { updateQueryParams } = useQueryParams();
   const { page } = router.query;
@@ -40,7 +35,7 @@ const ProductsPLP = () => {
   };
 
   const handleClickCard = async (product: ProductPLP, id: string | null) => {
-    dispatchSelectItemEvent(product, TipoClick.ClicPdp);
+    dispatchSelectItemEvent(product, TipoClick.ClicPdp, id);
     let url = `/${product.linkText}/p`;
     if (id) url += `?skuId=${id}`;
 
@@ -60,26 +55,15 @@ const ProductsPLP = () => {
       quantity: 1,
       ...product,
     };
-    dispatchSelectItemEvent(product, TipoClick.AddClic);
-    dispatchAddToCartEvent(product);
+
+    dispatchSelectItemEvent(product, TipoClick.AddClic, variantId);
+    dispatchAddToCartEvent(product, variantId);
     document.dispatchEvent(
       new CustomEvent('ADD_ITEM_SHOPPING_CART', {
         detail: { product: productSelected },
       }),
     );
   };
-
-  useEffect(() => {
-    if (!router) return;
-    setRoutesNavigated((prev) => {
-      const routePath = prev.find((route) => route === router.asPath);
-      if (!routePath) {
-        dispatchViewItemListEvent(products);
-        return [...prev, router.asPath];
-      }
-      return prev;
-    });
-  }, [router]);
 
   return (
     <div className={styles.products}>
