@@ -3,7 +3,7 @@ import PlpQueryParams from '@modules/plp-standard/types/plp-query-params';
 import { useRouter } from 'next/router';
 import React from 'react';
 import useFilters from '../../../hooks/use-filters';
-import { FaceItemButton, FacetItemContainer } from './style';
+import { FaceItemButton, FacetItemContainer, ShowMoreButton } from './style';
 import Checkbox from '@components/atoms/Checkbox';
 
 interface Props {
@@ -14,6 +14,7 @@ const FacetItemDesktop: React.FC<Props> = ({ facet }) => {
   const { query } = useRouter();
   const { filter } = query as PlpQueryParams;
   const { addFilter, removeFilter } = useFilters(filter || '');
+  const [showMore, setShowMore] = React.useState(true);
 
   const handleOnClick = (value: ValueFacets) => {
     const newFilter = `${value.key}/${value.value}`;
@@ -24,22 +25,41 @@ const FacetItemDesktop: React.FC<Props> = ({ facet }) => {
     }
   };
 
+  const handleShowMoreBtn = () => {
+    setShowMore(!showMore);
+  };
+
+  const sliceName = (name: string): string => {
+    if (name.length > 25) {
+      return `${name.slice(0, 25)}...`;
+    }
+    return name;
+  };
+
   return (
-    <FacetItemContainer>
-      {facet.values
-        .toSorted((a, b) => b.quantity - a.quantity)
-        .map((value, index) => (
-          <FaceItemButton
-            key={`${value.id}-${index}`}
-            onClick={() => handleOnClick(value)}
-          >
-            <Checkbox
-              checked={value.selected}
-              label={`${value.name} (${value.quantity})`}
-            />
-          </FaceItemButton>
-        ))}
-    </FacetItemContainer>
+    <>
+      <FacetItemContainer>
+        {facet.values
+          .toSorted((a, b) => b.quantity - a.quantity)
+          .slice(0, 5)
+          .map((value, index) => (
+            <FaceItemButton
+              key={`${value.id}-${index}`}
+              onClick={() => handleOnClick(value)}
+            >
+              <Checkbox
+                checked={value.selected}
+                label={`${sliceName(value.name)} (${value.quantity})`}
+              />
+            </FaceItemButton>
+          ))}
+      </FacetItemContainer>
+      {facet.values.length > 5 && (
+        <ShowMoreButton onClick={handleShowMoreBtn}>
+          {showMore ? 'Mostrar más' : 'Mostrar menos'}
+        </ShowMoreButton>
+      )}
+    </>
   );
 };
 
