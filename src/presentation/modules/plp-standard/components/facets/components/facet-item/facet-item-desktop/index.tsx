@@ -44,6 +44,9 @@ const FacetItemDesktop: React.FC<Props> = ({ facet }) => {
           .slice(0, 5)
           .map((value, index) => (
             <FaceItemButton
+              data-id={`facet-item-${value.name
+                .toLowerCase()
+                .replace(' ', '-')}`}
               key={`${value.id}-${index}`}
               onClick={() => handleOnClick(value)}
             >

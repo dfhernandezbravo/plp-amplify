@@ -18,7 +18,10 @@ const Accordion: React.FC<AccordionProps> = ({
 
   return (
     <AccordionContainer>
-      <HeaderAccordion onClick={toggle}>
+      <HeaderAccordion
+        data-id={`facet-group-${title.toLowerCase()}`}
+        onClick={toggle}
+      >
         {title}
         {isOpen ? (
           <MdKeyboardArrowUp size={25} />
