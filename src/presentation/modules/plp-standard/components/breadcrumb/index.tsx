@@ -16,13 +16,16 @@ const BreadcrumbPLP = () => {
   const { links } = useBreadcrumbs({
     url: decodeURIComponent(getUrl(asPath)),
   });
-
+  console.log(links);
   return (
     <div className={styles.breadcrumb}>
       <Breadcrumbs>
         {links.map((link) => (
-          <Link href={link.href} key={link.href}>
-            {link.text}
+          <Link
+            href={link.href === '/search' ? '/' : link.href}
+            key={link.href}
+          >
+            {link.text === 'search' ? 'Inicio' : link.text}
           </Link>
         ))}
       </Breadcrumbs>
