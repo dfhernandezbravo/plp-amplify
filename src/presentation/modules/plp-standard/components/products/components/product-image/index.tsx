@@ -14,8 +14,9 @@ const ProductImage: React.FC<Props> = ({ imageUrl, product, layout }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const skeletonSize = () => {
-    if (layout === 'grid')
+    if (layout === 'grid') {
       return { width: '100%', height: '200px', top: 10, right: 0 };
+    }
     return { width: '202px', height: '160px', top: 10, right: 4 };
   };
 
@@ -26,12 +27,12 @@ const ProductImage: React.FC<Props> = ({ imageUrl, product, layout }) => {
         flexDirection: 'column',
         width: '100%',
         height: '100%',
-        minWidth: isLoading ? 205 : 215,
+        minWidth: isLoading ? 205 : 180,
       }}
     >
       <Image
         src={imageUrl}
-        width={layout === 'list' ? 150 : 200}
+        width={layout === 'list' ? 150 : 180}
         height={layout === 'list' ? 150 : 180}
         placeholder="empty"
         loading="lazy"
