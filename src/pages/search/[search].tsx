@@ -49,6 +49,7 @@ const PLPContent: React.FC = () => {
       <SearchNotFound
         title={`Sin resultados de búsqueda para "${search}"`}
         view="search-not-found"
+        type="search"
       />
     );
   }
@@ -59,6 +60,7 @@ const PLPContent: React.FC = () => {
         <SearchNotFound
           title={`Sin resultados de búsqueda para "${search}"`}
           view="search-not-found"
+          type="search"
         />
       );
     }

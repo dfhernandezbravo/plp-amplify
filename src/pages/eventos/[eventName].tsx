@@ -48,27 +48,27 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
         filter,
       }),
     {
-      enabled: (!!clusterId || !!contentCMS.length) && !!count,
+      enabled: (!!clusterId || !!contentCMS?.length) && !!count,
       cacheTime: 0,
     },
   );
 
   if (isLoadingProducts) return <SearchSkeleton />;
 
-  if (isError) return <SearchNotFound view="plp-not-found" />;
+  if (isError) return <SearchNotFound view="plp-not-found" type="events" />;
 
   if (searchResponse) {
     if (searchResponse.recordsFiltered === 0) {
-      return <SearchNotFound view="plp-not-found" />;
+      return <SearchNotFound view="plp-not-found" type="events" />;
     }
 
     dispatch(setSearchState(searchResponse));
   }
 
-  return contentCMS.length ? (
+  return contentCMS?.length ? (
     <PLPCMS contentCMS={contentCMS} />
   ) : (
-    <SearchNotFound view="plp-not-found" />
+    <SearchNotFound view="plp-not-found" type="events" />
   );
 };
 
