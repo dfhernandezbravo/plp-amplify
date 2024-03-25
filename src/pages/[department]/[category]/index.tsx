@@ -46,11 +46,11 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
 
   if (isLoadingProducts) return <SearchSkeleton />;
 
-  if (isError) return <SearchNotFound view="plp-not-found" />;
+  if (isError) return <SearchNotFound view="plp-not-found" type="category" />;
 
   if (searchResponse) {
     if (searchResponse.recordsFiltered === 0) {
-      return <SearchNotFound view="plp-not-found" />;
+      return <SearchNotFound view="plp-not-found" type="category" />;
     }
 
     dispatch(setSearchState(searchResponse!));
