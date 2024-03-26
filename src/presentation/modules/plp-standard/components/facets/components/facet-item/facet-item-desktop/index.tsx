@@ -14,7 +14,10 @@ const FacetItemDesktop: React.FC<Props> = ({ facet }) => {
   const { query } = useRouter();
   const { filter } = query as PlpQueryParams;
   const { addFilter, removeFilter } = useFilters(filter || '');
-  const [showMore, setShowMore] = React.useState(true);
+  const [showMore, setShowMore] = React.useState(false);
+  const [facetList, setFacetList] = React.useState<ValueFacets[]>(
+    facet.values?.slice(0, 5) || [],
+  );
 
   const handleOnClick = (value: ValueFacets) => {
     const newFilter = `${value.key}/${value.value}`;
@@ -25,8 +28,13 @@ const FacetItemDesktop: React.FC<Props> = ({ facet }) => {
     }
   };
 
-  const handleShowMoreBtn = () => {
-    setShowMore(!showMore);
+  const handleShowMoreBtn = (value: boolean) => {
+    setShowMore(value);
+    if (value) {
+      setFacetList(facet.values);
+    } else {
+      setFacetList(facet.values.slice(0, 5));
+    }
   };
 
   const sliceName = (name: string): string => {
@@ -39,9 +47,8 @@ const FacetItemDesktop: React.FC<Props> = ({ facet }) => {
   return (
     <>
       <FacetItemContainer>
-        {facet.values
+        {facetList
           .toSorted((a, b) => b.quantity - a.quantity)
-          .slice(0, 5)
           .map((value, index) => (
             <FaceItemButton
               data-id={`facet-item-${value.name
@@ -58,8 +65,8 @@ const FacetItemDesktop: React.FC<Props> = ({ facet }) => {
           ))}
       </FacetItemContainer>
       {facet.values.length > 5 && (
-        <ShowMoreButton onClick={handleShowMoreBtn}>
-          {showMore ? 'Mostrar más' : 'Mostrar menos'}
+        <ShowMoreButton onClick={() => handleShowMoreBtn(!showMore)}>
+          {!showMore ? 'Mostrar más' : 'Mostrar menos'}
         </ShowMoreButton>
       )}
     </>
