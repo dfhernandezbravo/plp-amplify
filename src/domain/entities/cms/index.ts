@@ -38,6 +38,11 @@ export type Content = {
   products: string;
   fieldName: 'clusterId' | 'sku' | 'productId';
   maxItems: number;
+  enableProductsComponent?: boolean;
+  enableMobileFacetsComponent?: boolean;
+  enableDesktopFacetsComponent?: boolean;
+  enableOrderComponent?: boolean;
+  enableBreadcrumbsComponent?: boolean;
 };
 
 export type CMSBody = {
