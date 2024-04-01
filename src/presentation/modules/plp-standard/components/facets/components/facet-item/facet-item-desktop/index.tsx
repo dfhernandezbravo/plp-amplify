@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import useFilters from '../../../hooks/use-filters';
 import { FaceItemButton, FacetItemContainer, ShowMoreButton } from './style';
-import Checkbox from '@components/atoms/Checkbox';
+import Checkbox from '@components/atoms/checkbox';
 
 interface Props {
   facet: Facets;
@@ -18,7 +18,7 @@ const FacetItemDesktop: React.FC<Props> = ({ facet }) => {
   const [facetList, setFacetList] = React.useState<ValueFacets[]>(
     facet.values?.slice(0, 5) || [],
   );
-
+  //
   const handleOnClick = (value: ValueFacets) => {
     const newFilter = `${value.key}/${value.value}`;
     if (value.selected) {
