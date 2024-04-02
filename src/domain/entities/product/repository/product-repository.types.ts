@@ -1,5 +1,5 @@
-import { Product } from '@cencosud-ds/easy-design-system';
 import { Facets } from '../facets.entity';
+import { Product } from '../product';
 
 export type SearchByCategoriesRequest = {
   count?: number;
