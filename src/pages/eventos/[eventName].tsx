@@ -12,6 +12,7 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 import { useQuery } from 'react-query';
+import AnalyticsEventsLayout from '@presentation/layouts/analytics-events-layout';
 
 interface Props {
   contentCMS: Content[];
@@ -113,7 +114,9 @@ const EventsPLPPage = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <PLPLayout>
-      <PLPContent contentCMS={contentCMS} />
+      <AnalyticsEventsLayout contentCMS={contentCMS}>
+        <PLPContent contentCMS={contentCMS} />
+      </AnalyticsEventsLayout>
     </PLPLayout>
   );
 };

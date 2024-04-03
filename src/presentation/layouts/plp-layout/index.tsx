@@ -1,4 +1,5 @@
 import ThemeProvider from '@components/atoms/theme-provider';
+import DeviceProvider from '@presentation/providers/device';
 import QueryProvider from '@presentation/providers/query-provider';
 import PlpProvider from '@store/plp-provider';
 import StoreProvider from '@store/provider';
@@ -13,7 +14,9 @@ const PLPLayout: React.FC<Props> = ({ children }) => {
     <QueryProvider>
       <StoreProvider>
         <PlpProvider>
-          <ThemeProvider>{children}</ThemeProvider>
+          <DeviceProvider>
+            <ThemeProvider>{children}</ThemeProvider>
+          </DeviceProvider>
         </PlpProvider>
       </StoreProvider>
     </QueryProvider>
