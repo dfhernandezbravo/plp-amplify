@@ -1,5 +1,7 @@
-import { Variant } from '@ccom-easy-design-system/molecules.product-card/dist/types';
-import { Product } from '@cencosud-ds/easy-design-system';
+import {
+  Variant,
+  Product,
+} from '@ccom-easy-design-system/molecules.product-card/dist/types';
 import { LayoutOptions } from '@components/molecules/Display/types';
 import { OrderOptions } from '@components/molecules/Filter/types';
 import { Facets } from '@entities/product/facets.entity';
