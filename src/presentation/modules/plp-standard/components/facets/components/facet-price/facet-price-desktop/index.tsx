@@ -9,7 +9,7 @@ import {
   FacetItemContainer,
 } from '../../facet-item/facet-item-desktop/style';
 import { PriceInputContainer, TextfieldPrice } from './styles';
-import { Checkbox } from '@ccom-easy-design-system/atoms.checkbox';
+import Checkbox from '@components/atoms/checkbox';
 const { format } = require('number-currency-format-2');
 
 interface Props {
