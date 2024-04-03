@@ -1,7 +1,8 @@
-import { Product } from '@cencosud-ds/easy-design-system';
+// import { Product } from '@cencosud-ds/easy-design-system';
 import { LayoutOptions } from '@components/molecules/Display/types';
 import { OrderOptions } from '@components/molecules/Filter/types';
 import { Facets } from '@entities/product/facets.entity';
+import { Product } from '@ccom-easy-design-system/molecules.product-card/dist/types';
 import { SearchByCategoriesResponse } from '@entities/product/repository/product-repository.types';
 import { createSlice } from '@reduxjs/toolkit';
 
