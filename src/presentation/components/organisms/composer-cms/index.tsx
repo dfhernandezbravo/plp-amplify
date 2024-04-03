@@ -2,6 +2,8 @@ import { useDevice } from '@cencosud-ds/easy-design-system';
 import { Content } from '@entities/cms';
 import { ComponentsCMS } from '@entities/cms/components-cms';
 import useCMSDateValidator from '@hooks/cmsDateValidator';
+import { useAppDispatch } from '@store/hooks';
+import cmsContentSlice from '@store/slices/cmsContent';
 import React from 'react';
 
 interface Props {
@@ -11,7 +13,9 @@ interface Props {
 
 const ComposerCMS: React.FC<Props> = ({ contentCMS, components }) => {
   const { cmsDateValidator } = useCMSDateValidator();
+  const { setCmsContent } = cmsContentSlice.actions;
   const { device } = useDevice();
+  const dispatch = useAppDispatch();
 
   const isVisible = (element: Content) => {
     const { visibleMobile, visibleDesktop } = element;
@@ -28,6 +32,7 @@ const ComposerCMS: React.FC<Props> = ({ contentCMS, components }) => {
     const enabled = cmsDateValidator({ endDate, startDate, isActive });
     const showElement = enabled && isVisible(element);
     const Component = components[component];
+    dispatch(setCmsContent(contentCMS));
     if (!Component) return null;
     return showElement ? <Component {...element} /> : null;
   };

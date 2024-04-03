@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Content } from '@entities/cms';
 import SearchSkeleton from '@modules/plp-standard/components/search-skeleton';
 import PLPCMS from '@modules/plp-standard/variants/plp-cms';
@@ -11,6 +12,7 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 import { useQuery } from 'react-query';
+import AnalyticsEventsLayout from '@presentation/layouts/analytics-events-layout';
 
 interface Props {
   contentCMS: Content[];
@@ -26,49 +28,64 @@ const PLPContent: React.FC<Props> = ({ contentCMS }) => {
   const { query } = useRouter();
   const { filter, page } = query as PlpQueryParams;
   const dispatch = useAppDispatch();
+  const [base, setBase] = useState<Content>();
+  const [existCluster, setExistCluster] = useState(false);
+  const componentBaseName = 'config-base-plp';
 
-  const cluster = contentCMS?.find(
-    (item) => item.component === 'input-cluster-id',
-  );
-
-  const clusterId = cluster?.clusterId;
+  useEffect(() => {
+    if (contentCMS) {
+      const baseConfig = contentCMS?.find(
+        (e) => e?.component === componentBaseName,
+      );
+      baseConfig && setBase(baseConfig);
+      if (base?.clusterId !== '') setExistCluster(true);
+      else setExistCluster(false);
+    }
+  }, [contentCMS?.length > 0]);
 
   const {
     data: searchResponse,
     isLoading: isLoadingProducts,
     isError,
   } = useQuery(
-    ['get-search-by-cluster', clusterId, count, page, sort, filter],
+    [
+      'get-search-by-cluster',
+      { clusterId: base?.clusterId },
+      count,
+      page,
+      sort,
+      filter,
+    ],
     () =>
       getByClusterId({
-        clusterId,
+        clusterId: base?.clusterId,
         count,
         page,
         sort,
         filter,
       }),
     {
-      enabled: (!!clusterId || !!contentCMS.length) && !!count,
+      enabled: existCluster && !!count,
       cacheTime: 0,
     },
   );
 
   if (isLoadingProducts) return <SearchSkeleton />;
 
-  if (isError) return <SearchNotFound view="plp-not-found" />;
+  if (isError) return <SearchNotFound view="plp-not-found" type="events" />;
 
   if (searchResponse) {
     if (searchResponse.recordsFiltered === 0) {
-      return <SearchNotFound view="plp-not-found" />;
+      return <SearchNotFound view="plp-not-found" type="events" />;
     }
 
     dispatch(setSearchState(searchResponse));
   }
 
-  return contentCMS.length ? (
+  return contentCMS?.length ? (
     <PLPCMS contentCMS={contentCMS} />
   ) : (
-    <SearchNotFound view="plp-not-found" />
+    <SearchNotFound view="plp-not-found" type="events" />
   );
 };
 
@@ -97,7 +114,9 @@ const EventsPLPPage = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <PLPLayout>
-      <PLPContent contentCMS={contentCMS} />
+      <AnalyticsEventsLayout contentCMS={contentCMS}>
+        <PLPContent contentCMS={contentCMS} />
+      </AnalyticsEventsLayout>
     </PLPLayout>
   );
 };

@@ -1,3 +1,5 @@
+import React from 'react';
+import { useRouter } from 'next/router';
 import SearchSkeleton from '@modules/plp-standard/components/search-skeleton';
 import PLPDefault from '@modules/plp-standard/variants/plp-default';
 import SearchNotFound from '@modules/search-not-found';
@@ -5,9 +7,7 @@ import PLPLayout from '@presentation/layouts/plp-layout';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { setSearchState } from '@store/slices/products';
 import getByClusterId from '@use-cases/product/get-cluster-id';
-import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
-import React from 'react';
 import { useQuery } from 'react-query';
 
 interface SearchQueryParams extends ParsedUrlQuery {
@@ -45,12 +45,12 @@ const PLPContent: React.FC = () => {
   if (isLoadingProducts) return <SearchSkeleton />;
 
   if (isError) {
-    return <SearchNotFound view="plp-not-found" />;
+    return <SearchNotFound view="plp-not-found" type="cluster" />;
   }
 
   if (searchResponse) {
     if (searchResponse.recordsFiltered === 0) {
-      return <SearchNotFound view="plp-not-found" />;
+      return <SearchNotFound view="plp-not-found" type="cluster" />;
     }
 
     dispatch(setSearchState(searchResponse!));
