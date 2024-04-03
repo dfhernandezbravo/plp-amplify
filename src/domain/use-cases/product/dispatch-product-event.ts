@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { Item } from '@entities/cms';
-import { Device } from '@hooks/use-device';
 import { useEvents } from '@hooks/use-events';
+import { DeviceType } from '@store/slices/device';
 import { ProductPLP, TipoClick } from '@store/slices/products';
 import { ANALYTICS_EVENTS } from 'src/application/infra/events/analytics.';
 
@@ -70,7 +70,7 @@ export const useDispatchProductEvent = () => {
   const dispatchPromotionEvent = (
     item: Item,
     event: EventType,
-    device: Device,
+    device: DeviceType,
   ) => {
     return dispatchEvent({
       name: ANALYTICS_EVENTS.Analytics,
@@ -80,17 +80,17 @@ export const useDispatchProductEvent = () => {
           promo_id: 'Banner superior 1',
           promo_name: item?.alt || '',
           creative_name:
-            device === 'Desktop' ? item?.image || '' : item?.mobileImage || '',
+            device === 'desktop' ? item?.image || '' : item?.mobileImage || '',
           creative_slot: 'Banner superior 1 0',
         },
       },
     });
   };
 
-  const dispatchViewPromotionEvent = (item: Item, device: Device) =>
+  const dispatchViewPromotionEvent = (item: Item, device: DeviceType) =>
     dispatchPromotionEvent(item, EventType.ViewPromotion, device);
 
-  const dispatchSelectPromotionEvent = (item: Item, device: Device) =>
+  const dispatchSelectPromotionEvent = (item: Item, device: DeviceType) =>
     dispatchPromotionEvent(item, EventType.SelectPromotion, device);
 
   const dispatchSelectItemEvent = (

@@ -5,12 +5,14 @@ import { Container, Image } from './styles';
 import { Props } from './types';
 import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
 import useRedirectLink from '@hooks/use-redirect-link';
+import { useAppSelector } from '@store/hooks';
 
 const Banner = (props: Props) => {
   const { items, autoplay, loop, pagination, onClick } = props;
   const { device } = useDevice();
   const { dispatchSelectPromotionEvent } = useDispatchProductEvent();
   const { redirect } = useRedirectLink();
+  const { deviceType } = useAppSelector((state) => state.device);
 
   return (
     <Container>
@@ -28,7 +30,7 @@ const Banner = (props: Props) => {
                 key={key}
                 url={redirect(link)}
                 onClick={() => {
-                  dispatchSelectPromotionEvent(item, device);
+                  dispatchSelectPromotionEvent(item, deviceType);
                   onClick?.(item);
                 }}
               >

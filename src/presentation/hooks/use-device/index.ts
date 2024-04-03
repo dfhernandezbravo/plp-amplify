@@ -26,12 +26,3 @@ export default function useDevice(): Breakpoints {
 
   return breakpoints;
 }
-
-export const getDevice = () => {
-  const width =
-    window.innerWidth ||
-    document.documentElement.clientWidth ||
-    document.body.clientWidth;
-  const device = width > 1024 ? 'Desktop' : 'Phone';
-  return device;
-};

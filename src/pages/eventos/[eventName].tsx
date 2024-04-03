@@ -6,14 +6,12 @@ import PLPLayout from '@presentation/layouts/plp-layout';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { setSearchState } from '@store/slices/products';
 import getContentViewCms from '@use-cases/cms/get-content-view';
-import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
 import getByClusterId from '@use-cases/product/get-cluster-id';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
-import { useEffect } from 'react';
 import { useQuery } from 'react-query';
-import { getDevice } from '@hooks/use-device';
+import AnalyticsEventsLayout from '@presentation/layouts/analytics-events-layout';
 
 interface Props {
   contentCMS: Content[];
@@ -98,21 +96,11 @@ export const getServerSideProps = (async (context) => {
 const EventsPLPPage = ({
   contentCMS,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { dispatchViewPromotionEvent } = useDispatchProductEvent();
-  useEffect(() => {
-    if (!contentCMS?.length) return;
-    const bannerCarousel = contentCMS?.find(
-      (content) => content.component === 'banner-carousel',
-    );
-    if (bannerCarousel?.items) {
-      for (const item of bannerCarousel.items) {
-        dispatchViewPromotionEvent(item, getDevice());
-      }
-    }
-  }, [contentCMS]);
   return (
     <PLPLayout>
-      <PLPContent contentCMS={contentCMS} />
+      <AnalyticsEventsLayout contentCMS={contentCMS}>
+        <PLPContent contentCMS={contentCMS} />
+      </AnalyticsEventsLayout>
     </PLPLayout>
   );
 };
