@@ -18,7 +18,7 @@ const FacetItemDesktop: React.FC<Props> = ({ facet }) => {
   const [facetList, setFacetList] = React.useState<ValueFacets[]>(
     facet.values?.slice(0, 5) || [],
   );
-  //
+
   const handleOnClick = (value: ValueFacets) => {
     const newFilter = `${value.key}/${value.value}`;
     if (value.selected) {
