@@ -1459,6 +1459,13 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
+"@ccom-easy-design-system/atoms.bottom-sheet@0.0.18":
+  version "0.0.18"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.bottom-sheet/-/atoms.bottom-sheet-0.0.18.tgz#f564569fcc525d9d2f977bb98e132876420e9238"
+  integrity sha512-TGd3YtdO23oYGsN6ntlQAqlGPJImu67DOimii/3Coi2jxKPzszZTLuHhkNZXXB30OA9XRRbMOjmu7ZMtGO2a6g==
+  dependencies:
+    styled-components "^6.1.6"
+
 "@ccom-easy-design-system/atoms.button@0.0.12":
   version "0.0.12"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.button/-/atoms.button-0.0.12.tgz#58e45788dd8326bc47feb482c9aabd82f085d0db"
@@ -1501,6 +1508,14 @@
     "@ccom-easy-design-system/atoms.icons" "0.0.5"
     "@ccom-easy-design-system/theme.easy" "0.0.9"
     "@ccom-easy-design-system/utils.format-currency" "0.0.7"
+    styled-components "^6.1.6"
+
+"@ccom-easy-design-system/atoms.radio-button@0.0.9":
+  version "0.0.9"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.radio-button/-/atoms.radio-button-0.0.9.tgz#38ee8eb24ac63e25da2d8bfceb329fe5b503d4eb"
+  integrity sha512-cd/jPGxTFmNMGD1RO29jPmUxPgxgSWE3Fwax1fNcJ1UVzUy2HHqSLwenOy1g8uxdwbBHj6W0cY0yK6ngTrKtsg==
+  dependencies:
+    "@ccom-easy-design-system/theme.easy" "0.0.8"
     styled-components "^6.1.6"
 
 "@ccom-easy-design-system/atoms.ribbon@0.0.12":
