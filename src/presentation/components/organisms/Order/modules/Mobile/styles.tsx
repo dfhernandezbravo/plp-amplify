@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const Container = styled.div`
   display: grid;
@@ -55,5 +55,24 @@ export const ButtonBoxContainer = styled.div`
   &.fixed-header {
     top: 115px;
     transition: all 1s ease;
+  }
+`;
+
+export const BottomSheetPositionStyles = createGlobalStyle`
+  div[isopen="true"][isdragging] {
+   z-index: 1;
+  }
+`;
+export const RadioButtonContainer = styled.div`
+  margin: 0.5rem 0;
+  font-size: 1rem;
+`;
+export const SortByTitle = styled.div`
+  color: #485760;
+  font-size: 1rem;
+  margin: 0.9375rem 0;
+  font-weight: 700;
+  span {
+    font-weight: normal;
   }
 `;
