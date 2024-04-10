@@ -116,9 +116,7 @@ const Mobile = (props: Props) => {
         open={isOpenOrderMobile}
         onClose={() => dispatch(setOpenOrderMobile(false))}
       >
-        <SortByTitle>
-          Ordenar por: <span>Destacados</span>
-        </SortByTitle>
+        <SortByTitle>Ordenar por:</SortByTitle>
         {sortByOptions.map(({ value, label }) => (
           <RadioButtonContainer key={value}>
             <RadioButton
