@@ -77,6 +77,7 @@ const ProductsCarousel = ({ items }: Props) => {
     />
   );
 
+  if (items?.length < 5) return null;
   return (
     <CarouselContainer>
       <Swiper
