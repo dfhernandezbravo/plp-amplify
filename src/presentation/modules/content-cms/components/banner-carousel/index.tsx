@@ -1,7 +1,7 @@
 import Banner from '@components/organisms/Banner/Banner';
 import { Content } from '@entities/cms';
 import React from 'react';
-import styles from '../../styles.module.css';
+import styles from '../../../plp-standard/styles.module.css';
 
 const BannerCarousel = (content: Content) => {
   const { items } = content;

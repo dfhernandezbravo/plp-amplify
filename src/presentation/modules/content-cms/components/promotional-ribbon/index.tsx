@@ -2,7 +2,7 @@ import { useDevice } from '@cencosud-ds/easy-design-system';
 import { Content } from '@entities/cms';
 import React from 'react';
 import { ImagePromotionalRibbon, PromotionalRibbonContainer } from './styles';
-import styles from '../../styles.module.css';
+import styles from '../../../plp-standard/styles.module.css';
 
 const PromotionalRibbons = (content: Content) => {
   const { alt, backgroundColor, imageMobile, imageDesktop, link, fullWidth } =
