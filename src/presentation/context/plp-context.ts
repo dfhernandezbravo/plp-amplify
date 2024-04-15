@@ -8,7 +8,7 @@ interface PLPContextProps {
   isLoadingCMS: boolean;
   products: Product[];
   facets: Facets[];
-  contentCMS: Content[];
+  contentCMS: Content[] | null;
   refreshProducts: () => void;
 }
 

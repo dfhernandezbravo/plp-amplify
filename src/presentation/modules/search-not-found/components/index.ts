@@ -1,6 +1,6 @@
 import { ComponentsCMS } from '@entities/cms/components-cms';
 import NoSuggestions from './no-suggestions';
-import BannerCarousel from '@modules/plp-standard/components/banner-carousel';
+import BannerCarousel from '@modules/content-cms/components/banner-carousel';
 import FeaturedCategories from './featured-categories';
 import FeaturedProducts from './featured-products';
 import PLPNotFoundText from './plp-not-found-text';

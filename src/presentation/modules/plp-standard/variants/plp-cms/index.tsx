@@ -1,6 +1,6 @@
 import ComposerCMS from '@components/organisms/composer-cms';
 import { Content } from '@entities/cms';
-import ContentComponent from '@modules/plp-standard/components';
+import ContentComponent from '@modules/content-cms/components';
 import Desktop from '@modules/plp-standard/layouts/Desktop';
 import Mobile from '@modules/plp-standard/layouts/Mobile';
 import { PlpContainer } from '@modules/plp-standard/styles';

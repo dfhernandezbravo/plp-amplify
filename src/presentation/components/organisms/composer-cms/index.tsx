@@ -1,8 +1,7 @@
-import { useDevice } from '@cencosud-ds/easy-design-system';
 import { Content } from '@entities/cms';
 import { ComponentsCMS } from '@entities/cms/components-cms';
 import useCMSDateValidator from '@hooks/cmsDateValidator';
-import { useAppDispatch } from '@store/hooks';
+import { useAppDispatch, useAppSelector } from '@store/hooks';
 import cmsContentSlice from '@store/slices/cmsContent';
 import React from 'react';
 
@@ -14,7 +13,7 @@ interface Props {
 const ComposerCMS: React.FC<Props> = ({ contentCMS, components }) => {
   const { cmsDateValidator } = useCMSDateValidator();
   const { setCmsContent } = cmsContentSlice.actions;
-  const { device } = useDevice();
+  const { deviceType } = useAppSelector((state) => state.device);
   const dispatch = useAppDispatch();
 
   const isVisible = (element: Content) => {
@@ -22,8 +21,8 @@ const ComposerCMS: React.FC<Props> = ({ contentCMS, components }) => {
     if (visibleMobile === undefined && visibleDesktop === undefined)
       return true;
     const visible =
-      (device !== 'Desktop' && visibleMobile) ||
-      (device === 'Desktop' && visibleDesktop);
+      (deviceType !== 'desktop' && visibleMobile) ||
+      (deviceType === 'desktop' && visibleDesktop);
     return visible;
   };
 
