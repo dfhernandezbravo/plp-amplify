@@ -1,7 +1,7 @@
 import { Breadcrumbs, useBreadcrumbs } from '@cencosud-ds/easy-design-system';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import styles from '../../styles.module.css';
+import styles from '@modules/plp-standard/styles.module.css';
 
 const getUrl = (path: string) => {
   const url = path.split('?');

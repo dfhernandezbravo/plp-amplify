@@ -1,5 +1,5 @@
 import { Content } from '@entities/cms';
-import BreadcrumbPLP from '../breadcrumb';
+import BreadcrumbPLP from '../../../../components/atoms/breadcrumb';
 import OrderCMS from '../order';
 import ProductsPLP from '../products';
 import { Layout } from '@cencosud-ds/easy-design-system';

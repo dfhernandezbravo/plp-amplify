@@ -1,4 +1,4 @@
-import BreadcrumbPLP from '@modules/plp-standard/components/breadcrumb';
+import BreadcrumbPLP from '@components/atoms/breadcrumb';
 import Facets from '@modules/plp-standard/components/facets';
 import OrderCMS from '@modules/plp-standard/components/order';
 import ProductsPLP from '@modules/plp-standard/components/products';
