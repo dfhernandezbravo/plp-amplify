@@ -1474,6 +1474,14 @@
     "@ccom-easy-design-system/theme.easy" "0.0.9"
     styled-components "^6.1.6"
 
+"@ccom-easy-design-system/atoms.button@^0.0.13":
+  version "0.0.13"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.button/-/atoms.button-0.0.13.tgz#a888e46fd689d5bf539d7b17776d88f3e7f3f4ac"
+  integrity sha512-dx2eqwMXQ7m5cJP2C0/PsXSG3At24j01vJDxQpe1AErMJZnoIev1U3Y3joMoO37nvuRptIRnJuF+oq2+YpFtYg==
+  dependencies:
+    "@ccom-easy-design-system/theme.easy" "0.0.9"
+    styled-components "^6.1.6"
+
 "@ccom-easy-design-system/atoms.checkbox@^0.0.11":
   version "0.0.11"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.checkbox/-/atoms.checkbox-0.0.11.tgz#d11b66f8fae58cc6a2083d31205a5b0716997331"

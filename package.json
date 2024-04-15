@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@ccom-easy-design-system/atoms.bottom-sheet": "0.0.18",
+    "@ccom-easy-design-system/atoms.button": "^0.0.13",
     "@ccom-easy-design-system/atoms.checkbox": "^0.0.11",
     "@ccom-easy-design-system/atoms.icons": "^0.0.4",
     "@ccom-easy-design-system/atoms.radio-button": "0.0.9",
