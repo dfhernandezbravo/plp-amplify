@@ -1,5 +1,4 @@
-import { Layout } from '@cencosud-ds/easy-design-system';
-import React from 'react';
+import { Layout } from '@components/atoms/layout';
 import FacetsHeaderDesktop from './desktop';
 import FacetsHeaderMobile from './mobile';
 

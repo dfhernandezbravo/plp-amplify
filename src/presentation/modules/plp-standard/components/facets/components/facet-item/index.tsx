@@ -1,4 +1,4 @@
-import { Layout } from '@cencosud-ds/easy-design-system';
+import { Layout } from '@components/atoms/layout';
 import { Facets } from '@entities/product/facets.entity';
 import React from 'react';
 import FacetItemDesktop from './facet-item-desktop';

@@ -1,10 +1,10 @@
+import Checkbox from '@components/atoms/checkbox';
 import { Facets, ValueFacets } from '@entities/product/facets.entity';
 import PlpQueryParams from '@modules/plp-standard/types/plp-query-params';
 import { useRouter } from 'next/router';
 import React from 'react';
 import useFilters from '../../../hooks/use-filters';
 import { FaceItemButton, FacetItemContainer, ShowMoreButton } from './style';
-import Checkbox from '@components/atoms/checkbox';
 
 interface Props {
   facet: Facets;

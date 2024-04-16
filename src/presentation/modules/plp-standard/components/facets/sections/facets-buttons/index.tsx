@@ -1,4 +1,4 @@
-import { Button } from '@cencosud-ds/easy-design-system';
+import Button from '@components/atoms/Button';
 import useQueryParams from '@hooks/use-query-params';
 import { useAppDispatch } from '@store/hooks';
 import { setOpenFacetsMobile } from '@store/slices/products';

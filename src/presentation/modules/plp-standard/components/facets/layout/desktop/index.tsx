@@ -1,7 +1,6 @@
 import Accordion from '@components/atoms/accordion';
 import { Facets } from '@entities/product/facets.entity';
 import { useAppSelector } from '@store/hooks';
-import styles from '../../../../styles.module.css';
 import CustomFacetComponents from '../../components/custom-facet-components';
 import FacetItem from '../../components/facet-item';
 import FacetsHeader from '../../sections/facets-header';
@@ -32,26 +31,24 @@ const FacetsDesktop = () => {
   };
 
   return (
-    <div className={styles.facets}>
-      <FacetsContainer>
-        <FacetsHeader />
-        {facets?.length > 0 &&
-          facets
-            ?.filter((f) => !f.hidden)
-            ?.map((facet) => {
-              const filteredFacet = handleRenderFacets(facet);
-              return (
-                <div key={facet.key}>
-                  {filteredFacet && (
-                    <Accordion title={facet.name} isBeginOpen>
-                      <ComponentRender facet={facet} />
-                    </Accordion>
-                  )}
-                </div>
-              );
-            })}
-      </FacetsContainer>
-    </div>
+    <FacetsContainer>
+      <FacetsHeader />
+      {facets?.length > 0 &&
+        facets
+          ?.filter((f) => !f.hidden)
+          ?.map((facet) => {
+            const filteredFacet = handleRenderFacets(facet);
+            return (
+              <div key={facet.key}>
+                {filteredFacet && (
+                  <Accordion title={facet.name} isBeginOpen>
+                    <ComponentRender facet={facet} />
+                  </Accordion>
+                )}
+              </div>
+            );
+          })}
+    </FacetsContainer>
   );
 };
 

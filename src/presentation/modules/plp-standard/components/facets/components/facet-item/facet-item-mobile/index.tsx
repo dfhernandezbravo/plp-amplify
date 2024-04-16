@@ -1,4 +1,4 @@
-import { Textfield, themeEasy } from '@cencosud-ds/easy-design-system';
+import { Textfield, themeEasy } from '@cencosud-ds/easy-design-system'; // TODO: delete
 import { Facets, ValueFacets } from '@entities/product/facets.entity';
 import React, { useContext, useState } from 'react';
 import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
