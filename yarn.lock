@@ -1550,6 +1550,22 @@
   dependencies:
     styled-components "^6.1.6"
 
+"@ccom-easy-design-system/atoms.textfield@^0.0.42":
+  version "0.0.42"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.textfield/-/atoms.textfield-0.0.42.tgz#8ddf2956e52e0cb04e7c8cbbbc5c807feb85a32d"
+  integrity sha512-Ss5Bq1xPG48nAPdUsFeiVsoPJNN3Qy+B/v3tlUQN+UJleRJoDyZmCNYGO5dlfJL8k0HxTqcKppmNbQf4uM0YAA==
+  dependencies:
+    "@ccom-easy-design-system/atoms.tooltip" "0.0.3"
+    react-icons "^5.0.1"
+    styled-components "^6.1.6"
+
+"@ccom-easy-design-system/atoms.tooltip@0.0.3":
+  version "0.0.3"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.tooltip/-/atoms.tooltip-0.0.3.tgz#66972a3ceef4bf049f1426f36514f79fd54cb3a0"
+  integrity sha512-jEd65RP+gfIqmZ7rVToX5vXhHAdlcYwxDiJOWHURW3Or6AFhk9rKxVC+217Zj7KTvVPjr/PMg6lm0JJwqAtcJQ==
+  dependencies:
+    styled-components "^6.1.6"
+
 "@ccom-easy-design-system/hooks.use-device@0.0.3":
   version "0.0.3"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-device/-/hooks.use-device-0.0.3.tgz#32d6f5788a6de3ba099dabd600bb3833b14c6a49"

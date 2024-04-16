@@ -1,4 +1,4 @@
-import { Textfield, themeEasy } from '@cencosud-ds/easy-design-system'; // TODO: delete
+import Textfield from '@components/atoms/textfield';
 import { Facets, ValueFacets } from '@entities/product/facets.entity';
 import React, { useContext, useState } from 'react';
 import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
@@ -50,7 +50,7 @@ const FacetItemMobile: React.FC<Props> = ({ facet }) => {
             onClick={() => handleOnClick(value)}
           >
             {isSelected(value) ? (
-              <MdCheckBox color={themeEasy.colors.success.main} size={24} />
+              <MdCheckBox color="#14B870" size={24} />
             ) : (
               <MdCheckBoxOutlineBlank size={24} />
             )}

@@ -1,4 +1,5 @@
-import { Button } from '@cencosud-ds/easy-design-system';
+import Button from '@components/atoms/Button';
+import Checkbox from '@components/atoms/checkbox';
 import { Facets, ValueFacets } from '@entities/product/facets.entity';
 import PlpQueryParams from '@modules/plp-standard/types/plp-query-params';
 import { useRouter } from 'next/router';
@@ -9,7 +10,6 @@ import {
   FacetItemContainer,
 } from '../../facet-item/facet-item-desktop/style';
 import { PriceInputContainer, TextfieldPrice } from './styles';
-import Checkbox from '@components/atoms/checkbox';
 const { format } = require('number-currency-format-2');
 
 interface Props {

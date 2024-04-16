@@ -19,6 +19,7 @@
     "@ccom-easy-design-system/atoms.radio-button": "0.0.9",
     "@ccom-easy-design-system/atoms.select": "^0.0.14",
     "@ccom-easy-design-system/atoms.skeleton": "^0.0.2",
+    "@ccom-easy-design-system/atoms.textfield": "^0.0.42",
     "@ccom-easy-design-system/hooks.use-device": "0.0.3",
     "@ccom-easy-design-system/molecules.product-card": "^0.0.78",
     "@ccom-easy-design-system/molecules.swiper": "^0.0.16",
