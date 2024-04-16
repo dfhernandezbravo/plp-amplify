@@ -1,4 +1,4 @@
-import FacetMobileContext from '@modules/plp-standard/components/facets/context/facets-context-mobile';
+import FacetMobileContext from '@modules/products/components/facets/context/facets-context-mobile';
 import { useAppSelector } from '@store/hooks';
 import { useContext } from 'react';
 import { AiOutlineRight } from 'react-icons/ai';

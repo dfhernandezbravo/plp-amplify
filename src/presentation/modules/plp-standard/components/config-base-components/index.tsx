@@ -3,9 +3,9 @@ import BreadcrumbPLP from '../../../../components/atoms/breadcrumb';
 import OrderCMS from '../order';
 import ProductsPLP from '../products';
 import { Layout } from '@cencosud-ds/easy-design-system';
-import FacetsDesktop from '../facets/layout/desktop';
+import FacetsDesktop from '../../../products/components/facets/layout/desktop';
 import { useAppSelector } from '@store/hooks';
-import FacetsMobile from '../facets/layout/mobile';
+import FacetsMobile from '../../../products/components/facets/layout/mobile';
 
 const ConfigBaseComponents = (content: Content) => {
   const {
