@@ -29,7 +29,6 @@ const ProductImage: React.FC<Props> = ({ imageUrl, product, layout }) => {
         height={layout === 'list' ? 150 : 160}
         placeholder="empty"
         loading="lazy"
-        sizes="100vw"
         alt={product.productName || ''}
         onLoad={() => {
           setIsLoading(true);
