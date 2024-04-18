@@ -3,12 +3,16 @@ import Link from '../../atoms/Link';
 import Carousel from '../../molecules/Carousel';
 import { Container, Image } from './styles';
 import { Props } from './types';
+import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
 import useRedirectLink from '@hooks/use-redirect-link';
+import { useAppSelector } from '@store/hooks';
 
 const Banner = (props: Props) => {
   const { items, autoplay, loop, pagination, onClick } = props;
   const { device } = useDevice();
+  const { dispatchSelectPromotionEvent } = useDispatchProductEvent();
   const { redirect } = useRedirectLink();
+  const { deviceType } = useAppSelector((state) => state.device);
 
   return (
     <Container>
@@ -25,7 +29,10 @@ const Banner = (props: Props) => {
               <Link
                 key={key}
                 url={redirect(link)}
-                onClick={() => onClick?.(item)}
+                onClick={() => {
+                  dispatchSelectPromotionEvent(item, deviceType);
+                  onClick?.(item);
+                }}
               >
                 <Image
                   src={device === 'Desktop' ? image || '' : mobileImage || ''}

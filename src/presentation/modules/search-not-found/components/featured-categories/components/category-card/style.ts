@@ -33,7 +33,6 @@ const variants: Record<ShapeTypes, RuleSet<object>> = {
 
 export const Card = styled(Link)<{ shape: ShapeTypes }>`
   width: 100%;
-  height: 165px;
   padding: ${({ theme: { spacing } }) => spacing[250]} 0px;
   display: flex;
   flex-direction: column;
@@ -48,6 +47,7 @@ const CircleImageContainer = css`
   width: 100px;
   min-height: 100px;
   box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.16);
+  background: white;
 
   img {
     width: 61px;

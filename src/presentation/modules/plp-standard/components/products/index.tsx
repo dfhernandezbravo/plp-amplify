@@ -2,7 +2,7 @@ import { Product } from '@ccom-easy-design-system/molecules.product-card/dist/ty
 import ProductCard from '@components/molecules/product-card';
 import useQueryParams from '@hooks/use-query-params';
 import { useAppSelector } from '@store/hooks';
-import { ProductPLP } from '@store/slices/products';
+import { ProductPLP, TipoClick } from '@store/slices/products';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import styles from '../../styles.module.css';
@@ -14,8 +14,11 @@ import {
   SpinnerElement,
   SpinnerWrapper,
 } from './styles';
+import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
 
 const ProductsPLP = () => {
+  const { dispatchSelectItemEvent, dispatchAddToCartEvent } =
+    useDispatchProductEvent();
   const router = useRouter();
   const { updateQueryParams } = useQueryParams();
   const { page } = router.query;
@@ -33,6 +36,7 @@ const ProductsPLP = () => {
   };
 
   const handleClickCard = async (product: ProductPLP, id: string | null) => {
+    dispatchSelectItemEvent(product, TipoClick.ClicPdp, id);
     let url = `/${product.linkText}/p`;
     if (id) url += `?skuId=${id}`;
 
@@ -53,6 +57,8 @@ const ProductsPLP = () => {
       ...product,
     };
 
+    dispatchSelectItemEvent(product, TipoClick.AddClic, variantId);
+    dispatchAddToCartEvent(product, variantId);
     document.dispatchEvent(
       new CustomEvent('ADD_ITEM_SHOPPING_CART', {
         detail: { product: productSelected },

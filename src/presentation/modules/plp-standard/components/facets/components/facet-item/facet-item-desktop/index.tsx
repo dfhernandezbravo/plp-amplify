@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import useFilters from '../../../hooks/use-filters';
 import { FaceItemButton, FacetItemContainer, ShowMoreButton } from './style';
-import Checkbox from '@components/atoms/Checkbox';
+import Checkbox from '@components/atoms/checkbox';
 
 interface Props {
   facet: Facets;

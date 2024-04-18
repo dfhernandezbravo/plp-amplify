@@ -4,7 +4,7 @@ import ProductCard from '../product-card';
 import Swiper, { BreakPoints } from '../swiper';
 import { CarouselContainer } from './styles';
 import Image from 'next/image';
-import { Product } from '@cencosud-ds/easy-design-system';
+import { Product } from '@ccom-easy-design-system/molecules.product-card/dist/types';
 
 interface Props {
   items: ProductPLP[];

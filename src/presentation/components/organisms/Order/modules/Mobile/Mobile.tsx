@@ -5,15 +5,29 @@ import Display from '@components/molecules/Display';
 import ButtonBox, { Event } from '@components/organisms/ButtonBox';
 
 // Styled components
-import { Container, TextArea, DisplayArea, ButtonBoxContainer } from './styles';
+import {
+  Container,
+  TextArea,
+  DisplayArea,
+  ButtonBoxContainer,
+  BottomSheetPositionStyles,
+  RadioButtonContainer,
+  SortByTitle,
+} from './styles';
 
 // Definitions
 import { Props } from '../../types';
-import { useAppSelector } from '@store/hooks';
-import Filter from '@components/molecules/Filter';
+import { useAppDispatch, useAppSelector } from '@store/hooks';
+import { OrderOptions } from '@components/molecules/Filter';
+import BottomSheet from '@components/atoms/bottom-sheet';
+import { setOpenOrderMobile } from '@store/slices/products';
+import { options as sortByOptions } from '@components/molecules/Filter/constants';
+import RadioButton from '@components/atoms/radio-button';
 
 const Mobile = (props: Props) => {
-  const { isOpenOrderMobile } = useAppSelector((state) => state.products);
+  const dispatch = useAppDispatch();
+  const { isOpenOrderMobile, sort } = useAppSelector((state) => state.products);
+
   // Props
   const {
     count,
@@ -22,10 +36,19 @@ const Mobile = (props: Props) => {
     isShowButtonBox = true,
     onChange,
     onFilterChange,
-    onBlur,
     onDisplayChange,
   } = props;
 
+  const [selectedSortOption, setSelectedSortOption] = useState(
+    sort || sortByOptions[0].value,
+  );
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setSelectedSortOption(value);
+    onFilterChange(value as OrderOptions);
+    dispatch(setOpenOrderMobile(false));
+  };
   // Refs
   const buttonBoxRef = useRef<HTMLDivElement>(null);
 
@@ -89,13 +112,24 @@ const Mobile = (props: Props) => {
           <ButtonBox area="buttons" onClick={onButtonBoxClick} />
         </ButtonBoxContainer>
       )}
-      {isOpenOrderMobile ? (
-        <Filter
-          onChange={onFilterChange}
-          defaultValue={queryParams?.order}
-          onBlur={onBlur}
-        />
-      ) : null}
+      <BottomSheet
+        open={isOpenOrderMobile}
+        onClose={() => dispatch(setOpenOrderMobile(false))}
+      >
+        <SortByTitle>Ordenar por:</SortByTitle>
+        {sortByOptions.map(({ value, label }) => (
+          <RadioButtonContainer key={value}>
+            <RadioButton
+              value={value}
+              label={label}
+              inputId={value}
+              checked={selectedSortOption === value}
+              onChange={handleChange}
+            />
+          </RadioButtonContainer>
+        ))}
+      </BottomSheet>
+      {isOpenOrderMobile && <BottomSheetPositionStyles />}
     </Container>
   );
 };

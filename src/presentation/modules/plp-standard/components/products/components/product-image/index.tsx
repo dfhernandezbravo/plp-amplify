@@ -3,6 +3,7 @@ import { LayoutOptions } from '@components/molecules/Display';
 import { ProductPLP } from '@store/slices/products';
 import Image from 'next/image';
 import React, { useState } from 'react';
+import { ImageContainer } from './styles';
 
 interface Props {
   imageUrl: string;
@@ -21,21 +22,14 @@ const ProductImage: React.FC<Props> = ({ imageUrl, product, layout }) => {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-        height: '100%',
-        minWidth: isLoading ? 205 : 180,
-      }}
-    >
+    <ImageContainer>
       <Image
         src={imageUrl}
-        width={layout === 'list' ? 150 : 180}
-        height={layout === 'list' ? 150 : 180}
+        width={layout === 'list' ? 150 : 160}
+        height={layout === 'list' ? 150 : 160}
         placeholder="empty"
         loading="lazy"
+        sizes="100vw"
         alt={product.productName || ''}
         onLoad={() => {
           setIsLoading(true);
@@ -49,7 +43,7 @@ const ProductImage: React.FC<Props> = ({ imageUrl, product, layout }) => {
           right={skeletonSize().right}
         />
       )}
-    </div>
+    </ImageContainer>
   );
 };
 
