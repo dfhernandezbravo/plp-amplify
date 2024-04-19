@@ -1,17 +1,27 @@
 import Facets from '@modules/products/components/facets';
-import OrderCMS from '@modules/plp-standard/components/order';
-import ProductsPLP from '@modules/plp-standard/components/products';
-import { ProductListContainer, ProductsContainer } from './styles';
+import OrderCMS from '@modules/products/components/order';
+import ProductsPLP from '@modules/products/components/products';
+import PromotionalTextCMS from './components/promotional-text';
+import QuickFiltersCMS from './components/quick-filters';
+import {
+  LayoutContainer,
+  ProductListContainer,
+  ProductsLayout,
+} from './styles';
 
 const Products = () => {
   return (
-    <ProductsContainer>
-      <Facets />
-      <ProductListContainer>
-        <OrderCMS />
-        <ProductsPLP />
-      </ProductListContainer>
-    </ProductsContainer>
+    <ProductsLayout>
+      <LayoutContainer>
+        <Facets />
+        <ProductListContainer>
+          <OrderCMS />
+          <QuickFiltersCMS />
+          <ProductsPLP />
+          <PromotionalTextCMS />
+        </ProductListContainer>
+      </LayoutContainer>
+    </ProductsLayout>
   );
 };
 

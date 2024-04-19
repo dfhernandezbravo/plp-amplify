@@ -2,7 +2,6 @@ import { useDevice } from '@cencosud-ds/easy-design-system';
 import { Content } from '@entities/cms';
 import React from 'react';
 import { ImagePromotionalRibbon, PromotionalRibbonContainer } from './styles';
-import styles from '../../../plp-standard/styles.module.css';
 
 const PromotionalRibbons = (content: Content) => {
   const { alt, backgroundColor, imageMobile, imageDesktop, link, fullWidth } =
@@ -10,7 +9,7 @@ const PromotionalRibbons = (content: Content) => {
   const { device } = useDevice();
 
   return (
-    <div className={styles['promotional-ribbons']}>
+    <div>
       <PromotionalRibbonContainer
         background={backgroundColor}
         href={link || ''}

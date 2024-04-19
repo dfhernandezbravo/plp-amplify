@@ -1,5 +1,5 @@
 import { Facets } from '../facets.entity';
-import { Product } from '@ccom-easy-design-system/molecules.product-card/dist/types';
+import { Product } from '../product.entity';
 
 export type SearchByCategoriesRequest = {
   count?: number;

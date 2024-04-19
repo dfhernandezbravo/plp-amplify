@@ -1,34 +1,25 @@
-import { Breadcrumbs, useBreadcrumbs } from '@cencosud-ds/easy-design-system';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import styles from '@modules/plp-standard/styles.module.css';
+import { AiOutlineRight } from 'react-icons/ai';
+import { BreadcrumbContainer, BreadcrumbItem } from './styles';
+import { BreadcrumbLink } from './types';
 
-const getUrl = (path: string) => {
-  const url = path.split('?');
-  if (url.length > 1) {
-    return decodeURIComponent(url[0].replace('/', ''));
-  }
-  return decodeURIComponent(path.replace('/', ''));
-};
+interface Props {
+  links: BreadcrumbLink[];
+}
 
-const BreadcrumbPLP = () => {
-  const { asPath } = useRouter();
-  const { links } = useBreadcrumbs({
-    url: decodeURIComponent(getUrl(asPath)),
-  });
+const regex = /-/g;
+
+const BreadcrumbPLP: React.FC<Props> = ({ links }) => {
   return (
-    <div className={styles.breadcrumb}>
-      <Breadcrumbs>
-        {links.map((link) => (
-          <Link
-            href={link.href === '/search' ? '/' : link.href}
-            key={link.href}
-          >
-            {link.text === 'search' ? 'Inicio' : link.text}
-          </Link>
-        ))}
-      </Breadcrumbs>
-    </div>
+    <BreadcrumbContainer>
+      {links.map((link, index, { length }) => (
+        <>
+          <BreadcrumbItem href={link.url} $isActive={link.isActive}>
+            {link.label.replace(regex, ' ')}
+          </BreadcrumbItem>
+          {index + 1 !== length && <AiOutlineRight size={12} />}
+        </>
+      ))}
+    </BreadcrumbContainer>
   );
 };
 

@@ -3,7 +3,8 @@ import { styled } from 'styled-components';
 export const FacetsContainer = styled.div`
   height: 100%;
   background-color: #fff;
-  width: 100%;
+  width: fit-content;
+  max-width: 355px;
   border-radius: ${({ theme: { radius } }) => radius.sm};
   padding: ${({ theme: { spacing } }) => spacing[200]};
   display: flex;

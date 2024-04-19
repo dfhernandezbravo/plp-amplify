@@ -1,7 +1,7 @@
 import Banner from '@components/organisms/Banner/Banner';
 import { Content } from '@entities/cms';
 import React from 'react';
-import styles from '../../../plp-standard/styles.module.css';
+import { BannerCarouselContainer } from './styles';
 
 const BannerCarousel = (content: Content) => {
   const { items } = content;
@@ -9,9 +9,9 @@ const BannerCarousel = (content: Content) => {
   if (!items) return null;
 
   return (
-    <div className={styles['banner-carousel']}>
+    <BannerCarouselContainer>
       <Banner items={items} />
-    </div>
+    </BannerCarouselContainer>
   );
 };
 

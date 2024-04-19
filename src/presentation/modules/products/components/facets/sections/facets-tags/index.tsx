@@ -1,5 +1,5 @@
 import { Button } from '@cencosud-ds/easy-design-system';
-import PlpQueryParams from '@modules/plp-standard/types/plp-query-params';
+import PlpQueryParams from '@entities/plp-query-params';
 import React, { useEffect } from 'react';
 import useFilters from '../../hooks/use-filters';
 import { useRouter } from 'next/router';

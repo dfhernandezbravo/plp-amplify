@@ -28,7 +28,9 @@ const ComposerCMS: React.FC<Props> = ({ contentCMS, components }) => {
 
   const ComponentRender = (element: Content) => {
     const { isActive, endDate, startDate, component } = element;
+
     const enabled = cmsDateValidator({ endDate, startDate, isActive });
+
     const showElement = enabled && isVisible(element);
     const Component = components[component];
     dispatch(setCmsContent(contentCMS));

@@ -1,18 +1,19 @@
 import useTransformText from '@hooks/use-transform-text';
-import PlpQueryParams from '@modules/plp-standard/types/plp-query-params';
-import { useAppSelector } from '@store/hooks';
+import PlpQueryParams from '@entities/plp-query-params';
+import PLPContext from '@presentation/context/plp-context';
 import { useRouter } from 'next/router';
+import { useContext } from 'react';
+import FacetsTags from '../../facets-tags';
 import {
   HeaderContainer,
   TextBreadcrumb,
   TextRecords,
   TitleHeader,
 } from './styles';
-import FacetsTags from '../../facets-tags';
 
 const FacetsHeaderDesktop = () => {
   const { clearText } = useTransformText();
-  const { recordsFiltered, facets } = useAppSelector((state) => state.products);
+  const { recordsFiltered, facets } = useContext(PLPContext);
   const { query } = useRouter();
   const { department, category, product } = query as PlpQueryParams;
 

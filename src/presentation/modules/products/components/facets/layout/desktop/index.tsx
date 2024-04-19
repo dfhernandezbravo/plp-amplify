@@ -1,13 +1,15 @@
 import Accordion from '@components/atoms/accordion';
 import { Facets } from '@entities/product/facets.entity';
-import { useAppSelector } from '@store/hooks';
+import PLPContext from '@presentation/context/plp-context';
+import { useContext } from 'react';
 import CustomFacetComponents from '../../components/custom-facet-components';
 import FacetItem from '../../components/facet-item';
+import FacetSkeleton from '../../components/skeleton';
 import FacetsHeader from '../../sections/facets-header';
 import { FacetsContainer } from './styles';
 
 const FacetsDesktop = () => {
-  const { facets } = useAppSelector((state) => state.products);
+  const { facets, isLoadingProducts } = useContext(PLPContext);
 
   const ComponentRender = ({ facet }: { facet: Facets }) => {
     const Component = CustomFacetComponents[facet.key];
@@ -18,7 +20,7 @@ const FacetsDesktop = () => {
   const handleRenderFacets = (facet: Facets) => {
     /*
      * Utilizar esta funcion para filtrados remotos desde el CMS por reglas de negocio
-     **/
+     */
     if (!facet) return null;
     const key = facet.key;
     switch (key) {
@@ -29,6 +31,10 @@ const FacetsDesktop = () => {
         return facet;
     }
   };
+
+  if (isLoadingProducts) {
+    return <FacetSkeleton />;
+  }
 
   return (
     <FacetsContainer>

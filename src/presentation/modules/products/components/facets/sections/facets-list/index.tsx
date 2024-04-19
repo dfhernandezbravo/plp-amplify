@@ -1,11 +1,11 @@
 import FacetMobileContext from '@modules/products/components/facets/context/facets-context-mobile';
-import { useAppSelector } from '@store/hooks';
+import PLPContext from '@presentation/context/plp-context';
 import { useContext } from 'react';
 import { AiOutlineRight } from 'react-icons/ai';
 import { FacetItemButtonMobile, FacetsListContainer } from './styles';
 
 const FacetListMobile = () => {
-  const { facets } = useAppSelector((state) => state.products);
+  const { facets } = useContext(PLPContext);
   const { setFacet } = useContext(FacetMobileContext);
 
   return (

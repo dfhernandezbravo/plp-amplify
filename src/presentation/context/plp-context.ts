@@ -5,20 +5,21 @@ import { createContext } from 'react';
 
 interface PLPContextProps {
   isLoadingProducts: boolean;
-  isLoadingCMS: boolean;
+  isLoadingCMS?: boolean;
   products: Product[];
   facets: Facets[];
-  contentCMS: Content[] | null;
-  refreshProducts: () => void;
+  recordsFiltered: number;
+  contentCMS?: Content[] | null;
+  getProductsByCluster?: ({ clusterId }: { clusterId: string }) => void;
 }
 
 const PLPContext = createContext<PLPContextProps>({
-  isLoadingCMS: false,
-  isLoadingProducts: false,
+  isLoadingCMS: true,
+  isLoadingProducts: true,
   products: [],
   facets: [],
+  recordsFiltered: 0,
   contentCMS: [],
-  refreshProducts: () => {},
 });
 
 export default PLPContext;

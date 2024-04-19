@@ -1,7 +1,7 @@
 import { Facets, ValueFacets } from '@entities/product/facets.entity';
-import { useAppSelector } from '@store/hooks';
 //import { useLockBodyScroll } from '@uidotdev/usehooks'; -> TODO: no existe la funcion
-import { useEffect, useState } from 'react';
+import PLPContext from '@presentation/context/plp-context';
+import { useContext, useEffect, useState } from 'react';
 import FacetMobileContext from '../../context/facets-context-mobile';
 import FacetButtons from '../../sections/facets-buttons';
 import FacetsHeader from '../../sections/facets-header';
@@ -15,7 +15,7 @@ import {
 } from './styles';
 
 const FacetsMobile = () => {
-  const { facets } = useAppSelector((state) => state.products);
+  const { facets } = useContext(PLPContext);
   const [facet, setFacet] = useState<Facets | null>(null);
   const [filters, setFilters] = useState<ValueFacets[]>([]);
   //useLockBodyScroll();
