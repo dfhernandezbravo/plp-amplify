@@ -6,16 +6,18 @@ import PLPContext from '@presentation/context/plp-context';
 import AnalyticsEventsLayout from '@presentation/layouts/analytics-events-layout';
 import PLPLayout from '@presentation/layouts/plp-layout';
 import { PageContainer } from '@presentation/layouts/plp-layout/styles';
+import ShoppingCartEventLayout from '@presentation/layouts/shopping-cart-events-layout';
 import { useGetContentViewCms } from '@use-cases/cms/get-content-view';
 import { useGetByCluster } from '@use-cases/product/get-cluster-id';
 import { getConfigBase } from '@use-cases/product/get-config-base';
 
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const PLPContent: React.FC = () => {
   const { query } = useRouter();
   const { eventName } = query as PlpQueryParams;
+  const [clusterId, setClusterId] = useState('');
 
   const { isLoadingProducts, isErrorProducts, products, getProductsByCluster } =
     useGetByCluster();
@@ -30,6 +32,7 @@ const PLPContent: React.FC = () => {
 
       if (configBase) {
         getProductsByCluster({ clusterId: configBase.clusterId });
+        setClusterId(configBase.clusterId);
       }
     }
   }, [contentCMS]);
@@ -51,10 +54,14 @@ const PLPContent: React.FC = () => {
       }}
     >
       <AnalyticsEventsLayout>
-        <PageContainer>
-          <ContentCMS />
-          <Products />
-        </PageContainer>
+        <ShoppingCartEventLayout
+          refreshProducts={() => getProductsByCluster({ clusterId })}
+        >
+          <PageContainer>
+            <ContentCMS />
+            <Products />
+          </PageContainer>
+        </ShoppingCartEventLayout>
       </AnalyticsEventsLayout>
     </PLPContext.Provider>
   );

@@ -2,6 +2,8 @@ import Products from '@modules/products';
 import SearchNotFound from '@modules/search-not-found';
 import PLPContext from '@presentation/context/plp-context';
 import PLPLayout from '@presentation/layouts/plp-layout';
+import { PageContainer } from '@presentation/layouts/plp-layout/styles';
+import ShoppingCartEventLayout from '@presentation/layouts/shopping-cart-events-layout';
 import { useGetSearch } from '@use-cases/product/get-search';
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
@@ -42,7 +44,13 @@ const PLPContent: React.FC = () => {
         recordsFiltered: products?.recordsFiltered || 0,
       }}
     >
-      <Products />
+      <ShoppingCartEventLayout
+        refreshProducts={() => getProductsBySearch(search)}
+      >
+        <PageContainer>
+          <Products />
+        </PageContainer>
+      </ShoppingCartEventLayout>
     </PLPContext.Provider>
   );
 };

@@ -4,6 +4,7 @@ import SearchNotFound from '@modules/search-not-found';
 import PLPContext from '@presentation/context/plp-context';
 import PLPLayout from '@presentation/layouts/plp-layout';
 import { PageContainer } from '@presentation/layouts/plp-layout/styles';
+import ShoppingCartEventLayout from '@presentation/layouts/shopping-cart-events-layout';
 import { useGetByCluster } from '@use-cases/product/get-cluster-id';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
@@ -31,9 +32,13 @@ const PLPContent: React.FC = () => {
         recordsFiltered: products?.recordsFiltered || 0,
       }}
     >
-      <PageContainer>
-        <Products />
-      </PageContainer>
+      <ShoppingCartEventLayout
+        refreshProducts={() => getProductsByCluster({ clusterId })}
+      >
+        <PageContainer>
+          <Products />
+        </PageContainer>
+      </ShoppingCartEventLayout>
     </PLPContext.Provider>
   );
 };

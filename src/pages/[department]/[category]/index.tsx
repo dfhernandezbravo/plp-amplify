@@ -7,6 +7,7 @@ import SearchNotFound from '@modules/search-not-found';
 import PLPContext from '@presentation/context/plp-context';
 import PLPLayout from '@presentation/layouts/plp-layout';
 import { PageContainer } from '@presentation/layouts/plp-layout/styles';
+import ShoppingCartEventLayout from '@presentation/layouts/shopping-cart-events-layout';
 import { useGetContentViewCms } from '@use-cases/cms/get-content-view';
 import { useGetProductsByCategories } from '@use-cases/product/get-search-by-categories';
 import { useRouter } from 'next/router';
@@ -54,11 +55,17 @@ const ContentPLP = () => {
         contentCMS,
       }}
     >
-      <PageContainer>
-        <BreadcrumbPLP links={breadcrumbLinks} />
-        <ContentCMS />
-        <Products />
-      </PageContainer>
+      <ShoppingCartEventLayout
+        refreshProducts={() =>
+          getProductsByCategories({ query: `${department}/${category}` })
+        }
+      >
+        <PageContainer>
+          <BreadcrumbPLP links={breadcrumbLinks} />
+          <ContentCMS />
+          <Products />
+        </PageContainer>
+      </ShoppingCartEventLayout>
     </PLPContext.Provider>
   );
 };
