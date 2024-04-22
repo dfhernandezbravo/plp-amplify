@@ -1,5 +1,5 @@
-import React, { useState, ReactNode } from 'react';
-import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md';
+import React, { ReactNode, useState } from 'react';
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import { AccordionContainer, HeaderAccordion } from './styles';
 
 type AccordionProps = {

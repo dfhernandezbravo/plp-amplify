@@ -5,7 +5,7 @@ import ComposerCMS from '@components/organisms/composer-cms';
 import getContentViewCms from '@use-cases/cms/get-content-view';
 import { ComponentsSearchNotFound } from './components';
 import customEvents from '@use-cases/observability/custom-events';
-import SearchSkeleton from '@modules/plp-standard/components/search-skeleton';
+import SearchSkeleton from '@modules/products/components/search-skeleton';
 import { SearchNotFoundContainer } from './styles';
 
 interface Props {

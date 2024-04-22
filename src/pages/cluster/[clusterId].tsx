@@ -1,62 +1,46 @@
-import React from 'react';
-import { useRouter } from 'next/router';
-import SearchSkeleton from '@modules/plp-standard/components/search-skeleton';
-import PLPDefault from '@modules/plp-standard/variants/plp-default';
+import PlpQueryParams from '@entities/plp-query-params';
+import Products from '@modules/products';
 import SearchNotFound from '@modules/search-not-found';
+import PLPContext from '@presentation/context/plp-context';
 import PLPLayout from '@presentation/layouts/plp-layout';
-import { useAppDispatch, useAppSelector } from '@store/hooks';
-import { setSearchState } from '@store/slices/products';
-import getByClusterId from '@use-cases/product/get-cluster-id';
-import { ParsedUrlQuery } from 'querystring';
-import { useQuery } from 'react-query';
-
-interface SearchQueryParams extends ParsedUrlQuery {
-  clusterId: string;
-  filter: string;
-  page: string;
-}
+import { PageContainer } from '@presentation/layouts/plp-layout/styles';
+import ShoppingCartEventLayout from '@presentation/layouts/shopping-cart-events-layout';
+import { useGetByCluster } from '@use-cases/product/get-cluster-id';
+import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
 
 const PLPContent: React.FC = () => {
   const { query } = useRouter();
-  const { clusterId, filter, page } = query as SearchQueryParams;
-  const { count, sort } = useAppSelector((state) => state.products);
-  const dispatch = useAppDispatch();
+  const { clusterId } = query as PlpQueryParams;
+  const { isLoadingProducts, isErrorProducts, products, getProductsByCluster } =
+    useGetByCluster();
 
-  const {
-    data: searchResponse,
-    isLoading: isLoadingProducts,
-    isError,
-  } = useQuery(
-    ['get-search-by-cluster', clusterId, count, page, sort, filter],
-    () =>
-      getByClusterId({
-        clusterId,
-        count,
-        page,
-        sort,
-        filter,
-      }),
-    {
-      enabled: !!clusterId && !!count,
-      cacheTime: 0,
-    },
-  );
+  useEffect(() => {
+    if (clusterId) getProductsByCluster({ clusterId });
+  }, [clusterId]);
 
-  if (isLoadingProducts) return <SearchSkeleton />;
-
-  if (isError) {
+  if ((products && products.recordsFiltered === 0) || isErrorProducts) {
     return <SearchNotFound view="plp-not-found" type="cluster" />;
   }
 
-  if (searchResponse) {
-    if (searchResponse.recordsFiltered === 0) {
-      return <SearchNotFound view="plp-not-found" type="cluster" />;
-    }
-
-    dispatch(setSearchState(searchResponse!));
-  }
-
-  return <PLPDefault />;
+  return (
+    <PLPContext.Provider
+      value={{
+        isLoadingProducts,
+        facets: products?.facets || [],
+        products: products?.productList || [],
+        recordsFiltered: products?.recordsFiltered || 0,
+      }}
+    >
+      <ShoppingCartEventLayout
+        refreshProducts={() => getProductsByCluster({ clusterId })}
+      >
+        <PageContainer>
+          <Products />
+        </PageContainer>
+      </ShoppingCartEventLayout>
+    </PLPContext.Provider>
+  );
 };
 
 const ClusterPLPPage = () => {
