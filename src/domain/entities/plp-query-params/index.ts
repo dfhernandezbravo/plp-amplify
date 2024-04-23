@@ -1,3 +1,5 @@
+import { LayoutOptions } from '@components/molecules/Display';
+import { OrderOptions } from '@components/molecules/Filter';
 import { ParsedUrlQuery } from 'querystring';
 
 export default interface PlpQueryParams extends ParsedUrlQuery {
@@ -10,6 +12,6 @@ export default interface PlpQueryParams extends ParsedUrlQuery {
   filter?: string;
   count?: string;
   page?: string;
-  sort?: string;
-  layout?: string;
+  sort?: OrderOptions;
+  layout?: LayoutOptions;
 }

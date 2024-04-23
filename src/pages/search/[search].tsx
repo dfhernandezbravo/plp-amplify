@@ -1,3 +1,4 @@
+import PlpQueryParams from '@entities/plp-query-params';
 import Products from '@modules/products';
 import SearchNotFound from '@modules/search-not-found';
 import PLPContext from '@presentation/context/plp-context';
@@ -6,24 +7,18 @@ import { PageContainer } from '@presentation/layouts/plp-layout/styles';
 import ShoppingCartEventLayout from '@presentation/layouts/shopping-cart-events-layout';
 import { useGetSearch } from '@use-cases/product/get-search';
 import { useRouter } from 'next/router';
-import { ParsedUrlQuery } from 'querystring';
 import React, { useEffect } from 'react';
-
-interface SearchQueryParams extends ParsedUrlQuery {
-  search: string;
-  filter: string;
-  page: string;
-}
 
 const PLPContent: React.FC = () => {
   const { query } = useRouter();
-  const { search } = query as SearchQueryParams;
+  const { search, filter, sort, count, page } = query as PlpQueryParams;
   const { isErrorProducts, isLoadingProducts, products, getProductsBySearch } =
     useGetSearch();
 
   useEffect(() => {
-    if (search) getProductsBySearch(search);
-  }, [search]);
+    if (search)
+      getProductsBySearch({ query: search, filter, sort, count, page });
+  }, [search, filter, sort, count, page]);
 
   if ((products && products.recordsFiltered === 0) || isErrorProducts) {
     return (
@@ -45,7 +40,9 @@ const PLPContent: React.FC = () => {
       }}
     >
       <ShoppingCartEventLayout
-        refreshProducts={() => getProductsBySearch(search)}
+        refreshProducts={() =>
+          getProductsBySearch({ query: search, filter, sort, count, page })
+        }
       >
         <PageContainer>
           <Products />

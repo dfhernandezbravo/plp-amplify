@@ -1,38 +1,36 @@
 import { Product } from '@ccom-easy-design-system/molecules.product-card/dist/types';
 import ProductCard from '@components/molecules/product-card';
+import PlpQueryParams from '@entities/plp-query-params';
 import useQueryParams from '@hooks/use-query-params';
 import PLPContext from '@presentation/context/plp-context';
-import { useAppSelector } from '@store/hooks';
 import { ProductPLP, TipoClick } from '@store/slices/products';
 import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
 import { useRouter } from 'next/router';
 import { useContext, useState } from 'react';
 import ProductImage from './components/product-image';
 import ProductPagination from './components/product-pagination';
+import ProductsSkeleton from './components/skeleton';
 import {
   Modal,
   ProductsContainer,
   SpinnerElement,
   SpinnerWrapper,
 } from './styles';
-import ProductsSkeleton from './components/skeleton';
 
 const ProductsPLP = () => {
+  const router = useRouter();
+  const { page, count, layout } = router.query as PlpQueryParams;
+  const { updateQueryParams } = useQueryParams();
+  const [loadPDP, setLoadPDP] = useState(false);
+
   const { dispatchSelectItemEvent, dispatchAddToCartEvent } =
     useDispatchProductEvent();
-  const router = useRouter();
-  const { updateQueryParams } = useQueryParams();
-  const { page } = router.query;
 
   const { products, recordsFiltered, isLoadingProducts } =
     useContext(PLPContext);
 
-  const { layout, count } = useAppSelector((state) => state.products);
-
   let pagesCount = recordsFiltered;
-  if (count) pagesCount = Math.ceil(recordsFiltered / count);
-
-  const [loadPDP, setLoadPDP] = useState(false);
+  if (count) pagesCount = Math.ceil(recordsFiltered / parseInt(count));
 
   const onPageChange = (page: string) => {
     updateQueryParams({ page });
@@ -69,7 +67,7 @@ const ProductsPLP = () => {
     );
   };
 
-  if (isLoadingProducts) return <ProductsSkeleton />;
+  if (isLoadingProducts) return <ProductsSkeleton layout={layout || 'grid'} />;
 
   return (
     <div>
@@ -80,12 +78,12 @@ const ProductsPLP = () => {
           </SpinnerWrapper>
         </Modal>
       )}
-      <ProductsContainer $layout={layout}>
+      <ProductsContainer $layout={layout || 'grid'}>
         {products?.map((product, index) => (
           <ProductCard
             key={product.productId + '-' + index}
             product={product}
-            layout={layout}
+            layout={layout || 'grid'}
             onClickCard={(selectedVariant: string | null) =>
               handleClickCard(product, selectedVariant)
             }
@@ -95,7 +93,7 @@ const ProductsPLP = () => {
               <ProductImage
                 imageUrl={imageUrl}
                 product={product}
-                layout={layout}
+                layout={layout || 'grid'}
               />
             )}
           />

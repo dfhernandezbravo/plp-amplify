@@ -15,7 +15,8 @@ import { useEffect } from 'react';
 
 const PLPContent = () => {
   const { query } = useRouter();
-  const { category, department, product } = query as PlpQueryParams;
+  const { category, department, product, sort, count, page, filter } =
+    query as PlpQueryParams;
 
   const breadcrumbLinks: BreadcrumbLink[] = [
     { url: '/', label: 'Inicio', isActive: false },
@@ -42,10 +43,14 @@ const PLPContent = () => {
   useEffect(() => {
     if (department && category && product) {
       getProductsByCategories({
-        query: `${department}/${category}/${product}`,
+        categories: `${department}/${category}/${product}`,
+        sort,
+        filter,
+        count,
+        page,
       });
     }
-  }, [department, category, product]);
+  }, [department, category, product, filter, count, sort, page]);
 
   if ((products && products.recordsFiltered === 0) || isErrorProducts) {
     return <SearchNotFound view="plp-not-found" type="category" />;
@@ -65,7 +70,11 @@ const PLPContent = () => {
       <ShoppingCartEventLayout
         refreshProducts={() =>
           getProductsByCategories({
-            query: `${department}/${category}/${product}`,
+            categories: `${department}/${category}/${product}`,
+            sort,
+            filter,
+            count,
+            page,
           })
         }
       >
