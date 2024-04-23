@@ -3,6 +3,8 @@ import { LayoutOptions } from '@components/molecules/Display/types';
 import { OrderOptions } from '@components/molecules/Filter/types';
 import { QueryParams } from '@components/organisms/Order';
 import Order from '@components/organisms/Order/Order';
+import PlpQueryParams from '@entities/plp-query-params';
+import useQueryParams from '@hooks/use-query-params';
 import PLPContext from '@presentation/context/plp-context';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import {
@@ -12,24 +14,16 @@ import {
   setSort,
 } from '@store/slices/products';
 import { useRouter } from 'next/router';
-import { ParsedUrlQuery } from 'querystring';
 import { useContext } from 'react';
 import OrderSkeleton from './components/skeleton';
 
-interface PageUrlQuery extends ParsedUrlQuery {
-  department: string;
-  category: string;
-  product?: string;
-}
-
 const OrderCMS = () => {
   const { query } = useRouter();
-  const { category } = query as PageUrlQuery;
+  const { category, sort, layout } = query as PlpQueryParams;
   const { recordsFiltered, isLoadingProducts } = useContext(PLPContext);
-  const { sort, layout, isOpenOrderMobile } = useAppSelector(
-    (state) => state.products,
-  );
+  const { isOpenOrderMobile } = useAppSelector((state) => state.products);
   const dispatch = useAppDispatch();
+  const { updateQueryParams } = useQueryParams();
 
   const getTitle = (): string => {
     if (!category) return '';
@@ -40,10 +34,12 @@ const OrderCMS = () => {
 
   const onFilterChange = (order: OrderOptions) => {
     dispatch(setSort(order));
+    updateQueryParams({ sort: order });
   };
 
   const onDisplayChange = (layout: LayoutOptions) => {
     dispatch(setLayout(layout));
+    updateQueryParams({ layout });
   };
 
   const onChange = (queryParams: QueryParams) => {
@@ -65,8 +61,8 @@ const OrderCMS = () => {
       <Order
         onChange={onChange}
         queryParams={{
-          order: sort,
-          layout,
+          order: sort || 'orders:desc',
+          layout: layout || 'grid',
         }}
         title={getTitle()}
         onDisplayChange={onDisplayChange}

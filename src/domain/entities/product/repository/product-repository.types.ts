@@ -2,8 +2,8 @@ import { Facets } from '../facets.entity';
 import { Product } from '../product.entity';
 
 export type SearchByCategoriesRequest = {
-  count?: number;
-  page: string;
+  page?: string;
+  count?: string;
   categories?: string;
   sort?: string;
   filter?: string;

@@ -11,13 +11,14 @@ import React, { useEffect } from 'react';
 
 const PLPContent: React.FC = () => {
   const { query } = useRouter();
-  const { clusterId } = query as PlpQueryParams;
+  const { clusterId, sort, filter, page, count } = query as PlpQueryParams;
   const { isLoadingProducts, isErrorProducts, products, getProductsByCluster } =
     useGetByCluster();
 
   useEffect(() => {
-    if (clusterId) getProductsByCluster({ clusterId });
-  }, [clusterId]);
+    if (clusterId)
+      getProductsByCluster({ clusterId, sort, filter, page, count });
+  }, [clusterId, sort, filter, page, count]);
 
   if ((products && products.recordsFiltered === 0) || isErrorProducts) {
     return <SearchNotFound view="plp-not-found" type="cluster" />;
@@ -33,7 +34,9 @@ const PLPContent: React.FC = () => {
       }}
     >
       <ShoppingCartEventLayout
-        refreshProducts={() => getProductsByCluster({ clusterId })}
+        refreshProducts={() =>
+          getProductsByCluster({ clusterId, sort, filter, page, count })
+        }
       >
         <PageContainer>
           <Products />

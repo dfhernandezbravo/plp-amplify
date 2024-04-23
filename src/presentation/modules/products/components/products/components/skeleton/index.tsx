@@ -1,16 +1,18 @@
 import Skeleton from '@components/atoms/skeleton';
-import { useAppSelector } from '@store/hooks';
+import { LayoutOptions } from '@components/molecules/Display';
 import { ProductsContainer } from '../../styles';
 
-const ProductsSkeleton = () => {
-  const { layout } = useAppSelector((state) => state.products);
+interface Props {
+  layout: LayoutOptions;
+}
 
+const ProductsSkeleton = ({ layout }: Props) => {
   return (
     <ProductsContainer $layout={layout}>
       {new Array(12).fill(null).map((_, index) => (
         <Skeleton
-          height="488px"
-          width="220px"
+          height={layout === 'grid' ? '488px' : '200px'}
+          width={layout === 'grid' ? '220px' : '100%'}
           radius="8px"
           animationtype="pulse"
           key={index}

@@ -6,8 +6,13 @@ export const Container = styled.section`
   --swiper-navigation-sides-offset: 3px;
   --swiper-pagination-color: rgb(204, 21, 21);
 
+  .swiper {
+    z-index: 0;
+  }
+
   .swiper-wrapper {
     width: 200px;
+    z-index: 0;
   }
 
   width: 100%;

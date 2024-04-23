@@ -10,14 +10,13 @@ import ShoppingCartEventLayout from '@presentation/layouts/shopping-cart-events-
 import { useGetContentViewCms } from '@use-cases/cms/get-content-view';
 import { useGetByCluster } from '@use-cases/product/get-cluster-id';
 import { getConfigBase } from '@use-cases/product/get-config-base';
-
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 const PLPContent: React.FC = () => {
   const { query } = useRouter();
-  const { eventName } = query as PlpQueryParams;
-  const [clusterId, setClusterId] = useState('');
+  const { eventName, sort, filter, page, count } = query as PlpQueryParams;
+  const [clusterId, setClusterId] = useState<string | undefined>();
 
   const { isLoadingProducts, isErrorProducts, products, getProductsByCluster } =
     useGetByCluster();
@@ -31,11 +30,15 @@ const PLPContent: React.FC = () => {
       const configBase = getConfigBase(contentCMS);
 
       if (configBase) {
-        getProductsByCluster({ clusterId: configBase.clusterId });
         setClusterId(configBase.clusterId);
       }
     }
   }, [contentCMS]);
+
+  useEffect(() => {
+    if (clusterId)
+      getProductsByCluster({ clusterId, sort, filter, page, count });
+  }, [clusterId, sort, filter, page, count]);
 
   if (isErrorCMS || isErrorProducts) {
     return <SearchNotFound view="plp-not-found" type="cluster" />;
@@ -55,7 +58,9 @@ const PLPContent: React.FC = () => {
     >
       <AnalyticsEventsLayout>
         <ShoppingCartEventLayout
-          refreshProducts={() => getProductsByCluster({ clusterId })}
+          refreshProducts={() =>
+            getProductsByCluster({ clusterId, sort, filter, page, count })
+          }
         >
           <PageContainer>
             <ContentCMS />

@@ -1,8 +1,5 @@
 import { SearchByCategoriesRequest } from '@entities/product/repository/product-repository.types';
-import PlpQueryParams from '@entities/plp-query-params';
 import productRespository from '@repositories/products';
-import { useAppSelector } from '@store/hooks';
-import { useRouter } from 'next/router';
 import { useMutation } from 'react-query';
 
 export default async function getByClusterId(
@@ -17,21 +14,17 @@ export default async function getByClusterId(
 }
 
 export const useGetByCluster = () => {
-  const { count, sort } = useAppSelector((state) => state.products);
-  const { query } = useRouter();
-  const { filter, page } = query as PlpQueryParams;
-
   const {
     data: products,
     isLoading: isLoadingProducts,
     isError: isErrorProducts,
     mutate,
-  } = useMutation((clusterId: string) =>
-    getByClusterId({ clusterId, count, sort, filter, page: page || '1' }),
+  } = useMutation((request: SearchByCategoriesRequest) =>
+    getByClusterId(request),
   );
 
-  const getProductsByCluster = ({ clusterId }: { clusterId: string }) =>
-    mutate(clusterId);
+  const getProductsByCluster = (request: SearchByCategoriesRequest) =>
+    mutate(request);
 
   return {
     products,
