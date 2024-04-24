@@ -1,12 +1,13 @@
-import { Content } from '@entities/cms';
+import PLPContext from '@presentation/context/plp-context';
 import { useAppSelector } from '@store/hooks';
 import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 interface Props {
   children: React.ReactNode;
-  contentCMS: Content[];
 }
-const AnalyticsEventsLayout = ({ children, contentCMS }: Props) => {
+
+const AnalyticsEventsLayout = ({ children }: Props) => {
+  const { contentCMS } = useContext(PLPContext);
   const { dispatchViewPromotionEvent } = useDispatchProductEvent();
   const { deviceType } = useAppSelector((state) => state.device);
 
@@ -22,6 +23,7 @@ const AnalyticsEventsLayout = ({ children, contentCMS }: Props) => {
       }
     }
   }, [contentCMS]);
+
   return <>{children}</>;
 };
 

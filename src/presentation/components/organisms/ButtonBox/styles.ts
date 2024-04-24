@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 // Components
-import { Props } from '@components/atoms/Button';
 
 // Definitions
 export type ContainerStruct = {
@@ -10,7 +9,7 @@ export type ContainerStruct = {
 
 export type CustomButtonStruct = {
   area?: string;
-} & Props;
+};
 
 export const Container = styled.section<ContainerStruct>`
   position: relative;

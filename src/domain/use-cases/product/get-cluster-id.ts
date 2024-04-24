@@ -1,5 +1,6 @@
 import { SearchByCategoriesRequest } from '@entities/product/repository/product-repository.types';
 import productRespository from '@repositories/products';
+import { useMutation } from 'react-query';
 
 export default async function getByClusterId(
   request: SearchByCategoriesRequest,
@@ -11,3 +12,24 @@ export default async function getByClusterId(
     throw new Error('Error');
   }
 }
+
+export const useGetByCluster = () => {
+  const {
+    data: products,
+    isLoading: isLoadingProducts,
+    isError: isErrorProducts,
+    mutate,
+  } = useMutation((request: SearchByCategoriesRequest) =>
+    getByClusterId(request),
+  );
+
+  const getProductsByCluster = (request: SearchByCategoriesRequest) =>
+    mutate(request);
+
+  return {
+    products,
+    isLoadingProducts,
+    isErrorProducts,
+    getProductsByCluster,
+  };
+};

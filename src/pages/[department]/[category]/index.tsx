@@ -1,81 +1,92 @@
-import { Content } from '@entities/cms';
-import SearchSkeleton from '@modules/plp-standard/components/search-skeleton';
-import PlpQueryParams from '@modules/plp-standard/types/plp-query-params';
-import PLPCMS from '@modules/plp-standard/variants/plp-cms';
-import PLPDefault from '@modules/plp-standard/variants/plp-default';
+import BreadcrumbPLP from '@components/atoms/breadcrumb';
+import { BreadcrumbLink } from '@components/atoms/breadcrumb/types';
+import PlpQueryParams from '@entities/plp-query-params';
+import ContentCMS from '@modules/content-cms';
+import Products from '@modules/products';
 import SearchNotFound from '@modules/search-not-found';
+import PLPContext from '@presentation/context/plp-context';
 import PLPLayout from '@presentation/layouts/plp-layout';
-import { useAppDispatch, useAppSelector } from '@store/hooks';
-import { setSearchState } from '@store/slices/products';
-import getContentViewCms from '@use-cases/cms/get-content-view';
-import getSearchByCategories from '@use-cases/product/get-search-by-categories';
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { PageContainer } from '@presentation/layouts/plp-layout/styles';
+import ShoppingCartEventLayout from '@presentation/layouts/shopping-cart-events-layout';
+import { useGetContentViewCms } from '@use-cases/cms/get-content-view';
+import { useGetProductsByCategories } from '@use-cases/product/get-search-by-categories';
 import { useRouter } from 'next/router';
-import { useQuery } from 'react-query';
+import { useEffect } from 'react';
 
-interface Props {
-  contentCMS: Content[] | null;
-}
-
-const PLPContent: React.FC<Props> = ({ contentCMS }) => {
-  const { count, sort } = useAppSelector((state) => state.products);
-  const dispatch = useAppDispatch();
+const ContentPLP = () => {
   const { query } = useRouter();
-  const { category, department, filter, page } = query as PlpQueryParams;
-  const urlBase = `${department}/${category}`;
+  const { category, department, count, sort, filter, page } =
+    query as PlpQueryParams;
+
+  const breadcrumbLinks: BreadcrumbLink[] = [
+    { url: '/', label: 'Inicio', isActive: false },
+    { url: `/${department}`, label: department, isActive: false },
+    { url: `/${department}/${category}`, label: category, isActive: true },
+  ];
 
   const {
-    data: searchResponse,
-    isLoading: isLoadingProducts,
-    isError,
-  } = useQuery(
-    ['get-search-by-category', urlBase, count, page, sort, filter],
-    () =>
-      getSearchByCategories({
-        categories: urlBase,
+    isLoadingProducts,
+    products,
+    getProductsByCategories,
+    isErrorProducts,
+  } = useGetProductsByCategories();
+
+  const { isLoadingCMS, contentCMS } = useGetContentViewCms({
+    viewName: category,
+  });
+
+  useEffect(() => {
+    if (department && category) {
+      getProductsByCategories({
+        categories: `${department}/${category}`,
         count,
-        page,
         sort,
         filter,
-      }),
-    {
-      enabled: !!department && !!category && !!count,
-      cacheTime: 0,
-    },
-  );
-
-  if (isLoadingProducts) return <SearchSkeleton />;
-
-  if (isError) return <SearchNotFound view="plp-not-found" type="category" />;
-
-  if (searchResponse) {
-    if (searchResponse.recordsFiltered === 0) {
-      return <SearchNotFound view="plp-not-found" type="category" />;
+        page,
+      });
     }
+  }, [department, category, filter, sort, page, count]);
 
-    dispatch(setSearchState(searchResponse!));
+  if ((products && products.recordsFiltered === 0) || isErrorProducts) {
+    return <SearchNotFound view="plp-not-found" type="category" />;
   }
 
-  return contentCMS ? <PLPCMS contentCMS={contentCMS} /> : <PLPDefault />;
+  return (
+    <PLPContext.Provider
+      value={{
+        isLoadingCMS,
+        isLoadingProducts,
+        products: products?.productList || [],
+        facets: products?.facets || [],
+        recordsFiltered: products?.recordsFiltered || 0,
+        contentCMS,
+      }}
+    >
+      <ShoppingCartEventLayout
+        refreshProducts={() =>
+          getProductsByCategories({
+            categories: `${department}/${category}`,
+            count,
+            sort,
+            filter,
+            page,
+          })
+        }
+      >
+        <PageContainer>
+          <BreadcrumbPLP links={breadcrumbLinks} />
+          <ContentCMS />
+          <Products />
+        </PageContainer>
+      </ShoppingCartEventLayout>
+    </PLPContext.Provider>
+  );
 };
 
-export const getServerSideProps = (async (context) => {
-  const { query } = context;
-  const { category } = query as PlpQueryParams;
-  const contentCMS = await getContentViewCms(category);
-  return {
-    props: {
-      contentCMS,
-    },
-  };
-}) satisfies GetServerSideProps<Props>;
-
-const CategoryPLPPage = ({
-  contentCMS,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const CategoryPLPPage = () => {
   return (
     <PLPLayout>
-      <PLPContent contentCMS={contentCMS} />
+      <ContentPLP />
     </PLPLayout>
   );
 };

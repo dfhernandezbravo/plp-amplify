@@ -7,7 +7,7 @@ type Breakpoints = {
   isSm: boolean;
   isMd: boolean;
   isLg: boolean;
-  device: Device;
+  device: Device | null;
 };
 
 export default function useDevice(): Breakpoints {
@@ -16,7 +16,7 @@ export default function useDevice(): Breakpoints {
     isSm: useMediaQuery('(min-width: 641px) and (max-width: 768px)'),
     isMd: useMediaQuery('(min-width: 769px) and (max-width: 1024px)'),
     isLg: useMediaQuery('(min-width: 1025px)'),
-    device: 'Desktop',
+    device: null,
   };
 
   if (breakpoints.isXs) breakpoints.device = 'Phone';

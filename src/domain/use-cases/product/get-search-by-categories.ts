@@ -1,9 +1,8 @@
 import { SearchByCategoriesRequest } from '@entities/product/repository/product-repository.types';
 import productRespository from '@repositories/products';
+import { useMutation } from 'react-query';
 
-export default async function getSearchByCategories(
-  request: SearchByCategoriesRequest,
-) {
+async function getSearchByCategories(request: SearchByCategoriesRequest) {
   try {
     const { data } = await productRespository().getSearchByCategories(request);
     return data;
@@ -11,3 +10,24 @@ export default async function getSearchByCategories(
     throw new Error('Error');
   }
 }
+
+export const useGetProductsByCategories = () => {
+  const {
+    data: products,
+    isLoading: isLoadingProducts,
+    isError: isErrorProducts,
+    mutate,
+  } = useMutation((request: SearchByCategoriesRequest) =>
+    getSearchByCategories(request),
+  );
+
+  const getProductsByCategories = (request: SearchByCategoriesRequest) =>
+    mutate(request);
+
+  return {
+    products,
+    isLoadingProducts,
+    isErrorProducts,
+    getProductsByCategories,
+  };
+};
