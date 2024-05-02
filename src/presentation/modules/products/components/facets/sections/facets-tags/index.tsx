@@ -14,6 +14,8 @@ import {
   TagsContainer,
 } from './styles';
 import { AiOutlineClose } from 'react-icons/ai';
+import { setTags } from '@store/slices/filters';
+import { useAppDispatch } from '@store/hooks';
 const { format } = require('number-currency-format-2');
 
 const FacetsTags = () => {
@@ -21,6 +23,7 @@ const FacetsTags = () => {
   const { filter } = query as PlpQueryParams;
   const { removeFilter } = useFilters(filter || '');
   const { updateQueryParams } = useQueryParams();
+  const dispatch = useAppDispatch();
 
   const [itemsTags, setItemsTags] = React.useState<TagFacets[]>([]);
 
@@ -75,6 +78,7 @@ const FacetsTags = () => {
       }
     }
     setItemsTags(result);
+    dispatch(setTags(result));
   }, []);
 
   return (

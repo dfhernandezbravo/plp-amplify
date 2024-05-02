@@ -8,7 +8,7 @@ export const HeaderContainer = styled.div`
   gap: 8px;
 `;
 
-export const TitleHeader = styled.h2`
+export const TitleHeader = styled.h1`
   font-family: ${({ theme: { fontFamily } }) => fontFamily.openSans};
   font-size: ${({ theme: { fontSize } }) => fontSize[600]};
   font-weight: 700;

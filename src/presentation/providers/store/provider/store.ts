@@ -3,6 +3,7 @@ import deviceSlice from '@store/slices/device';
 import cmsContentSlice from '@store/slices/cmsContent';
 import productSlice from '@store/slices/products';
 import shoppingCartSlice from '@store/slices/shopping-cart';
+import filterSlice from '@store/slices/filters';
 
 export const plpStore = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const plpStore = configureStore({
     shoppingCart: shoppingCartSlice.reducer,
     device: deviceSlice.reducer,
     cmsStore: cmsContentSlice.reducer,
+    filters: filterSlice.reducer,
   },
 });
 
