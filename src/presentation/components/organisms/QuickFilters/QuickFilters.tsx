@@ -17,14 +17,15 @@ const breakpoints: BreakPoints = {
     slidesPerGroup: 6,
   },
 };
-
 const QuickFilters = (props: Props) => {
   const { filters, currentUrl, ring, onClick } = props;
   const [initialSlide, setInitialSlide] = useState<number>(0);
 
   const calculateInitialSlide = () => {
     if (currentUrl) {
-      const index = filters.findIndex((filter) => filter.link === currentUrl);
+      const index = filters.findIndex(
+        (filter) => filter.redirectTo === currentUrl,
+      );
       setInitialSlide(index);
     }
   };
@@ -39,7 +40,12 @@ const QuickFilters = (props: Props) => {
 
   return (
     <Container>
-      <Carousel center breakpoints={breakpoints} initialSlide={initialSlide}>
+      <Carousel
+        navigation
+        center
+        breakpoints={breakpoints}
+        initialSlide={initialSlide}
+      >
         {filters.map((filter, filterIndex) => {
           const { image, title, redirectTo } = filter;
           return (
