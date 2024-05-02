@@ -2,9 +2,9 @@ import Icon from '@components/atoms/Icon';
 import Select, { Option } from '@components/atoms/Select';
 import { useEffect, useState } from 'react';
 import { options } from './constants';
-import { Layout } from '@cencosud-ds/easy-design-system';
 import { Container, Text } from './styles';
 import { OrderOptions, Props } from './types';
+import { Layout } from '@components/atoms/layout';
 
 const Filter = (props: Props) => {
   const { onChange, defaultValue = '', onBlur } = props;

@@ -4,7 +4,7 @@ import { Content } from '@entities/cms';
 import React from 'react';
 import CategoryCard from './components/category-card';
 import { FeaturedCategoriesContainer, FeaturedCategoriesTitle } from './styles';
-import { useDevice } from '@cencosud-ds/easy-design-system';
+import useDevice from '@hooks/use-device';
 
 const FeaturedCategories: React.FC<Content> = ({
   items,

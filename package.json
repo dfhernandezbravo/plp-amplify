@@ -24,7 +24,6 @@
     "@ccom-easy-design-system/molecules.product-card": "^0.0.95",
     "@ccom-easy-design-system/molecules.swiper": "^0.0.16",
     "@ccom-easy-design-system/theme.theme-provider": "0.0.2",
-    "@cencosud-ds/easy-design-system": "^1.1.17",
     "@elgorditosalsero/react-gtm-hook": "^2.7.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
