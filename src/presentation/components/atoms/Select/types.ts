@@ -1,14 +1,10 @@
+import { OptionsSelect } from '@ccom-easy-design-system/atoms.select/dist/types';
 import { CSSProperties } from 'react';
 import { ActionMeta } from 'react-select';
 
-export type Option = {
-  value: string;
-  label: string;
-};
-
 export type OnChangeReactSelect = (
-  option: Option | null,
-  actionMeta: ActionMeta<Option>,
+  option: OptionsSelect | null,
+  actionMeta: ActionMeta<OptionsSelect>,
 ) => void;
 
 export type Props = {
@@ -16,14 +12,14 @@ export type Props = {
   name: string;
   label?: string;
   prefix?: string;
-  options: Option[];
+  options: OptionsSelect[];
   className?: string;
   required?: boolean;
-  defaultValue?: Option;
+  defaultValue?: OptionsSelect;
   style?: CSSProperties;
   clearable?: boolean;
   searchable?: boolean;
   isMobile?: boolean;
-  onChange?: (option: Option) => void;
+  onChange?: (option: OptionsSelect) => void;
   onBlur?: () => void;
 };

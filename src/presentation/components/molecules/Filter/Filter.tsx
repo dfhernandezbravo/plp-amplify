@@ -1,17 +1,18 @@
 import Icon from '@components/atoms/Icon';
-import Select, { Option } from '@components/atoms/Select';
+import Select from '@components/atoms/Select';
 import { useEffect, useState } from 'react';
 import { options } from './constants';
 import { Container, Text } from './styles';
 import { OrderOptions, Props } from './types';
 import { Layout } from '@components/atoms/layout';
+import { OptionsSelect } from '@ccom-easy-design-system/atoms.select/dist/types';
 
 const Filter = (props: Props) => {
   const { onChange, defaultValue = '', onBlur } = props;
   const [key, setKey] = useState(0);
-  const [currentOption, setCurrentOption] = useState<Option>();
+  const [currentOption, setCurrentOption] = useState<OptionsSelect>();
 
-  const onOrderChange = (option: Option) => {
+  const onOrderChange = (option: OptionsSelect) => {
     const order = option.value as OrderOptions;
     if (order) onChange?.(order);
     else onChange?.(null as unknown as OrderOptions);
@@ -41,7 +42,7 @@ const Filter = (props: Props) => {
             <Select
               key={key}
               options={options}
-              onChange={() => onOrderChange}
+              onChange={(option) => onOrderChange(option as OptionsSelect)}
               value={currentOption}
               height={40}
             />
@@ -52,7 +53,7 @@ const Filter = (props: Props) => {
         <Select
           key={key}
           options={options}
-          onChange={() => onOrderChange}
+          onChange={(option) => onOrderChange(option as OptionsSelect)}
           value={currentOption}
           customWidth={215}
           onBlur={onBlur}
