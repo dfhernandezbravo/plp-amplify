@@ -6,7 +6,7 @@ import { Content } from './style';
 
 // Definitions
 import { Props } from './types';
-import { useDevice } from '@cencosud-ds/easy-design-system';
+import useDevice from '@hooks/use-device';
 
 const HtmlText = (props: Props) => {
   // Props

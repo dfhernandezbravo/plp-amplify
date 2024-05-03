@@ -1,4 +1,3 @@
-import { Button } from '@cencosud-ds/easy-design-system';
 import PlpQueryParams from '@entities/plp-query-params';
 import React, { useEffect } from 'react';
 import useFilters from '../../hooks/use-filters';
@@ -10,10 +9,11 @@ import {
   FacetsTagsHeader,
   Tag,
   TagClose,
-  TagText,
   TagsContainer,
+  TagText,
 } from './styles';
 import { AiOutlineClose } from 'react-icons/ai';
+import Button from '@components/atoms/Button';
 const { format } = require('number-currency-format-2');
 
 const FacetsTags = () => {

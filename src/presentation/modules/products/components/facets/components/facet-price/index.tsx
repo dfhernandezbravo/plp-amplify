@@ -1,8 +1,8 @@
-import { Layout } from '@cencosud-ds/easy-design-system';
 import { Facets } from '@entities/product/facets.entity';
 import React from 'react';
 import FacetPriceDesktop from './facet-price-desktop';
 import FacetPriceMobile from './facet-price-mobile';
+import { Layout } from '@components/atoms/layout';
 
 interface Props {
   facet: Facets;
