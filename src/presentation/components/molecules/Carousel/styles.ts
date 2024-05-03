@@ -16,10 +16,30 @@ export const Container = styled.section`
   }
 
   width: 100%;
-  /* margin: 1rem 0; */
   padding: 0;
   position: relative;
   box-sizing: border-box;
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    z-index: 1;
+  }
+
+  .swiper-button-prev::before,
+  .swiper-button-next::before {
+    content: '';
+    background-color: ${({ theme }) => theme?.colors?.neutral?.[200]};
+    position: absolute;
+    height: 300px;
+    width: 1.3rem;
+  }
+
+  .swiper-button-prev::before {
+    left: -3px;
+  }
+  .swiper-button-next::before {
+    right: -4px;
+  }
 
   /*
   .swiper-pagination-bullet {
