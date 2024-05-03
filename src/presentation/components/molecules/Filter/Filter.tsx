@@ -41,7 +41,7 @@ const Filter = (props: Props) => {
             <Select
               key={key}
               options={options}
-              onChange={onOrderChange}
+              onChange={() => onOrderChange}
               value={currentOption}
               height={40}
             />
@@ -52,7 +52,7 @@ const Filter = (props: Props) => {
         <Select
           key={key}
           options={options}
-          onChange={onOrderChange}
+          onChange={() => onOrderChange}
           value={currentOption}
           customWidth={215}
           onBlur={onBlur}
