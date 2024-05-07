@@ -6,6 +6,7 @@ import {
   PaginatorNav,
 } from './styles';
 import Icon from '@components/atoms/Icon';
+import { animateScroll as scroll } from 'react-scroll';
 
 interface Props {
   maxPagesCount: number;
@@ -23,6 +24,11 @@ const ProductPagination = (props: Props) => {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page.toString());
+    scroll.scrollToTop({
+      duration: 500,
+      delay: 100,
+      smooth: true,
+    });
   };
 
   useEffect(() => {
