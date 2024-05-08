@@ -13,6 +13,7 @@ import {
   FacetsContainerMobile,
   HeaderSection,
 } from './styles';
+import LogisticFacets from '../../components/logistic-facets/logistic-facets';
 
 const FacetsMobile = () => {
   const { facets } = useContext(PLPContext);
@@ -39,6 +40,7 @@ const FacetsMobile = () => {
         </HeaderSection>
 
         <ContentSection>
+          <LogisticFacets />
           {facet ? <FacetsValue /> : <FacetListMobile />}
         </ContentSection>
 

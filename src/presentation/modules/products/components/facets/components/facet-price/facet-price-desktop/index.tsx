@@ -24,7 +24,7 @@ const FacetPriceDesktop: React.FC<Props> = ({ facet }) => {
   const [maxValue, setMaxValue] = useState('');
 
   const onClickPriceRangeItem = (value: ValueFacets) => {
-    const newFilter = `${value.key}/${value.range.from}:${value.range.to}`;
+    const newFilter = `${value.key}/${value?.range.from}:${value?.range?.to}`;
     if (value.selected) {
       removeFilter(newFilter);
     } else {

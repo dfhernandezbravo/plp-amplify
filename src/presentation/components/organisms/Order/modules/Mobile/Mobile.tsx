@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 // Components
 import Display from '@components/molecules/Display';
 import ButtonBox, { Event } from '@components/organisms/ButtonBox';
+import { LogisticButtonBox } from '@components/organisms/LogisticButtonBox/LogisticButtonBox';
 
 // Styled components
 import {
@@ -110,6 +111,7 @@ const Mobile = (props: Props) => {
       {isShowButtonBox && (
         <ButtonBoxContainer ref={buttonBoxRef}>
           <ButtonBox area="buttons" onClick={onButtonBoxClick} />
+          <LogisticButtonBox />
         </ButtonBoxContainer>
       )}
       <BottomSheet

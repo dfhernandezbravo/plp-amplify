@@ -7,6 +7,7 @@ import FacetItem from '../../components/facet-item';
 import FacetSkeleton from '../../components/skeleton';
 import FacetsHeader from '../../sections/facets-header';
 import { FacetsContainer } from './styles';
+import LogisticFacets from '../../components/logistic-facets/logistic-facets';
 
 const FacetsDesktop = () => {
   const { facets, isLoadingProducts } = useContext(PLPContext);
@@ -39,9 +40,10 @@ const FacetsDesktop = () => {
   return (
     <FacetsContainer>
       <FacetsHeader />
+      <LogisticFacets />
       {facets?.length > 0 &&
         facets
-          ?.filter((f) => !f.hidden)
+          ?.filter((f) => !f.hidden && f.key !== 'logistic-facet')
           ?.map((facet) => {
             const filteredFacet = handleRenderFacets(facet);
             return (

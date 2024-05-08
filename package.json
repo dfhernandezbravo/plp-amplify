@@ -58,6 +58,7 @@
     "swiper": "^10.3.1",
     "typescript": "^5.3.3",
     "universal-cookie": "^7.1.0",
+    "use-indexeddb": "^2.0.2",
     "webpack": "^5.80.0"
   },
   "browserslist": [

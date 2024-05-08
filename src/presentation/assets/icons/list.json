@@ -6,5 +6,8 @@
   "list-red": "list-red.svg",
   "sort": "sort.svg",
   "paginator-prev": "paginator-prev.svg",
-  "paginator-next": "paginator-next.svg"
+  "paginator-next": "paginator-next.svg",
+  "retiro-en-tienda": "retiro-en-tienda.svg",
+  "envio-express": "envio-express.svg",
+  "envio-gratis": "envio-gratis.svg"
 }

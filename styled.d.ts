@@ -1,6 +1,6 @@
 import 'styled-components';
-import { ThemeEasy } from '@ccom-easy-design-system/theme.theme-provider';
+import { EasyThemeProvider } from '@ccom-easy-design-system/theme.theme-provider';
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends ThemeEasy {}
+  export interface DefaultTheme extends EasyThemeProvider {}
 }
