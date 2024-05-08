@@ -7997,11 +7997,6 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
-use-indexeddb@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/use-indexeddb/-/use-indexeddb-2.0.2.tgz#b1e174e28e7c5e63641c900d796734b028666b70"
-  integrity sha512-pF1Gnrdg7wYvSKAXQvITP0KDVFnecjfckxLAtne6WYDJfbGaeOG7038sZjpR9SrcS9xrjKLJSjeakkYzHyhhEw==
-
 use-isomorphic-layout-effect@^1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/use-isomorphic-layout-effect/-/use-isomorphic-layout-effect-1.1.2.tgz"
