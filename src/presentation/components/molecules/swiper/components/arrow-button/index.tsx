@@ -3,7 +3,7 @@ import {
   MdOutlineArrowForwardIos,
 } from 'react-icons/md';
 import { ArrowButtonWrapper } from './style';
-import { useDevice } from '@cencosud-ds/easy-design-system';
+import useDevice from '@hooks/use-device';
 
 interface Props {
   position: 'right' | 'left';

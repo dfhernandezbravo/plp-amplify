@@ -1,7 +1,7 @@
-import { useDevice } from '@cencosud-ds/easy-design-system';
 import { Content } from '@entities/cms';
 import React from 'react';
 import { ImagePromotionalRibbon, PromotionalRibbonContainer } from './styles';
+import useDevice from '@hooks/use-device';
 
 const PromotionalRibbons = (content: Content) => {
   const { alt, backgroundColor, imageMobile, imageDesktop, link, fullWidth } =

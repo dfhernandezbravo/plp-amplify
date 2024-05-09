@@ -1,4 +1,3 @@
-import { useDevice } from '@cencosud-ds/easy-design-system';
 import Link from '../../atoms/Link';
 import Carousel from '../../molecules/Carousel';
 import { Container, Image } from './styles';
@@ -6,6 +5,7 @@ import { Props } from './types';
 import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
 import useRedirectLink from '@hooks/use-redirect-link';
 import { useAppSelector } from '@store/hooks';
+import useDevice from '@hooks/use-device';
 
 const Banner = (props: Props) => {
   const { items, autoplay, loop, pagination, onClick } = props;
