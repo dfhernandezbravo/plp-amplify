@@ -21,7 +21,7 @@
     "@ccom-easy-design-system/atoms.skeleton": "^0.0.4",
     "@ccom-easy-design-system/atoms.textfield": "^0.0.48",
     "@ccom-easy-design-system/hooks.use-device": "^0.0.7",
-    "@ccom-easy-design-system/molecules.product-card": "^0.0.96",
+    "@ccom-easy-design-system/molecules.product-card": "^0.0.99",
     "@ccom-easy-design-system/molecules.swiper": "^0.0.32",
     "@ccom-easy-design-system/theme.theme-provider": "^0.0.23",
     "@elgorditosalsero/react-gtm-hook": "^2.7.2",

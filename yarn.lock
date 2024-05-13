@@ -1570,10 +1570,10 @@
   dependencies:
     react-intersection-observer-hook "^2.1.1"
 
-"@ccom-easy-design-system/molecules.product-card@^0.0.96":
-  version "0.0.96"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.product-card/-/molecules.product-card-0.0.96.tgz#b80519391a6502bc468d9999dae42f9190d9325b"
-  integrity sha512-HhlC4n1AMLA321P3/MW566uqatwGIKGxzGTS00exrfagr1ISskEeK0d/VYloT1yVNEth61OBJ4NeofHouzTFyg==
+"@ccom-easy-design-system/molecules.product-card@^0.0.99":
+  version "0.0.99"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.product-card/-/molecules.product-card-0.0.99.tgz#6a605a85e105919af14a06aed916dfe297ca37f8"
+  integrity sha512-QkB+m4lF0dKWaIdKOqy77ppKinQmi+s9dRB/k544ffl8GSvAuI5QFpYpsML9glwSVcc7sDVhodk2iJmzQeEz5Q==
   dependencies:
     "@ccom-easy-design-system/atoms.button" "0.0.16"
     "@ccom-easy-design-system/atoms.layout" "0.0.10"
