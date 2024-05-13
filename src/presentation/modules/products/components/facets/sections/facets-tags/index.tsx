@@ -13,6 +13,8 @@ import {
   TagText,
 } from './styles';
 import { AiOutlineClose } from 'react-icons/ai';
+import { setTags } from '@store/slices/filters';
+import { useAppDispatch } from '@store/hooks';
 import Button from '@components/atoms/Button';
 const { format } = require('number-currency-format-2');
 
@@ -21,6 +23,7 @@ const FacetsTags = () => {
   const { filter } = query as PlpQueryParams;
   const { removeFilter } = useFilters(filter || '');
   const { updateQueryParams } = useQueryParams();
+  const dispatch = useAppDispatch();
 
   const [itemsTags, setItemsTags] = React.useState<TagFacets[]>([]);
 
@@ -75,6 +78,11 @@ const FacetsTags = () => {
       }
     }
     setItemsTags(result);
+    dispatch(
+      setTags(
+        result?.filter((r) => r.key !== 'color-bucket' && r.key !== 'price'),
+      ),
+    );
   }, []);
 
   return (
