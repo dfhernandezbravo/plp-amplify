@@ -1452,10 +1452,10 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@ccom-easy-design-system/atoms.bottom-sheet@^0.0.42":
-  version "0.0.42"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.bottom-sheet/-/atoms.bottom-sheet-0.0.42.tgz#702c365b15ac2a378c442efdc3f34e65eb2c3781"
-  integrity sha512-7rpmpOL2irIhHNqROqABAfQvYEXNoPug0n9qiePETLdnl1NtSndnhMbY/JYHAZuzqym+E+e7LtXn2PiulPc18w==
+"@ccom-easy-design-system/atoms.bottom-sheet@^0.0.43":
+  version "0.0.43"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.bottom-sheet/-/atoms.bottom-sheet-0.0.43.tgz#f6bdf862bf463fb6caab9942e7dd37862f34ad20"
+  integrity sha512-A620K81588LcpNr8vMEfhPQRk6cxj0R/1VetiOOkz5tanY+zFfNou9IEm4haRwmm2iokfkxOQ4OvZaP5Cj+4/Q==
   dependencies:
     styled-components "6.1.6"
 
@@ -1570,10 +1570,10 @@
   dependencies:
     react-intersection-observer-hook "^2.1.1"
 
-"@ccom-easy-design-system/molecules.product-card@^0.0.99":
-  version "0.0.99"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.product-card/-/molecules.product-card-0.0.99.tgz#6a605a85e105919af14a06aed916dfe297ca37f8"
-  integrity sha512-QkB+m4lF0dKWaIdKOqy77ppKinQmi+s9dRB/k544ffl8GSvAuI5QFpYpsML9glwSVcc7sDVhodk2iJmzQeEz5Q==
+"@ccom-easy-design-system/molecules.product-card@^0.0.100":
+  version "0.0.100"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.product-card/-/molecules.product-card-0.0.100.tgz#57ceaaee35d4d351715f07da8bde3cd7845f58b2"
+  integrity sha512-QVftev0NWEyARByv/r87R1Sc3E3IpaSW0r14jH8YCO+xA0jI+8aV2w4zwVlswE9+lmtuwHq3GOuveK5e9QHevw==
   dependencies:
     "@ccom-easy-design-system/atoms.button" "0.0.16"
     "@ccom-easy-design-system/atoms.layout" "0.0.10"

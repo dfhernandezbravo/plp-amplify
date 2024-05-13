@@ -116,18 +116,20 @@ const Mobile = (props: Props) => {
         open={isOpenOrderMobile}
         onClose={() => dispatch(setOpenOrderMobile(false))}
       >
-        <SortByTitle>Ordenar por:</SortByTitle>
-        {sortByOptions.map(({ value, label }) => (
-          <RadioButtonContainer key={value}>
-            <RadioButton
-              value={value}
-              label={label}
-              inputId={value}
-              checked={selectedSortOption === value}
-              onChange={handleChange}
-            />
-          </RadioButtonContainer>
-        ))}
+        <div style={{ padding: 8 }}>
+          <SortByTitle>Ordenar por:</SortByTitle>
+          {sortByOptions.map(({ value, label }) => (
+            <RadioButtonContainer key={value}>
+              <RadioButton
+                value={value}
+                label={label}
+                inputId={value}
+                checked={selectedSortOption === value}
+                onChange={handleChange}
+              />
+            </RadioButtonContainer>
+          ))}
+        </div>
       </BottomSheet>
       {isOpenOrderMobile && <BottomSheetPositionStyles />}
     </Container>
