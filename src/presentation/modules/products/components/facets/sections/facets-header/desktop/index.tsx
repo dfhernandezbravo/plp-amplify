@@ -2,7 +2,7 @@ import useTransformText from '@hooks/use-transform-text';
 import PlpQueryParams from '@entities/plp-query-params';
 import PLPContext from '@presentation/context/plp-context';
 import { useRouter } from 'next/router';
-import { useContext } from 'react';
+import { Fragment, useContext } from 'react';
 import FacetsTags from '../../facets-tags';
 import {
   HeaderContainer,
@@ -10,11 +10,14 @@ import {
   TextRecords,
   TitleHeader,
 } from './styles';
+import { useAppSelector } from '@store/hooks';
+import { TagsStruct } from '@store/slices/filters/filter.types';
 
 const FacetsHeaderDesktop = () => {
   const { clearText } = useTransformText();
   const { recordsFiltered, facets } = useContext(PLPContext);
   const { query } = useRouter();
+  const { tags } = useAppSelector((state) => state.filters);
   const { department, category, product } = query as PlpQueryParams;
 
   const title =
@@ -38,6 +41,16 @@ const FacetsHeaderDesktop = () => {
         {product && <> • {clearText(product)}</>}
         {title && <>{title}</>}
       </TextBreadcrumb>
+      {tags?.length > 0 && (
+        <TitleHeader style={{ fontSize: '0.75rem' }}>
+          {tags?.map((t: TagsStruct, i: number) => (
+            <Fragment key={t.key}>
+              {i > 0 && '-'} {t.label}{' '}
+            </Fragment>
+          ))}
+          <Fragment> / Easy</Fragment>
+        </TitleHeader>
+      )}
 
       <TextRecords>{recordsFiltered} productos encontrados</TextRecords>
 
