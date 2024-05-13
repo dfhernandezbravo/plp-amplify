@@ -7,12 +7,8 @@ interface Props {
 }
 
 async function getContentViewCms(view: string): Promise<Content[] | null> {
-  try {
-    const { data } = await cmsRepository().getCmsView(view);
-    return data.content;
-  } catch (error) {
-    return null;
-  }
+  const { data } = await cmsRepository().getCmsView(view);
+  return data.content;
 }
 
 export const useGetContentViewCms = ({ viewName }: Props) => {
@@ -25,6 +21,7 @@ export const useGetContentViewCms = ({ viewName }: Props) => {
     () => getContentViewCms(viewName),
     {
       enabled: !!viewName,
+      retry: 1,
     },
   );
 

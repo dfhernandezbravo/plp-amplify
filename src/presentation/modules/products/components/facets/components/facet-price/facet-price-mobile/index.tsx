@@ -1,4 +1,3 @@
-import { Button, themeEasy } from '@cencosud-ds/easy-design-system';
 import { Facets, ValueFacets } from '@entities/product/facets.entity';
 import React, { useContext, useState } from 'react';
 import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
@@ -11,6 +10,7 @@ import FacetMobileContext from '../../../context/facets-context-mobile';
 import { setOpenFacetsMobile } from '@store/slices/products';
 import { useAppDispatch } from '@store/hooks';
 import useQueryParams from '@hooks/use-query-params';
+import Button from '@components/atoms/Button';
 const { format } = require('number-currency-format-2');
 
 interface Props {
@@ -107,7 +107,7 @@ const FacetPriceMobile: React.FC<Props> = ({ facet }) => {
           onClick={() => handleOnClick(value)}
         >
           {value.selected ? (
-            <MdCheckBox color={themeEasy.colors.success.main} size={24} />
+            <MdCheckBox color="#0F8551" size={24} />
           ) : (
             <MdCheckBoxOutlineBlank size={24} />
           )}

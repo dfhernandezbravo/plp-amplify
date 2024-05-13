@@ -1418,13 +1418,6 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
-"@babel/runtime@^7.23.2", "@babel/runtime@^7.23.6":
-  version "7.23.6"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.6.tgz#c05e610dc228855dc92ef1b53d07389ed8ab521d"
-  integrity sha512-zHd0eUrf5GZoOWVCXp6koAKQTfZV07eit6bGPmJgnZdnSAvvZee6zniW2XMF7Cmc4ISOOnPy3QaSiIJGJkVEDQ==
-  dependencies:
-    regenerator-runtime "^0.14.0"
-
 "@babel/template@^7.22.15", "@babel/template@^7.22.5":
   version "7.22.15"
   resolved "https://registry.npmjs.org/@babel/template/-/template-7.22.15.tgz"
@@ -1459,47 +1452,34 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@ccom-easy-design-system/atoms.bottom-sheet@0.0.18":
-  version "0.0.18"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.bottom-sheet/-/atoms.bottom-sheet-0.0.18.tgz#f564569fcc525d9d2f977bb98e132876420e9238"
-  integrity sha512-TGd3YtdO23oYGsN6ntlQAqlGPJImu67DOimii/3Coi2jxKPzszZTLuHhkNZXXB30OA9XRRbMOjmu7ZMtGO2a6g==
+"@ccom-easy-design-system/atoms.bottom-sheet@^0.0.42":
+  version "0.0.42"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.bottom-sheet/-/atoms.bottom-sheet-0.0.42.tgz#702c365b15ac2a378c442efdc3f34e65eb2c3781"
+  integrity sha512-7rpmpOL2irIhHNqROqABAfQvYEXNoPug0n9qiePETLdnl1NtSndnhMbY/JYHAZuzqym+E+e7LtXn2PiulPc18w==
   dependencies:
-    styled-components "^6.1.6"
+    styled-components "6.1.6"
 
-"@ccom-easy-design-system/atoms.button@0.0.15":
-  version "0.0.15"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.button/-/atoms.button-0.0.15.tgz#6528f3b2ac61063e699865801a29356370a6eafb"
-  integrity sha512-uBIowiZXsXo+kOtMtvRCX7DLJ7WFavzobTYxodw2k2p82rwzXLwPNRC29ya18Yx3vq8611xc/yzmzfXFRjP70g==
+"@ccom-easy-design-system/atoms.button@0.0.16", "@ccom-easy-design-system/atoms.button@^0.0.16":
+  version "0.0.16"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.button/-/atoms.button-0.0.16.tgz#e08b2106506e5aa6752ac842ded3157434d5b854"
+  integrity sha512-CoUxzyBAjVVnH1BbEcLeRv5STOo/YQgrEc/+OZRTwVrg/53GutqplcXFs+6NmDttMTTI4F9O/ogMd3bXZw3utw==
   dependencies:
-    "@ccom-easy-design-system/theme.easy" "0.0.11"
-    styled-components "^6.1.6"
+    "@ccom-easy-design-system/theme.easy" "0.0.12"
+    styled-components "6.1.6"
 
-"@ccom-easy-design-system/atoms.button@^0.0.13":
-  version "0.0.13"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.button/-/atoms.button-0.0.13.tgz#a888e46fd689d5bf539d7b17776d88f3e7f3f4ac"
-  integrity sha512-dx2eqwMXQ7m5cJP2C0/PsXSG3At24j01vJDxQpe1AErMJZnoIev1U3Y3joMoO37nvuRptIRnJuF+oq2+YpFtYg==
+"@ccom-easy-design-system/atoms.checkbox@0.0.16", "@ccom-easy-design-system/atoms.checkbox@^0.0.16":
+  version "0.0.16"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.checkbox/-/atoms.checkbox-0.0.16.tgz#096beba4e97455eaf2214b6d7f8e2854fb5861b1"
+  integrity sha512-egEnjOaf+cAft6TK//IMtOmDWclT3I+bAGJZxrY02A9Mo/grzlY/RAZYXE+d8IZP78ah8ebjAFpSnlD55WGlLQ==
   dependencies:
-    "@ccom-easy-design-system/theme.easy" "0.0.9"
-    styled-components "^6.1.6"
-
-"@ccom-easy-design-system/atoms.checkbox@^0.0.11":
-  version "0.0.11"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.checkbox/-/atoms.checkbox-0.0.11.tgz#d11b66f8fae58cc6a2083d31205a5b0716997331"
-  integrity sha512-20JeAiyLXx7ytiXCIFQuPYnULvliUDTSFEaXZw3HD8Pq0RiSPhtF20fNxiON7Wqz4xn9HW7QmtLeTzbQOu8PKw==
-  dependencies:
-    "@ccom-easy-design-system/theme.easy" "0.0.8"
+    "@ccom-easy-design-system/theme.easy" "0.0.12"
     react-icons "^5.0.1"
-    styled-components "^6.1.6"
+    styled-components "6.1.6"
 
-"@ccom-easy-design-system/atoms.icons@0.0.7":
+"@ccom-easy-design-system/atoms.icons@0.0.7", "@ccom-easy-design-system/atoms.icons@^0.0.7":
   version "0.0.7"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.icons/-/atoms.icons-0.0.7.tgz#3c4f4e7c8c0eac3c2ebd17faeae6763a303925d5"
   integrity sha512-Kt0tfpJ+STd5NAt1oO7aKh/8RQtpf/Thg3iawiTgK0CEs7yY0u3OH5PfgRWNIe7UWZWfX2upuyzZTcxRbzMTgA==
-
-"@ccom-easy-design-system/atoms.icons@^0.0.4":
-  version "0.0.4"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.icons/-/atoms.icons-0.0.4.tgz#b9dd7359703914585cb675fcf253956caf5350be"
-  integrity sha512-WWgU0DynviJXamDhsQqm70rTt1+4NZsKKlGi8N/4brZjxw1uey1ItqRrHDcsiuqjFdTQWBfCzklmz4snDqZamw==
 
 "@ccom-easy-design-system/atoms.layout@0.0.10":
   version "0.0.10"
@@ -1508,77 +1488,63 @@
   dependencies:
     "@ccom-easy-design-system/hooks.use-device" "0.0.7"
 
-"@ccom-easy-design-system/atoms.price@0.0.61":
-  version "0.0.61"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.price/-/atoms.price-0.0.61.tgz#7b5b9d7dfcae3d0e954cecd3d6ae821a53697f7a"
-  integrity sha512-hVkTrGFxIT4ooFvu5dyuPQWwy4voCEaW4gxrKBS+BSGt4Boi8SW1PXK/Fktwy1Q0WRkGXLHr1of5r/Tsx2gM1w==
+"@ccom-easy-design-system/atoms.price@0.0.62":
+  version "0.0.62"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.price/-/atoms.price-0.0.62.tgz#7cd193801193cff965e3b8fe8a914c8542815ccc"
+  integrity sha512-Y30S6AHHSq0xlYqEyaIGZj8klo6sQZy7WmsKsHIxxBLBOpYLvJPHQQ1BhsCdZFf7GV7xM7feVoGqSebffyAefg==
   dependencies:
     "@ccom-easy-design-system/atoms.icons" "0.0.7"
-    "@ccom-easy-design-system/theme.easy" "0.0.11"
+    "@ccom-easy-design-system/theme.easy" "0.0.12"
     "@ccom-easy-design-system/utils.format-currency" "0.0.7"
-    styled-components "^6.1.6"
+    styled-components "6.1.6"
 
-"@ccom-easy-design-system/atoms.radio-button@0.0.9":
-  version "0.0.9"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.radio-button/-/atoms.radio-button-0.0.9.tgz#38ee8eb24ac63e25da2d8bfceb329fe5b503d4eb"
-  integrity sha512-cd/jPGxTFmNMGD1RO29jPmUxPgxgSWE3Fwax1fNcJ1UVzUy2HHqSLwenOy1g8uxdwbBHj6W0cY0yK6ngTrKtsg==
+"@ccom-easy-design-system/atoms.radio-button@^0.0.13":
+  version "0.0.13"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.radio-button/-/atoms.radio-button-0.0.13.tgz#2a8b4c03a4b666590a6eed650a81933fa232460a"
+  integrity sha512-+35qe5n+UHCPXZdKyJzq8/d2Lw0feGDKeZUsMq5uRkF9ZJFL/IlqNCs0/alYDPiG9nUA8RDVGtrR0Tm7xqM5gg==
   dependencies:
-    "@ccom-easy-design-system/theme.easy" "0.0.8"
-    styled-components "^6.1.6"
+    "@ccom-easy-design-system/theme.easy" "0.0.12"
+    styled-components "6.1.6"
 
-"@ccom-easy-design-system/atoms.ribbon@0.0.14":
-  version "0.0.14"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.ribbon/-/atoms.ribbon-0.0.14.tgz#61e54451e027129fb7d7453e30212d38940dfa95"
-  integrity sha512-ZDh8C9/4m92+Heb8Je5sHiH+jw9bj3MkIftGU7NJ9wAjMBPSu/ZyGmXeX2svxMiThEMQ9myAulqASTeUeVRp/g==
+"@ccom-easy-design-system/atoms.ribbon@0.0.15":
+  version "0.0.15"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.ribbon/-/atoms.ribbon-0.0.15.tgz#67b420cef454c737e261c114d89d8bd7abf0bd57"
+  integrity sha512-fOtgZRLcMqW9ika50cxSaFs6+z1SNPb4Fk3CB40l7Aumu45qaF6cPbVrw0SSR1J4SHVqTGs6zYmmSoWvfAMf8w==
   dependencies:
-    "@ccom-easy-design-system/theme.easy" "0.0.11"
-    styled-components "^6.1.6"
+    "@ccom-easy-design-system/theme.easy" "0.0.12"
+    styled-components "6.1.6"
 
-"@ccom-easy-design-system/atoms.select@^0.0.14":
-  version "0.0.14"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.select/-/atoms.select-0.0.14.tgz#8b6369527b1bd9f5762f57be1fc1d193d68e593a"
-  integrity sha512-UkhZRi+bCpf2r3zAI+Dys34+QR/89Vdeg+y64HEbYFVAyofyZpkUrPqRj+h/KEjALFkIsSfNg8p82gfZnf2ndQ==
+"@ccom-easy-design-system/atoms.select@^0.0.41":
+  version "0.0.41"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.select/-/atoms.select-0.0.41.tgz#95ea42f6f6271ea2bf8b1aa6f7e8fac67325ea62"
+  integrity sha512-O39l5NM3JrkhOEXSxnr3CLPUgxtUvyoLZBqeXeMr7xcV4Aa+x4+clWn7kYLqgyuBblolIH+xuWlelrXGwVYsBQ==
   dependencies:
+    "@ccom-easy-design-system/atoms.checkbox" "0.0.16"
     react-icons "^5.0.1"
     react-select "5.8.0"
-    styled-components "^6.1.6"
+    styled-components "6.1.6"
 
-"@ccom-easy-design-system/atoms.skeleton@^0.0.3":
-  version "0.0.3"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.skeleton/-/atoms.skeleton-0.0.3.tgz#a21ef6615415d261b861fb09b211fd1051bcf346"
-  integrity sha512-YdXmtECuQADDUJgogdla5jLJwfr+AtCW7vV5W1JkYZV7mqirv8p8PJVm7l6QzWB9NzSyMm9KITqIQiK98aaGnw==
+"@ccom-easy-design-system/atoms.skeleton@^0.0.4":
+  version "0.0.4"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.skeleton/-/atoms.skeleton-0.0.4.tgz#202f22727916eec43acd40c7ffe35eef9d41a949"
+  integrity sha512-MqS1f/vGhOyWschJB0XAo1OXcceZ7ZItZiVoPj0nuemXNGVpDm14M8Mt5EUA+W5XtJWLPaud7EritI7lM95WJw==
   dependencies:
-    styled-components "^6.1.6"
+    styled-components "6.1.6"
 
-"@ccom-easy-design-system/atoms.textfield@^0.0.42":
-  version "0.0.42"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.textfield/-/atoms.textfield-0.0.42.tgz#8ddf2956e52e0cb04e7c8cbbbc5c807feb85a32d"
-  integrity sha512-Ss5Bq1xPG48nAPdUsFeiVsoPJNN3Qy+B/v3tlUQN+UJleRJoDyZmCNYGO5dlfJL8k0HxTqcKppmNbQf4uM0YAA==
+"@ccom-easy-design-system/atoms.textfield@^0.0.48":
+  version "0.0.48"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.textfield/-/atoms.textfield-0.0.48.tgz#79e0389fc579196071b01690edf87399dcaddafe"
+  integrity sha512-/rKzsjuTBN3ioFv/qoqKNIl3TM1zEqVhYvfXWGJPo24yjnNszsFzKHLNGQlJpqPNs8iqMABQE9fpNqvfOixgJQ==
   dependencies:
-    "@ccom-easy-design-system/atoms.tooltip" "0.0.3"
     react-icons "^5.0.1"
-    styled-components "^6.1.6"
-
-"@ccom-easy-design-system/atoms.tooltip@0.0.3":
-  version "0.0.3"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/atoms.tooltip/-/atoms.tooltip-0.0.3.tgz#66972a3ceef4bf049f1426f36514f79fd54cb3a0"
-  integrity sha512-jEd65RP+gfIqmZ7rVToX5vXhHAdlcYwxDiJOWHURW3Or6AFhk9rKxVC+217Zj7KTvVPjr/PMg6lm0JJwqAtcJQ==
-  dependencies:
-    styled-components "^6.1.6"
+    styled-components "6.1.6"
 
 "@ccom-easy-design-system/entities.events@0.0.2":
   version "0.0.2"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/entities.events/-/entities.events-0.0.2.tgz#22bfecb5037eecec1ac74ed8a50f9f8005cb00e0"
   integrity sha512-4T1jBX7jZzgb+xCniownEFom7h38VORYji0tEVfa73fUwb8V1plv2BcBIB0JpxjpSYT4qYkWb2f8Q5tPeBagWA==
 
-"@ccom-easy-design-system/hooks.use-device@0.0.3":
-  version "0.0.3"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-device/-/hooks.use-device-0.0.3.tgz#32d6f5788a6de3ba099dabd600bb3833b14c6a49"
-  integrity sha512-/aG4eyyEQpU1ROHdxOU36ch4fImENBw94rKDvwmNyDdAGfBPcoVKP2nU6/7GKiF7hNMx+vEWf5S4+FsvtUidPg==
-  dependencies:
-    "@ccom-easy-design-system/hooks.use-media-query" "0.0.1"
-
-"@ccom-easy-design-system/hooks.use-device@0.0.7":
+"@ccom-easy-design-system/hooks.use-device@0.0.7", "@ccom-easy-design-system/hooks.use-device@^0.0.7":
   version "0.0.7"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-device/-/hooks.use-device-0.0.7.tgz#5b81ae0b80e21f81ec9cc33c1170e0334802e027"
   integrity sha512-EJfChl51ZVqksXQRn99xHupjsPHQrz8lcYPc3MO/yrmVSFVSmPqjBQxqLgf1AE49U3F3qhyhRCy0aRX0wdNDvQ==
@@ -1592,11 +1558,6 @@
   dependencies:
     react "18.2.0"
 
-"@ccom-easy-design-system/hooks.use-media-query@0.0.1":
-  version "0.0.1"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-media-query/-/hooks.use-media-query-0.0.1.tgz#e6f293dd7f5f67b1eff75cf2772c5b258bd0c932"
-  integrity sha512-Cc13qhra7SUGGwSlJvJrbxk0O+p5YPIjWqeuTrUSr5FwfB5+4AyHY6tEH9gdZ3+GQ4D+x4orjS1ooSc/QvVy6g==
-
 "@ccom-easy-design-system/hooks.use-media-query@0.0.2":
   version "0.0.2"
   resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/hooks.use-media-query/-/hooks.use-media-query-0.0.2.tgz#83eadccba9e45836d537ffef3282d08a9fc6efd2"
@@ -1609,72 +1570,52 @@
   dependencies:
     react-intersection-observer-hook "^2.1.1"
 
-"@ccom-easy-design-system/molecules.product-card@^0.0.95":
-  version "0.0.95"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.product-card/-/molecules.product-card-0.0.95.tgz#bdc6c821ec032fe266877da5da5b17cca39da040"
-  integrity sha512-Mjw5GeBf5A/Mmf7Ts4XyXkZfx2rUYBQDepqoEHlLv4/c2dnIRQ1vX+qt5FbWgqxK9KYlhkqRpeVzvYGeKQ5Lbg==
+"@ccom-easy-design-system/molecules.product-card@^0.0.96":
+  version "0.0.96"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.product-card/-/molecules.product-card-0.0.96.tgz#b80519391a6502bc468d9999dae42f9190d9325b"
+  integrity sha512-HhlC4n1AMLA321P3/MW566uqatwGIKGxzGTS00exrfagr1ISskEeK0d/VYloT1yVNEth61OBJ4NeofHouzTFyg==
   dependencies:
-    "@ccom-easy-design-system/atoms.button" "0.0.15"
+    "@ccom-easy-design-system/atoms.button" "0.0.16"
     "@ccom-easy-design-system/atoms.layout" "0.0.10"
-    "@ccom-easy-design-system/atoms.price" "0.0.61"
-    "@ccom-easy-design-system/atoms.ribbon" "0.0.14"
+    "@ccom-easy-design-system/atoms.price" "0.0.62"
+    "@ccom-easy-design-system/atoms.ribbon" "0.0.15"
     "@ccom-easy-design-system/entities.events" "0.0.2"
     "@ccom-easy-design-system/hooks.use-event" "0.0.2"
     "@ccom-easy-design-system/hooks.use-on-viewport" "0.0.3"
-    "@ccom-easy-design-system/molecules.ribbons" "0.0.5"
+    "@ccom-easy-design-system/molecules.ribbons" "0.0.6"
     react-icons "^5.0.1"
-    styled-components "^6.1.6"
+    styled-components "6.1.6"
 
-"@ccom-easy-design-system/molecules.ribbons@0.0.5":
-  version "0.0.5"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.ribbons/-/molecules.ribbons-0.0.5.tgz#8c3fa090b9f9ad592461c6dc00fd0bbea3025f77"
-  integrity sha512-WFJuQu4SvuJog7V+lhRWiWRhZqBzLa2HNKLhSVPviTtEYky29yXxbKObD5hEA7fLo6PYqp3wsrKM/N3ovk9xwA==
+"@ccom-easy-design-system/molecules.ribbons@0.0.6":
+  version "0.0.6"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.ribbons/-/molecules.ribbons-0.0.6.tgz#df36281a9545c696a2ac9a20bf535920e8b2dc38"
+  integrity sha512-cT66/DuO/0GFS0RnR8SYParyCA9uELUdDaKHF+3yjhAYyjwY5BCY5uVPCk7OqtOalD8j7QCyMu3UyCNEisEcuA==
   dependencies:
-    "@ccom-easy-design-system/atoms.ribbon" "0.0.14"
+    "@ccom-easy-design-system/atoms.ribbon" "0.0.15"
 
-"@ccom-easy-design-system/molecules.swiper@^0.0.16":
-  version "0.0.16"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.swiper/-/molecules.swiper-0.0.16.tgz#6ba9fb3e217e27a6a6720119fca5152fc5c2ac56"
-  integrity sha512-sS0zSRZ2w8Rp9Aos7GmBzh+til4D+rpX65IwUYBirqAxNpkRjdrg9l7wPpcMTVgNCUvgFTQbmg18E8sFO22JXA==
+"@ccom-easy-design-system/molecules.swiper@^0.0.32":
+  version "0.0.32"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/molecules.swiper/-/molecules.swiper-0.0.32.tgz#91b286ea64602b8e79e00d5a39b402471c8eae57"
+  integrity sha512-JzIFJrhn8+JhfIPxk27sW8otowGq2L3qn7yNl3lxxImfkU9w2ELF/TigPH++iv7Br8tntTOsCz2Le6s59Mvulg==
   dependencies:
-    "@ccom-easy-design-system/hooks.use-device" "0.0.3"
     react-icons "^5.0.1"
-    styled-components "^6.1.6"
+    styled-components "6.1.6"
     swiper "^11.0.5"
 
-"@ccom-easy-design-system/theme.easy@0.0.11":
-  version "0.0.11"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.easy/-/theme.easy-0.0.11.tgz#e3d1d6b3e9cc2984d962c3aad0d90ff4c48133fe"
-  integrity sha512-E0r/kyxWY5+9jF0ee95H4OISXRPiynKaYgeYQkQ0psYu6JSVUh/gi3nH+5O/D3rNf3hKxnrglVVIIbtdtJ2ErA==
+"@ccom-easy-design-system/theme.easy@0.0.12":
+  version "0.0.12"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.easy/-/theme.easy-0.0.12.tgz#d95e16217c95b6fb3573d0004d9ac89c3b7d387c"
+  integrity sha512-JpdpeuEavLc7iuR0RLXIy02zXahS/X5nviGYEoOXKCJ998HeDoWDrUpyyKk383IsnmwSbQOc7eyxHY5Mz16ebg==
   dependencies:
-    styled-components "^6.1.6"
+    styled-components "6.1.6"
 
-"@ccom-easy-design-system/theme.easy@0.0.4":
-  version "0.0.4"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.easy/-/theme.easy-0.0.4.tgz#129e522267d3ea1d0a91522b0da148ec93f0cb32"
-  integrity sha512-QzgmXmr1YrjfRbfTcne609Yiv9aVyq2pK5d8Un38eq3jSUUACqpqjDg4W7T500wON1JigNWzoYJf/vPZjro/Ng==
-
-"@ccom-easy-design-system/theme.easy@0.0.8":
-  version "0.0.8"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.easy/-/theme.easy-0.0.8.tgz#c9ee154c88c5b9006019fe8330c59d96416d6a08"
-  integrity sha512-Al3mSSae5LRiaXkGS0eTaHvHPthom/oKywAK2QI/TpJTnTe+1Sts8N6JJKfCbjAVUhSnGJietW4cTNCfVoMbcA==
+"@ccom-easy-design-system/theme.theme-provider@^0.0.23":
+  version "0.0.23"
+  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.theme-provider/-/theme.theme-provider-0.0.23.tgz#0f92103dcbd1af402c9acbd5973b2e94f0065f7f"
+  integrity sha512-YWsEPFqF9Bn7ZWfUZADNMP8f8tQphMVoQkdZuQZZKWJ3kwLWtI12InR7rO/f6ts0qcey6eFfRgDGw1ONNqHcmg==
   dependencies:
-    styled-components "^6.1.6"
-
-"@ccom-easy-design-system/theme.easy@0.0.9":
-  version "0.0.9"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.easy/-/theme.easy-0.0.9.tgz#38c3b39211ed0142e805053cede4f430b3b6b33d"
-  integrity sha512-bAXkXPwYB4RuPcDeQU+DWMZA74rtTAlPE6KpIKencsqynAtWVg9jfkph3YP1TgTNHcmHSjsBmM/OpuVrUlH+SA==
-  dependencies:
-    styled-components "^6.1.6"
-
-"@ccom-easy-design-system/theme.theme-provider@0.0.2":
-  version "0.0.2"
-  resolved "https://node-registry.bit.cloud/@ccom-easy-design-system/theme.theme-provider/-/theme.theme-provider-0.0.2.tgz#23d00f3735ed0f9952618b68ef23de2248e80742"
-  integrity sha512-0nd3x6w2Iu0SnmU8l8qPt8lrr/lmvIObyYfG/4EtBTJX3KHjLgLiIzLq1h5lQjA3h54yqv/SoOfZ24Cycr9usg==
-  dependencies:
-    "@ccom-easy-design-system/theme.easy" "0.0.4"
-    styled-components "^6.1.6"
+    "@ccom-easy-design-system/theme.easy" "0.0.12"
+    styled-components "6.1.6"
 
 "@ccom-easy-design-system/utils.format-currency@0.0.7":
   version "0.0.7"
@@ -1682,17 +1623,6 @@
   integrity sha512-HarnVwXMGn4/Fes9MJ5lj9Fr/UP0xwcws5ZJM8RiLkJkD/ILQTSCGFbHVDnyvfUG7VMJ88z54HUB1DlOnLzGwQ==
   dependencies:
     number-currency-format-2 "^1.1.1"
-
-"@cencosud-ds/easy-design-system@^1.1.17":
-  version "1.1.17"
-  resolved "https://gitlab.com/api/v4/projects/51193403/packages/npm/@cencosud-ds/easy-design-system/-/@cencosud-ds/easy-design-system-1.1.17.tgz#604d38e9e46065c2a4717ab8946ed31e2b323201"
-  integrity sha1-YE046eRgZcKkcXq4lG7THisyMgE=
-  dependencies:
-    "@typescript-eslint/parser" "^6.11.0"
-    react-icons "^4.11.0"
-    react-svg "^16.1.32"
-    styled-components "^6.1.0"
-    swiper "^11.0.4"
 
 "@chevrotain/cst-dts-gen@10.5.0":
   version "10.5.0"
@@ -1999,7 +1929,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.8.0.tgz#a4a36e9cbdc6903737cd20d38033241e1b8833db"
   integrity sha512-VINS5vEYAscRl2ZUDiT3uMPlrFQupiKgHz5AA4bCH1miKBg4qtwkim1qPmJj/4WG6TreYMY111rEFsjupcOKHw==
 
-"@emotion/unitless@^0.8.0", "@emotion/unitless@^0.8.1":
+"@emotion/unitless@^0.8.1":
   version "0.8.1"
   resolved "https://registry.npmjs.org/@emotion/unitless/-/unitless-0.8.1.tgz"
   integrity sha512-KOEGMu6dmJZtpadb476IsZBclKvILjopjUii3V+7MnXIQCYh8W3NgNcgwo21n9LXZX6EDIKvqfjYxXebDwxKmQ==
@@ -3016,15 +2946,6 @@
   dependencies:
     tslib "^2.4.0"
 
-"@tanem/svg-injector@^10.1.68":
-  version "10.1.68"
-  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-10.1.68.tgz#0bd08da3c4184b055a6fe16909037c96f49e3cd1"
-  integrity sha512-UkJajeR44u73ujtr5GVSbIlELDWD/mzjqWe54YMK61ljKxFcJoPd9RBSaO7xj02ISCWUqJW99GjrS+sVF0UnrA==
-  dependencies:
-    "@babel/runtime" "^7.23.2"
-    content-type "^1.0.5"
-    tslib "^2.6.2"
-
 "@trysound/sax@0.2.0":
   version "0.2.0"
   resolved "https://registry.npmjs.org/@trysound/sax/-/sax-0.2.0.tgz"
@@ -3171,11 +3092,6 @@
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
-"@types/prop-types@^15.7.11":
-  version "15.7.11"
-  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.11.tgz#2596fb352ee96a1379c657734d4b913a613ad563"
-  integrity sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==
-
 "@types/prop-types@^15.7.7":
   version "15.7.8"
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.8.tgz"
@@ -3190,6 +3106,13 @@
   version "18.2.1"
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.2.1.tgz"
   integrity sha512-8QZEV9+Kwy7tXFmjJrp3XUKQSs9LTnE0KnoUb0YCguWBiNW0Yfb2iBMYZ08WPg35IR6P3Z0s00B15SwZnO26+w==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-scroll@^1.8.10":
+  version "1.8.10"
+  resolved "https://registry.yarnpkg.com/@types/react-scroll/-/react-scroll-1.8.10.tgz#585a5c4bd0654434f3e55a08e94ed2e048bae7c7"
+  integrity sha512-RD4Z7grbdNGOKwKnUBKar6zNxqaW3n8m9QSrfvljW+gmkj1GArb8AFBomVr6xMOgHPD3v1uV3BrIf01py57daQ==
   dependencies:
     "@types/react" "*"
 
@@ -3249,11 +3172,6 @@
   resolved "https://registry.yarnpkg.com/@types/stylis/-/stylis-4.2.0.tgz#199a3f473f0c3a6f6e4e1b17cdbc967f274bdc6b"
   integrity sha512-n4sx2bqL0mW1tvDf/loQ+aMX7GQD3lc3fkCMC55VFNDu/vBOabO+LTIeXKM14xK0ppk5TUGcWRjiSpIlUpghKw==
 
-"@types/stylis@^4.0.2":
-  version "4.2.2"
-  resolved "https://registry.npmjs.org/@types/stylis/-/stylis-4.2.2.tgz"
-  integrity sha512-Rm17MsTpQQP5Jq4BF7CdrxJsDufoiL/q5IbJZYZmOZAJALyijgF7BzLgobXUqraNcQdqFYLYGeglDp6QzaxPpg==
-
 "@types/triple-beam@^1.3.2":
   version "1.3.2"
   resolved "https://registry.npmjs.org/@types/triple-beam/-/triple-beam-1.3.2.tgz"
@@ -3291,17 +3209,6 @@
     "@typescript-eslint/typescript-estree" "5.59.9"
     debug "^4.3.4"
 
-"@typescript-eslint/parser@^6.11.0":
-  version "6.12.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-6.12.0.tgz#9fb21ed7d88065a4a2ee21eb80b8578debb8217c"
-  integrity sha512-s8/jNFPKPNRmXEnNXfuo1gemBdVmpQsK1pcu+QIvuNJuhFzGrpD7WjOcvDc/+uEdfzSYpNu7U/+MmbScjoQ6vg==
-  dependencies:
-    "@typescript-eslint/scope-manager" "6.12.0"
-    "@typescript-eslint/types" "6.12.0"
-    "@typescript-eslint/typescript-estree" "6.12.0"
-    "@typescript-eslint/visitor-keys" "6.12.0"
-    debug "^4.3.4"
-
 "@typescript-eslint/parser@^6.2.0":
   version "6.7.5"
   resolved "https://registry.npmjs.org/@typescript-eslint/parser/-/parser-6.7.5.tgz"
@@ -3320,14 +3227,6 @@
   dependencies:
     "@typescript-eslint/types" "5.59.9"
     "@typescript-eslint/visitor-keys" "5.59.9"
-
-"@typescript-eslint/scope-manager@6.12.0":
-  version "6.12.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/scope-manager/-/scope-manager-6.12.0.tgz#5833a16dbe19cfbad639d4d33bcca5e755c7044b"
-  integrity sha512-5gUvjg+XdSj8pcetdL9eXJzQNTl3RD7LgUiYTl8Aabdi8hFkaGSYnaS6BLc0BGNaDH+tVzVwmKtWvu0jLgWVbw==
-  dependencies:
-    "@typescript-eslint/types" "6.12.0"
-    "@typescript-eslint/visitor-keys" "6.12.0"
 
 "@typescript-eslint/scope-manager@6.7.5":
   version "6.7.5"
@@ -3352,11 +3251,6 @@
   resolved "https://registry.npmjs.org/@typescript-eslint/types/-/types-5.59.9.tgz"
   integrity sha512-uW8H5NRgTVneSVTfiCVffBb8AbwWSKg7qcA4Ot3JI3MPCJGsB4Db4BhvAODIIYE5mNj7Q+VJkK7JxmRhk2Lyjw==
 
-"@typescript-eslint/types@6.12.0":
-  version "6.12.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-6.12.0.tgz#ffc5297bcfe77003c8b7b545b51c2505748314ac"
-  integrity sha512-MA16p/+WxM5JG/F3RTpRIcuOghWO30//VEOvzubM8zuOOBYXsP+IfjoCXXiIfy2Ta8FRh9+IO9QLlaFQUU+10Q==
-
 "@typescript-eslint/types@6.7.5":
   version "6.7.5"
   resolved "https://registry.npmjs.org/@typescript-eslint/types/-/types-6.7.5.tgz"
@@ -3374,19 +3268,6 @@
     is-glob "^4.0.3"
     semver "^7.3.7"
     tsutils "^3.21.0"
-
-"@typescript-eslint/typescript-estree@6.12.0":
-  version "6.12.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-6.12.0.tgz#764ccc32598549e5b48ec99e3b85f89b1385310c"
-  integrity sha512-vw9E2P9+3UUWzhgjyyVczLWxZ3GuQNT7QpnIY3o5OMeLO/c8oHljGc8ZpryBMIyympiAAaKgw9e5Hl9dCWFOYw==
-  dependencies:
-    "@typescript-eslint/types" "6.12.0"
-    "@typescript-eslint/visitor-keys" "6.12.0"
-    debug "^4.3.4"
-    globby "^11.1.0"
-    is-glob "^4.0.3"
-    semver "^7.5.4"
-    ts-api-utils "^1.0.1"
 
 "@typescript-eslint/typescript-estree@6.7.5":
   version "6.7.5"
@@ -3421,14 +3302,6 @@
   dependencies:
     "@typescript-eslint/types" "5.59.9"
     eslint-visitor-keys "^3.3.0"
-
-"@typescript-eslint/visitor-keys@6.12.0":
-  version "6.12.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/visitor-keys/-/visitor-keys-6.12.0.tgz#5877950de42a0f3344261b7a1eee15417306d7e9"
-  integrity sha512-rg3BizTZHF1k3ipn8gfrzDXXSFKyOEB5zxYXInQ6z0hUvmQlhaZQzK+YmHmNViMA9HzW5Q9+bPPt90bU6GQwyw==
-  dependencies:
-    "@typescript-eslint/types" "6.12.0"
-    eslint-visitor-keys "^3.4.1"
 
 "@typescript-eslint/visitor-keys@6.7.5":
   version "6.7.5"
@@ -4330,7 +4203,7 @@ css-select@^5.1.0:
     domutils "^3.0.1"
     nth-check "^2.0.1"
 
-css-to-react-native@3.2.0, css-to-react-native@^3.2.0:
+css-to-react-native@3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/css-to-react-native/-/css-to-react-native-3.2.0.tgz#cdd8099f71024e149e4f6fe17a7d46ecd55f1e32"
   integrity sha512-e8RKaLXMOFii+02mOlqwjbD00KSEKqblnpO9e++1aXS1fPQOpS1YoqdVHBqPjHNoxeF2mimzVqawm2KCbEdtHQ==
@@ -6110,6 +5983,11 @@ lodash.startcase@^4.4.0:
   resolved "https://registry.npmjs.org/lodash.startcase/-/lodash.startcase-4.4.0.tgz"
   integrity sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==
 
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+  integrity sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==
+
 lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npmjs.org/lodash.uniq/-/lodash.uniq-4.5.0.tgz"
@@ -6768,7 +6646,7 @@ postcss@8.4.14:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-postcss@8.4.31, postcss@^8.3.11, postcss@^8.4.31:
+postcss@8.4.31, postcss@^8.3.11:
   version "8.4.31"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.31.tgz#92b451050a9f914da6755af352bdc0192508656d"
   integrity sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==
@@ -6822,7 +6700,7 @@ promise@^8.0.0:
   dependencies:
     asap "~2.0.6"
 
-prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.8.1:
+prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -6921,7 +6799,7 @@ react-error-boundary@^4.0.4:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-react-icons@^4.11.0, react-icons@^4.12.0:
+react-icons@^4.12.0:
   version "4.12.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.12.0.tgz#54806159a966961bfd5cdb26e492f4dafd6a8d78"
   integrity sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==
@@ -6967,6 +6845,14 @@ react-redux@^8.1.3:
     react-is "^18.0.0"
     use-sync-external-store "^1.0.0"
 
+react-scroll@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/react-scroll/-/react-scroll-1.9.0.tgz#2984006e184afd0e4018f837d127edf5fa8f152c"
+  integrity sha512-mamNcaX9Ng+JeSbBu97nWwRhYvL2oba+xR2GxvyXsbDeGP+gkYIKZ+aDMMj/n20TbV9SCWm/H7nyuNTSiXA6yA==
+  dependencies:
+    lodash.throttle "^4.1.1"
+    prop-types "^15.7.2"
+
 react-select@5.8.0:
   version "5.8.0"
   resolved "https://registry.yarnpkg.com/react-select/-/react-select-5.8.0.tgz#bd5c467a4df223f079dd720be9498076a3f085b5"
@@ -6996,16 +6882,6 @@ react-select@^5.7.7:
     prop-types "^15.6.0"
     react-transition-group "^4.3.0"
     use-isomorphic-layout-effect "^1.1.2"
-
-react-svg@^16.1.32:
-  version "16.1.32"
-  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-16.1.32.tgz#af1cba5be3171f104bc3d7acd81946917a9fcccd"
-  integrity sha512-u15BlUIjc7f4d2o62cxix0WlgbBPN+I2gScFu4+090Qj3AS08iQytIsLsLhiY9xXAT+VHoQtKVspL0XAuv0I2A==
-  dependencies:
-    "@babel/runtime" "^7.23.6"
-    "@tanem/svg-injector" "^10.1.68"
-    "@types/prop-types" "^15.7.11"
-    prop-types "^15.8.1"
 
 react-transition-group@^4.3.0, react-transition-group@^4.4.5:
   version "4.4.5"
@@ -7353,7 +7229,7 @@ serialize-javascript@^6.0.1:
   dependencies:
     randombytes "^2.1.0"
 
-shallowequal@1.1.0, shallowequal@^1.1.0:
+shallowequal@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
   integrity sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==
@@ -7664,25 +7540,10 @@ strnum@^1.0.5:
   resolved "https://registry.npmjs.org/strnum/-/strnum-1.0.5.tgz"
   integrity sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==
 
-styled-components@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.npmjs.org/styled-components/-/styled-components-6.1.0.tgz"
-  integrity sha512-VWNfYYBuXzuLS/QYEeoPgMErP26WL+dX9//rEh80B2mmlS1yRxRxuL5eax4m6ybYEUoHWlTy2XOU32767mlMkg==
-  dependencies:
-    "@emotion/is-prop-valid" "^1.2.1"
-    "@emotion/unitless" "^0.8.0"
-    "@types/stylis" "^4.0.2"
-    css-to-react-native "^3.2.0"
-    csstype "^3.1.2"
-    postcss "^8.4.31"
-    shallowequal "^1.1.0"
-    stylis "^4.3.0"
-    tslib "^2.5.0"
-
-styled-components@^6.1.6, styled-components@^6.1.8:
-  version "6.1.8"
-  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-6.1.8.tgz#c109d36aeea52d8f049e12de2f3be39a6fc86201"
-  integrity sha512-PQ6Dn+QxlWyEGCKDS71NGsXoVLKfE1c3vApkvDYS5KAK+V8fNWGhbSUEo9Gg2iaID2tjLXegEW3bZDUGpofRWw==
+styled-components@6.1.6:
+  version "6.1.6"
+  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-6.1.6.tgz#c75c4f994136545b3bcc11608db5363710b78c0e"
+  integrity sha512-DgTLULSC29xpabJ24bbn1+hulU6vvGFQf4RPwBOJrm8WJFnN42yXpo5voBt3jDSJBa5tBd1L6PqswJjQ0wRKdg==
   dependencies:
     "@emotion/is-prop-valid" "1.2.1"
     "@emotion/unitless" "0.8.0"
@@ -7710,11 +7571,6 @@ stylis@4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.3.1.tgz#ed8a9ebf9f76fe1e12d462f5cc3c4c980b23a7eb"
   integrity sha512-EQepAV+wMsIaGVGX1RECzgrcqRRU/0sYOHkeLsZ3fzHaHXZy4DaOOX0vOlGQdlsjkh3mFHAIlVimpwAs4dslyQ==
-
-stylis@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/stylis/-/stylis-4.3.0.tgz"
-  integrity sha512-E87pIogpwUsUwXw7dNyU4QDjdgVMy52m+XEOPEKUn161cCzWjjhPSQhByfd1CcNvrOLnXQ6OnnZDwnJrz/Z4YQ==
 
 supports-color@^5.3.0:
   version "5.5.0"
@@ -7764,7 +7620,7 @@ swiper@^10.3.1:
   resolved "https://registry.npmjs.org/swiper/-/swiper-10.3.1.tgz"
   integrity sha512-24Wk3YUdZHxjc9faID97GTu6xnLNia+adMt6qMTZG/HgdSUt4fS0REsGUXJOgpTED0Amh/j+gRGQxsLayJUlBQ==
 
-swiper@^11.0.4, swiper@^11.0.5:
+swiper@^11.0.5:
   version "11.0.5"
   resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.0.5.tgz#6ed1ad06e6906ba42fd4b93d4988f0626a49046e"
   integrity sha512-rhCwupqSyRnWrtNzWzemnBLMoyYuoDgGgspAm/8iBD3jCvAWycPLH4Z3TB0O5520DHLzMx94yUMH/B9Efpa48w==
@@ -7973,7 +7829,7 @@ tslib@^1.11.1, tslib@^1.8.1:
   resolved "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2.0.3, tslib@^2.6.2:
+tslib@^2.0.3:
   version "2.6.2"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.6.2.tgz"
   integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==

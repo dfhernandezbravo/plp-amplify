@@ -40,14 +40,14 @@ const PLPContent: React.FC = () => {
       getProductsByCluster({ clusterId, sort, filter, page, count });
   }, [clusterId, sort, filter, page, count]);
 
-  if (isErrorCMS || isErrorProducts) {
+  if (isErrorCMS || isErrorProducts || clusterId === '') {
     return <SearchNotFound view="plp-not-found" type="cluster" />;
   }
 
   return (
     <PLPContext.Provider
       value={{
-        isLoadingProducts,
+        isLoadingProducts: isLoadingProducts || isLoadingCMS,
         facets: products?.facets || [],
         products: products?.productList || [],
         recordsFiltered: products?.recordsFiltered || 0,

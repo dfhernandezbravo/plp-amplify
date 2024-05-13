@@ -1,8 +1,8 @@
+import { Layout } from '@components/atoms/layout';
 import Desktop from './modules/Desktop';
 import Mobile from './modules/Mobile';
 import { Container } from './styles';
 import { Props } from './types';
-import { Layout } from '@cencosud-ds/easy-design-system';
 
 const Order = (props: Props) => {
   const {
