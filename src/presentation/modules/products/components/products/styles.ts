@@ -5,6 +5,7 @@ export const ProductsContainer = styled.div<{ $layout: LayoutOptions }>`
   display: ${(props) => (props.$layout === 'grid' ? 'grid' : 'flex')};
   flex-direction: column;
   grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 4px;
   gap: 8px;
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
