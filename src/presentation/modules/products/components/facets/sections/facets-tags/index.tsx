@@ -78,7 +78,11 @@ const FacetsTags = () => {
       }
     }
     setItemsTags(result);
-    dispatch(setTags(result));
+    dispatch(
+      setTags(
+        result?.filter((r) => r.key !== 'color-bucket' && r.key !== 'price'),
+      ),
+    );
   }, []);
 
   return (
