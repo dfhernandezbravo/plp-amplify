@@ -33,7 +33,7 @@ const FacetsMobile = () => {
     <FacetMobileContext.Provider
       value={{ facet, filters, setFacet, setFilters }}
     >
-      <FacetsContainerMobile>
+      <FacetsContainerMobile className="fade-in">
         <HeaderSection>
           <FacetsHeader />
         </HeaderSection>

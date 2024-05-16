@@ -78,7 +78,7 @@ const ProductsPLP = () => {
           </SpinnerWrapper>
         </Modal>
       )}
-      <ProductsContainer $layout={layout || 'grid'}>
+      <ProductsContainer $layout={layout || 'grid'} className="fade-in">
         {products?.map((product, index) => (
           <ProductCard
             key={product.productId + '-' + index}

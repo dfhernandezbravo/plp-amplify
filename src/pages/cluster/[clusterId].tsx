@@ -38,7 +38,7 @@ const PLPContent: React.FC = () => {
           getProductsByCluster({ clusterId, sort, filter, page, count })
         }
       >
-        <PageContainer>
+        <PageContainer className="fade-in">
           <Products />
         </PageContainer>
       </ShoppingCartEventLayout>
