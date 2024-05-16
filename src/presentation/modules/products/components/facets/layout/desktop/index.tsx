@@ -37,7 +37,7 @@ const FacetsDesktop = () => {
   }
 
   return (
-    <FacetsContainer>
+    <FacetsContainer className="fade-in">
       <FacetsHeader />
       {facets?.length > 0 &&
         facets
