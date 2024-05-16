@@ -16,9 +16,9 @@ const ProductImage: React.FC<Props> = ({ imageUrl, product, layout }) => {
 
   const skeletonSize = () => {
     if (layout === 'grid') {
-      return { width: '100%', height: '200px', top: 10, right: 0 };
+      return { width: '100%', height: '160px', top: 10, right: 0 };
     }
-    return { width: '202px', height: '160px', top: 10, right: 4 };
+    return { width: '205px', height: '160px', top: 10, right: 4 };
   };
 
   return (

@@ -1,12 +1,13 @@
 import { Product } from '@ccom-easy-design-system/molecules.product-card/dist/types';
 import ProductCard from '@components/molecules/product-card';
 import PlpQueryParams from '@entities/plp-query-params';
+import useGetCountItems from '@hooks/use-get-count-items';
 import useQueryParams from '@hooks/use-query-params';
 import PLPContext from '@presentation/context/plp-context';
 import { ProductPLP, TipoClick } from '@store/slices/products';
 import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
 import { useRouter } from 'next/router';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ProductImage from './components/product-image';
 import ProductPagination from './components/product-pagination';
 import ProductsSkeleton from './components/skeleton';
@@ -22,6 +23,7 @@ const ProductsPLP = () => {
   const { page, count, layout } = router.query as PlpQueryParams;
   const { updateQueryParams } = useQueryParams();
   const [loadPDP, setLoadPDP] = useState(false);
+  const { getCountItems } = useGetCountItems();
 
   const { dispatchSelectItemEvent, dispatchAddToCartEvent } =
     useDispatchProductEvent();
@@ -29,8 +31,12 @@ const ProductsPLP = () => {
   const { products, recordsFiltered, isLoadingProducts } =
     useContext(PLPContext);
 
-  let pagesCount = recordsFiltered;
-  if (count) pagesCount = Math.ceil(recordsFiltered / parseInt(count));
+  const [pagesCount, setPagesCount] = useState(recordsFiltered);
+
+  useEffect(() => {
+    const countItem = getCountItems({ count });
+    setPagesCount(Math.ceil(recordsFiltered / parseInt(countItem)));
+  }, [recordsFiltered, count]);
 
   const onPageChange = (page: string) => {
     updateQueryParams({ page });
