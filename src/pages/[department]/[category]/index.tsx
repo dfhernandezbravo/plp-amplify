@@ -1,6 +1,7 @@
 import BreadcrumbPLP from '@components/atoms/breadcrumb';
 import { BreadcrumbLink } from '@components/atoms/breadcrumb/types';
 import PlpQueryParams from '@entities/plp-query-params';
+import useGetCountItems from '@hooks/use-get-count-items';
 import ContentCMS from '@modules/content-cms';
 import Products from '@modules/products';
 import SearchNotFound from '@modules/search-not-found';
@@ -17,6 +18,7 @@ const ContentPLP = () => {
   const { query } = useRouter();
   const { category, department, count, sort, filter, page } =
     query as PlpQueryParams;
+  const { getCountItems } = useGetCountItems();
 
   const breadcrumbLinks: BreadcrumbLink[] = [
     { url: '/', label: 'Inicio', isActive: false },
@@ -39,7 +41,7 @@ const ContentPLP = () => {
     if (department && category) {
       getProductsByCategories({
         categories: `${department}/${category}`,
-        count,
+        count: getCountItems({ count }),
         sort,
         filter,
         page,

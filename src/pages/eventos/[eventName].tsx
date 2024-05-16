@@ -1,4 +1,5 @@
 import PlpQueryParams from '@entities/plp-query-params';
+import useGetCountItems from '@hooks/use-get-count-items';
 import ContentCMS from '@modules/content-cms';
 import Products from '@modules/products';
 import SearchNotFound from '@modules/search-not-found';
@@ -17,6 +18,7 @@ const PLPContent: React.FC = () => {
   const { query } = useRouter();
   const { eventName, sort, filter, page, count } = query as PlpQueryParams;
   const [clusterId, setClusterId] = useState<string | undefined>();
+  const { getCountItems } = useGetCountItems();
 
   const { isLoadingProducts, isErrorProducts, products, getProductsByCluster } =
     useGetByCluster();
@@ -37,7 +39,13 @@ const PLPContent: React.FC = () => {
 
   useEffect(() => {
     if (clusterId)
-      getProductsByCluster({ clusterId, sort, filter, page, count });
+      getProductsByCluster({
+        clusterId,
+        sort,
+        filter,
+        page,
+        count: getCountItems({ count }),
+      });
   }, [clusterId, sort, filter, page, count]);
 
   if (isErrorCMS || isErrorProducts || clusterId === '') {

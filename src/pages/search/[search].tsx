@@ -1,4 +1,5 @@
 import PlpQueryParams from '@entities/plp-query-params';
+import useGetCountItems from '@hooks/use-get-count-items';
 import Products from '@modules/products';
 import SearchNotFound from '@modules/search-not-found';
 import PLPContext from '@presentation/context/plp-context';
@@ -14,10 +15,17 @@ const PLPContent: React.FC = () => {
   const { search, filter, sort, count, page } = query as PlpQueryParams;
   const { isErrorProducts, isLoadingProducts, products, getProductsBySearch } =
     useGetSearch();
+  const { getCountItems } = useGetCountItems();
 
   useEffect(() => {
     if (search)
-      getProductsBySearch({ query: search, filter, sort, count, page });
+      getProductsBySearch({
+        query: search,
+        filter,
+        sort,
+        count: getCountItems({ count }),
+        page,
+      });
   }, [search, filter, sort, count, page]);
 
   if ((products && products.recordsFiltered === 0) || isErrorProducts) {
