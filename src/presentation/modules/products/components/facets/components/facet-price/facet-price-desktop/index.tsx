@@ -92,6 +92,7 @@ const FacetPriceDesktop: React.FC<Props> = ({ facet }) => {
         >
           <Checkbox
             checked={value.selected}
+            style={{ marginTop: 3, marginBottom: 3 }}
             label={`${formatPrice(value.range.from)} - ${formatPrice(
               value.range.to,
             )} (${value.quantity})`}
