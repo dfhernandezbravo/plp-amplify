@@ -58,6 +58,7 @@ const FacetItemDesktop: React.FC<Props> = ({ facet }) => {
               onClick={() => handleOnClick(value)}
             >
               <Checkbox
+                style={{ marginTop: 3, marginBottom: 3 }}
                 checked={value.selected}
                 label={`${sliceName(value.name)} (${value.quantity})`}
               />
