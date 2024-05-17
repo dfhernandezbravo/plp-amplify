@@ -1,13 +1,12 @@
 import { Product } from '@ccom-easy-design-system/molecules.product-card/dist/types';
 import ProductCard from '@components/molecules/product-card';
 import PlpQueryParams from '@entities/plp-query-params';
-import useGetCountItems from '@hooks/use-get-count-items';
 import useQueryParams from '@hooks/use-query-params';
 import PLPContext from '@presentation/context/plp-context';
 import { ProductPLP, TipoClick } from '@store/slices/products';
 import { useDispatchProductEvent } from '@use-cases/product/dispatch-product-event';
 import { useRouter } from 'next/router';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import ProductImage from './components/product-image';
 import ProductPagination from './components/product-pagination';
 import ProductsSkeleton from './components/skeleton';
@@ -23,7 +22,6 @@ const ProductsPLP = () => {
   const { page, count, layout } = router.query as PlpQueryParams;
   const { updateQueryParams } = useQueryParams();
   const [loadPDP, setLoadPDP] = useState(false);
-  const { getCountItems } = useGetCountItems();
 
   const { dispatchSelectItemEvent, dispatchAddToCartEvent } =
     useDispatchProductEvent();
@@ -31,12 +29,8 @@ const ProductsPLP = () => {
   const { products, recordsFiltered, isLoadingProducts } =
     useContext(PLPContext);
 
-  const [pagesCount, setPagesCount] = useState(recordsFiltered);
-
-  useEffect(() => {
-    const countItem = getCountItems({ count });
-    setPagesCount(Math.ceil(recordsFiltered / parseInt(countItem)));
-  }, [recordsFiltered, count]);
+  let pagesCount = recordsFiltered;
+  if (count) pagesCount = Math.ceil(recordsFiltered / parseInt(count));
 
   const onPageChange = (page: string) => {
     updateQueryParams({ page });
@@ -75,6 +69,20 @@ const ProductsPLP = () => {
 
   if (isLoadingProducts) return <ProductsSkeleton layout={layout || 'grid'} />;
 
+  const handleImageResize = (image: string): string => {
+    const url = new URL(image);
+    const pathanme = url?.pathname;
+    const origin = url?.origin;
+    if (pathanme?.includes('ids')) {
+      const split = pathanme.split('/');
+      const imageIdSize = split[3];
+      const newSize = imageIdSize + '-196-180';
+      const newUrl = `${origin}/${split[1]}/${split[2]}/${newSize}/${split[4]}`;
+      return newUrl;
+    }
+    return image;
+  };
+
   return (
     <div>
       {loadPDP && (
@@ -97,7 +105,7 @@ const ProductsPLP = () => {
             onClickButton={handleOnClickButton}
             renderImage={(imageUrl: string) => (
               <ProductImage
-                imageUrl={imageUrl}
+                imageUrl={handleImageResize(imageUrl)}
                 product={product}
                 layout={layout || 'grid'}
               />

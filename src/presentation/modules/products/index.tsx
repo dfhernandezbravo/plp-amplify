@@ -11,7 +11,7 @@ import {
 
 const Products = () => {
   return (
-    <ProductsLayout>
+    <ProductsLayout className="fade-in">
       <LayoutContainer>
         <Facets />
         <ProductListContainer>
