@@ -6,6 +6,7 @@ export const HeaderContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   gap: 8px;
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.neutral.main};
 `;
 
 export const TitleHeader = styled.h1`

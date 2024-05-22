@@ -1,6 +1,6 @@
 import { ProductPLP } from '@store/slices/products';
 import { useRouter } from 'next/router';
-import ProductCard from '../product-card';
+import { ProductCard } from '../product-card';
 import Swiper, { BreakPoints } from '../swiper';
 import { CarouselContainer } from './styles';
 import Image from 'next/image';

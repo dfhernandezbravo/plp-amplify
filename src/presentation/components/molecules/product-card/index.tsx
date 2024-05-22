@@ -10,8 +10,6 @@ const ProductCardBit = dynamic(
   { ssr: false },
 );
 
-const ProductCard: React.FC<ProductCardProps> = (props) => {
+export const ProductCard: React.FC<ProductCardProps> = (props) => {
   return <ProductCardBit {...props} />;
 };
-
-export default ProductCard;

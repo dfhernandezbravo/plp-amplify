@@ -1,5 +1,5 @@
 import { Product } from '@ccom-easy-design-system/molecules.product-card/dist/types';
-import ProductCard from '@components/molecules/product-card';
+import { ProductCard } from '@components/molecules/product-card';
 import PlpQueryParams from '@entities/plp-query-params';
 import useQueryParams from '@hooks/use-query-params';
 import PLPContext from '@presentation/context/plp-context';
